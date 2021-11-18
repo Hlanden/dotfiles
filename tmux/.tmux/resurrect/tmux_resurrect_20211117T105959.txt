@@ -1,0 +1,15 @@
+pane	2	0	1	:*	0	:/home/jorgen/Work/NTNU/SensorFusion/GA3	1	bash	:
+pane	master_session	0	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject	1	bash	:
+pane	master_session	1	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject/ros2_ws/src/ferry-charger-ros2-wrapper	1	bash	:
+pane	master_session	2	0	:-	0	:/home/jorgen/Work/NTNU/SpecializationProject/ros2_ws/src/ferry-charger-ros2-wrapper	1	nvim	:nvim launch/display.launch.py
+pane	master_session	3	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject/latex	1	bash	:
+pane	master_session	4	0	:	0	:/home/jorgen/.config/nvim	1	python3	:python3
+pane	master_session	5	1	:*	0	:/home/jorgen/Work/NTNU/SpecializationProject/ros2_ws/src/ferry-charger-ros2-wrapper	1	bash	:
+window	2	0	:bash	1	:*	b141,172x41,0,0,4	:
+window	master_session	0	:git	0	:	b143,172x41,0,0,6	off
+window	master_session	1	:ros-wrapper	0	:	b664,213x52,0,0,7	off
+window	master_session	2	:python	0	:-	b665,213x52,0,0,8	off
+window	master_session	3	:latex	0	:	b266,80x24,0,0,9	off
+window	master_session	4	:python3	0	:	5b5f,213x52,0,0,10	:
+window	master_session	5	:bash	1	:*	5b60,213x52,0,0,11	:
+state	master_session	

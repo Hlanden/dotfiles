@@ -1,0 +1,15 @@
+pane	0	0	1	:*	0	:/home/jorgen/Work/NTNU/SpecializationProject	0	bash	:
+pane	0	0	1	:*	1	:/home/jorgen/Work/NTNU/SpecializationProject	0	bash	:
+pane	0	0	1	:*	2	:/home/jorgen/Work/NTNU/SpecializationProject	1	bash	:
+pane	master_session	0	0	:	0	:/home/jorgen	1	bash	:
+pane	master_session	1	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject	1	bash	:
+pane	master_session	2	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject/latex	1	bash	:
+pane	master_session	3	1	:*	0	:/home/jorgen/Work/NTNU/SpecializationProject	1	nvim	:nvim code/main.py
+pane	master_session	4	0	:-	0	:/home/jorgen/Work/NTNU/SpecializationProject/ros2_ws/src/ferry-charger-ros2-wrapper	1	bash	:
+window	0	0	:bash	1	:*	04b1,192x47,0,0[192x24,0,0,5,192x22,0,25{96x22,0,25,6,95x22,97,25,7}]	:
+window	master_session	0	:master_session	0	:	6512,192x47,0,0,13	off
+window	master_session	1	:git	0	:	6516,192x47,0,0,17	off
+window	master_session	2	:latex	0	:	6515,192x47,0,0,16	off
+window	master_session	3	:python	1	:*	6514,192x47,0,0,15	off
+window	master_session	4	:ros-wrapper	0	:-	6513,192x47,0,0,14	off
+state	master_session	0

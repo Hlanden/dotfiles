@@ -1,0 +1,11 @@
+pane	2	0	1	:*	0	:/home/jorgen/Work/NTNU/SensorFusion/GA3	1	bash	:
+pane	master_session	0	0	:-	0	:/home/jorgen/Work/NTNU/SpecializationProject	1	bash	:
+pane	master_session	1	1	:*	0	:/home/jorgen/Work/NTNU/SpecializationProject/ros2_ws/src/ferry-charger-ros2-wrapper	1	bash	:
+pane	master_session	2	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject/code	1	bash	:
+pane	master_session	3	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject/latex	1	bash	:
+window	2	0	:bash	1	:*	d1c5,192x49,0,0,8	:
+window	master_session	0	:git	0	:-	e917,192x49,0,0,47	off
+window	master_session	1	:ros-wrapper	1	:*	e918,192x49,0,0,48	off
+window	master_session	2	:python	0	:	d969,80x24,0,0,49	off
+window	master_session	3	:latex	0	:	5961,80x24,0,0,50	off
+state	master_session	

@@ -1,0 +1,17 @@
+pane	SF-GA3	0	0	:	0	:/home/jorgen/Work/NTNU/SensorFusion/GA3	1	bash	:
+pane	SF-GA3	1	1	:*	0	:/home/jorgen/Work/NTNU/SensorFusion/GA3/slam	1	nvim	:nvim EKFSLAM.py
+pane	SF-GA3	2	0	:-	0	:/home/jorgen/Work/NTNU/SensorFusion/GA3/tests	1	nvim	:nvim test_EKFSLAM.py
+pane	master_session	0	1	:*	0	:/home/jorgen	1	bash	:
+pane	master_session	1	0	:-	0	:/home/jorgen/Work/NTNU/SpecializationProject	1	bash	:
+pane	master_session	2	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject/latex	1	bash	:
+pane	master_session	3	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject	1	bash	:
+pane	master_session	4	0	:	0	:/home/jorgen/Work/NTNU/SpecializationProject/ros2_ws/src/ferry-charger-ros2-wrapper	1	bash	:
+window	SF-GA3	0	:git	0	:	b262,80x24,0,0,5	off
+window	SF-GA3	1	:python	1	:*	d1c3,192x49,0,0,6	off
+window	SF-GA3	2	:pytest	0	:-	d1c4,192x49,0,0,7	off
+window	master_session	0	:master_session	1	:*	c9bd,192x47,0,0,0	off
+window	master_session	1	:git	0	:-	b261,80x24,0,0,4	off
+window	master_session	2	:latex	0	:	b260,80x24,0,0,3	off
+window	master_session	3	:python	0	:	b25f,80x24,0,0,2	off
+window	master_session	4	:ros-wrapper	0	:	b25e,80x24,0,0,1	off
+state	SF-GA3	

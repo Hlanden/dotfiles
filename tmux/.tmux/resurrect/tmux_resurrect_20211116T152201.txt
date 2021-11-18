@@ -1,0 +1,5 @@
+pane	0	0	1	:*	0	:/home/jorgen/Work/NTNU/SpecializationProject	0	bash	:
+pane	0	0	1	:*	1	:/home/jorgen/Work/NTNU/SpecializationProject	0	bash	:
+pane	0	0	1	:*	2	:/home/jorgen/Work/NTNU/SpecializationProject	1	bash	:
+window	0	0	:bash	1	:*	4c4b,192x42,0,0[192x21,0,0,0,192x20,0,22{96x20,0,22,1,95x20,97,22,2}]	:
+state	0	
