@@ -77,4 +77,4 @@ windows:
       root: ~/Work/NTNU/SpecializationProject/latex
       panes: 
         - latex: 
-          - vim main.tex
+          - nvim main.tex
