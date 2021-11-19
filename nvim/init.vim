@@ -1,16 +1,17 @@
-source $HOME/.config/nvim/Plugin/plug_config.vim
-source $HOME/.config/nvim/Plugin/treesitter.vim
-source $HOME/.config/nvim/Plugin/vim_test_config.vim
-source $HOME/.config/nvim/Plugin/cocvim_config.vim
-source $HOME/.config/nvim/Plugin/no_to_us_config.vim
-source $HOME/.config/nvim/Plugin/fzf_config.vim
-source $HOME/.config/nvim/Plugin/gruvbox_config.vim
-source $HOME/.config/nvim/Plugin/vim_config.vim
-source $HOME/.config/nvim/Plugin/ntree_config.vim
-source $HOME/.config/nvim/Plugin/rainbow_config.vim
-source $HOME/.config/nvim/Plugin/vim_airline.vim
-source $HOME/.config/nvim/Plugin/vimspector.vim
-source $HOME/.config/nvim/Plugin/vimtex.vim
+:let cwd = getcwd()
+source $XDG_CONFIG_HOME/nvim/Plugin/plug_config.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/treesitter.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/vim_test_config.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/cocvim_config.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/no_to_us_config.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/fzf_config.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/gruvbox_config.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/vim_config.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/ntree_config.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/rainbow_config.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/vim_airline.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/vimspector.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/vimtex.vim
 
 setlocal spell
 set spelllang=en_us
