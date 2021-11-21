@@ -201,7 +201,7 @@
         "sysPrefix": "/usr",
         "fileHash": "de35b66b11419ac074c0645998ba0d4491aafe5e909f79b382caa1cf94900842fd3aa7ca79b8f37e400013c11e3bc4cb9d78c9cbe67c00b95c35a6331e8858a0"
       },
-      "expiry": 1637329972319
+      "expiry": 1637582576544
     },
     "/bin/python2.v3": {
       "data": {
@@ -226,7 +226,7 @@
         "sysPrefix": "/usr",
         "fileHash": "5e2ff25377a10863272c002c0aeeab4d0f397e144e826b6141061ab015ccb427923c2417fa5dc9b1ab99c5e661fa9dbe2334bf36689e1ae34a3d381039d35960"
       },
-      "expiry": 1637329972320
+      "expiry": 1637582576544
     },
     "/usr/bin/python3.8.v3": {
       "data": {
@@ -251,7 +251,7 @@
         "sysPrefix": "/usr",
         "fileHash": "341a4154d801c106100bf27e2dc7eb5f14db0a477d1e32b03cb74fdb9ad2e2199ec0b696ed4f98c7eee69516985d5cd72887addafc3797678a805f5863957b58"
       },
-      "expiry": 1637329972293
+      "expiry": 1637582576545
     },
     "/usr/bin/python3.v3": {
       "data": {
@@ -276,7 +276,7 @@
         "sysPrefix": "/usr",
         "fileHash": "7e1286b984fc01417f6c966b92b50e3b8fa52ae596273f98993cf71c9a863389b8c876e81d4517712c284174376c5e0b6560e7bfda1f45a3546eaba26de30732"
       },
-      "expiry": 1637329972291
+      "expiry": 1637582576572
     },
     "/usr/bin/python2.7.v3": {
       "data": {
@@ -301,7 +301,7 @@
         "sysPrefix": "/usr",
         "fileHash": "de35b66b11419ac074c0645998ba0d4491aafe5e909f79b382caa1cf94900842fd3aa7ca79b8f37e400013c11e3bc4cb9d78c9cbe67c00b95c35a6331e8858a0"
       },
-      "expiry": 1637329972321
+      "expiry": 1637582576550
     },
     "/usr/bin/python2.v3": {
       "data": {
@@ -326,7 +326,7 @@
         "sysPrefix": "/usr",
         "fileHash": "5e2ff25377a10863272c002c0aeeab4d0f397e144e826b6141061ab015ccb427923c2417fa5dc9b1ab99c5e661fa9dbe2334bf36689e1ae34a3d381039d35960"
       },
-      "expiry": 1637329972323
+      "expiry": 1637582576571
     },
     "/bin/python3.8.v3": {
       "data": {
@@ -351,7 +351,7 @@
         "sysPrefix": "/usr",
         "fileHash": "341a4154d801c106100bf27e2dc7eb5f14db0a477d1e32b03cb74fdb9ad2e2199ec0b696ed4f98c7eee69516985d5cd72887addafc3797678a805f5863957b58"
       },
-      "expiry": 1637329972321
+      "expiry": 1637582576574
     },
     "/bin/python3.v3": {
       "data": {
@@ -376,30 +376,30 @@
         "sysPrefix": "/usr",
         "fileHash": "7e1286b984fc01417f6c966b92b50e3b8fa52ae596273f98993cf71c9a863389b8c876e81d4517712c284174376c5e0b6560e7bfda1f45a3546eaba26de30732"
       },
-      "expiry": 1637329972292
+      "expiry": 1637582576575
     },
     "INTERPRETERS_CACHE_v3_CurrentPathService": [
       {
         "architecture": 3,
-        "path": "/home/jorgen/anaconda3/envs/master/bin/python3",
+        "path": "/usr/bin/python3",
         "version": {
           "options": {
             "loose": false,
             "includePrerelease": false
           },
           "loose": false,
-          "raw": "3.9.7-final",
+          "raw": "3.8.10-final",
           "major": 3,
-          "minor": 9,
-          "patch": 7,
+          "minor": 8,
+          "patch": 10,
           "prerelease": [
             "final"
           ],
           "build": [],
-          "version": "3.9.7-final"
+          "version": "3.8.10-final"
         },
-        "sysPrefix": "/home/jorgen/anaconda3/envs/master",
-        "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735",
+        "sysPrefix": "/usr",
+        "fileHash": "7e1286b984fc01417f6c966b92b50e3b8fa52ae596273f98993cf71c9a863389b8c876e81d4517712c284174376c5e0b6560e7bfda1f45a3546eaba26de30732",
         "type": "Unknown"
       },
       {
@@ -423,52 +423,6 @@
         },
         "sysPrefix": "/usr",
         "fileHash": "5e2ff25377a10863272c002c0aeeab4d0f397e144e826b6141061ab015ccb427923c2417fa5dc9b1ab99c5e661fa9dbe2334bf36689e1ae34a3d381039d35960",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/home/jorgen/anaconda3/envs/master/bin/python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.9.7-final",
-          "major": 3,
-          "minor": 9,
-          "patch": 7,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.9.7-final"
-        },
-        "sysPrefix": "/home/jorgen/anaconda3/envs/master",
-        "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/home/jorgen/anaconda3/envs/master/bin/python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.9.7-final",
-          "major": 3,
-          "minor": 9,
-          "patch": 7,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.9.7-final"
-        },
-        "sysPrefix": "/home/jorgen/anaconda3/envs/master",
-        "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735",
         "type": "Unknown"
       }
     ],
@@ -523,75 +477,6 @@
       "expiry": 1636537932350
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
-      {
-        "architecture": 3,
-        "path": "/home/jorgen/anaconda3/envs/master/bin/python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.9.7-final",
-          "major": 3,
-          "minor": 9,
-          "patch": 7,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.9.7-final"
-        },
-        "sysPrefix": "/home/jorgen/anaconda3/envs/master",
-        "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/home/jorgen/anaconda3/envs/master/bin/python3",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.9.7-final",
-          "major": 3,
-          "minor": 9,
-          "patch": 7,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.9.7-final"
-        },
-        "sysPrefix": "/home/jorgen/anaconda3/envs/master",
-        "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/home/jorgen/anaconda3/envs/master/bin/python3.9",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "3.9.7-final",
-          "major": 3,
-          "minor": 9,
-          "patch": 7,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "3.9.7-final"
-        },
-        "sysPrefix": "/home/jorgen/anaconda3/envs/master",
-        "fileHash": "c264a088e769e3c15444b4fae043851f85c15dcaa3ea360c90bb08f1175263f2925cbc0027eedf256cf18fd73b299feb8c907ba3040d67fbff239b2910c69be2",
-        "type": "Unknown"
-      },
       {
         "architecture": 3,
         "path": "/usr/bin/python2",
@@ -1012,25 +897,25 @@
     },
     "InterpreterAutoSeletionRule-currentPath": {
       "architecture": 3,
-      "path": "/home/jorgen/anaconda3/envs/master/bin/python",
+      "path": "/usr/bin/python3",
       "version": {
         "options": {
           "loose": false,
           "includePrerelease": false
         },
         "loose": false,
-        "raw": "3.9.7-final",
+        "raw": "3.8.10-final",
         "major": 3,
-        "minor": 9,
-        "patch": 7,
+        "minor": 8,
+        "patch": 10,
         "prerelease": [
           "final"
         ],
         "build": [],
-        "version": "3.9.7-final"
+        "version": "3.8.10-final"
       },
-      "sysPrefix": "/home/jorgen/anaconda3/envs/master",
-      "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735",
+      "sysPrefix": "/usr",
+      "fileHash": "7e1286b984fc01417f6c966b92b50e3b8fa52ae596273f98993cf71c9a863389b8c876e81d4517712c284174376c5e0b6560e7bfda1f45a3546eaba26de30732",
       "type": "Unknown"
     },
     "preferredGlobalPyInterpreter": {
@@ -1084,7 +969,7 @@
         "sysPrefix": "/home/jorgen/anaconda3/envs/ttk4250",
         "fileHash": "c1528defcfafa9f5cbf2ae71358eaccecd3ded5bafdd70f3a08bf623832df4eb3816f6fc1389d69470657bf4f2965cd4015fa440ec9a87637e04c05a0e0836c3"
       },
-      "expiry": 1637329972295
+      "expiry": 1637582576633
     },
     "/home/jorgen/anaconda3/bin/python.v3": {
       "data": {
@@ -1109,7 +994,7 @@
         "sysPrefix": "/home/jorgen/anaconda3",
         "fileHash": "37fe12b60154df1f789eac7fb10c733ecfcac6c77f9951223ab2128c20ee9063e51e559bd1c4d76e4f0ece50899ae6359fd2f150d007d3491c5b4d1f08504b6b"
       },
-      "expiry": 1637329972280
+      "expiry": 1637582576623
     },
     "/home/jorgen/Work/MatchDJ/MatchDjVenv/bin/python3.8.interpreter.Details.v7": {
       "data": {
@@ -1301,29 +1186,29 @@
       },
       {
         "architecture": 3,
-        "path": "/home/jorgen/anaconda3/envs/master/bin/python",
+        "path": "/home/jorgen/anaconda3/bin/python",
         "version": {
           "options": {
             "loose": false,
             "includePrerelease": false
           },
           "loose": false,
-          "raw": "3.9.7-final",
+          "raw": "3.8.8-final",
           "major": 3,
-          "minor": 9,
-          "patch": 7,
+          "minor": 8,
+          "patch": 8,
           "prerelease": [
             "final"
           ],
           "build": [],
-          "version": "3.9.7-final"
+          "version": "3.8.8-final"
         },
-        "sysPrefix": "/home/jorgen/anaconda3/envs/master",
-        "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735",
+        "sysPrefix": "/home/jorgen/anaconda3",
+        "fileHash": "37fe12b60154df1f789eac7fb10c733ecfcac6c77f9951223ab2128c20ee9063e51e559bd1c4d76e4f0ece50899ae6359fd2f150d007d3491c5b4d1f08504b6b",
         "companyDisplayName": "Anaconda, Inc.",
         "type": "Conda",
-        "envPath": "/home/jorgen/anaconda3/envs/master",
-        "envName": "master"
+        "envPath": "/home/jorgen/anaconda3",
+        "envName": "base"
       }
     ],
     "PipEnvInformation": [],
@@ -1332,14 +1217,14 @@
         "displayName": "Python 3.8.8 64-bit ('base': conda)",
         "hash": "37fe12b60154df1f789eac7fb10c733ecfcac6c77f9951223ab2128c20ee9063e51e559bd1c4d76e4f0ece50899ae6359fd2f150d007d3491c5b4d1f08504b6b-5330de6b75fb14edd54ed9411fd091cd"
       },
-      "expiry": 1636537933631
+      "expiry": 1637582626947
     },
     "/home/jorgen/anaconda3/envs/ttk4250/bin/python.interpreter.displayName.v7": {
       "data": {
-        "displayName": "Python 3.9.7 64-bit",
-        "hash": "c1528defcfafa9f5cbf2ae71358eaccecd3ded5bafdd70f3a08bf623832df4eb3816f6fc1389d69470657bf4f2965cd4015fa440ec9a87637e04c05a0e0836c3-9bef9ce8968985369c1f6edf22bf2bc3"
+        "displayName": "Python 3.9.7 64-bit ('ttk4250': conda)",
+        "hash": "c1528defcfafa9f5cbf2ae71358eaccecd3ded5bafdd70f3a08bf623832df4eb3816f6fc1389d69470657bf4f2965cd4015fa440ec9a87637e04c05a0e0836c3-14b87541affac2179da86edcc5e970c1"
       },
-      "expiry": 1637329972423
+      "expiry": 1637582737698
     },
     "/home/jorgen/Work/MatchDJ/MatchDjVenv/bin/python.interpreter.displayName.v7": {
       "data": {
@@ -1353,28 +1238,28 @@
         "displayName": "Python 2.7.18 64-bit",
         "hash": "5e2ff25377a10863272c002c0aeeab4d0f397e144e826b6141061ab015ccb427923c2417fa5dc9b1ab99c5e661fa9dbe2334bf36689e1ae34a3d381039d35960-98f09679517227f95f792e8696abfca2"
       },
-      "expiry": 1637329972354
+      "expiry": 1637582626951
     },
     "/usr/bin/python3.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.10 64-bit",
         "hash": "7e1286b984fc01417f6c966b92b50e3b8fa52ae596273f98993cf71c9a863389b8c876e81d4517712c284174376c5e0b6560e7bfda1f45a3546eaba26de30732-8ddab691837d6f4c1d6cfeaadbec7b9e"
       },
-      "expiry": 1637329972355
+      "expiry": 1637582626953
     },
     "/bin/python2.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.18 64-bit",
         "hash": "5e2ff25377a10863272c002c0aeeab4d0f397e144e826b6141061ab015ccb427923c2417fa5dc9b1ab99c5e661fa9dbe2334bf36689e1ae34a3d381039d35960-9d85a311926f61ebeec8bd5cf31def27"
       },
-      "expiry": 1637329972356
+      "expiry": 1637582626954
     },
     "/bin/python3.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.10 64-bit",
         "hash": "7e1286b984fc01417f6c966b92b50e3b8fa52ae596273f98993cf71c9a863389b8c876e81d4517712c284174376c5e0b6560e7bfda1f45a3546eaba26de30732-360432a6666f17fef7e3a30111d09286"
       },
-      "expiry": 1637329972357
+      "expiry": 1637582626956
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -1435,7 +1320,7 @@
           "displayName": "Python 3.8.8 64-bit ('base': conda)"
         }
       },
-      "expiry": 1636537933672
+      "expiry": 1637582626971
     },
     "/home/jorgen/anaconda3/envs/ttk4250/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1465,12 +1350,10 @@
           "type": "Conda",
           "envPath": "/home/jorgen/anaconda3/envs/ttk4250",
           "envName": "ttk4250",
-          "cachedEntry": true,
-          "displayName": "Python 3.9.7 64-bit ('ttk4250': conda)",
-          "__store": true
+          "displayName": "Python 3.9.7 64-bit ('ttk4250': conda)"
         }
       },
-      "expiry": 1637329972401
+      "expiry": 1637582737715
     },
     "/home/jorgen/Work/MatchDJ/MatchDjVenv/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1531,7 +1414,7 @@
           "displayName": "Python 2.7.18 64-bit"
         }
       },
-      "expiry": 1637329972376
+      "expiry": 1637582626977
     },
     "/usr/bin/python3.interpreter.Details.v7": {
       "data": {
@@ -1561,7 +1444,7 @@
           "displayName": "Python 3.8.10 64-bit"
         }
       },
-      "expiry": 1637329972379
+      "expiry": 1637582626980
     },
     "/bin/python2.interpreter.Details.v7": {
       "data": {
@@ -1591,7 +1474,7 @@
           "displayName": "Python 2.7.18 64-bit"
         }
       },
-      "expiry": 1637329972381
+      "expiry": 1637582626982
     },
     "/bin/python3.interpreter.Details.v7": {
       "data": {
@@ -1621,7 +1504,7 @@
           "displayName": "Python 3.8.10 64-bit"
         }
       },
-      "expiry": 1637329972384
+      "expiry": 1637582626984
     },
     "ProposeLSBanner": false,
     "InterpreterAutoSeletionRule-cachedInterpreters": {
@@ -1675,7 +1558,7 @@
         "sysPrefix": "/home/jorgen/anaconda3/envs/master",
         "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735"
       },
-      "expiry": 1637329972306
+      "expiry": 1637582576632
     },
     "/home/jorgen/anaconda3/envs/ttk4250/bin/python3.9.v3": {
       "data": {
@@ -1776,6 +1659,46 @@
         "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735"
       },
       "expiry": 1637329972322
+    },
+    "/home/jorgen/anaconda3/envs/master/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.9.7 64-bit ('master': conda)",
+        "hash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735-0df5e455f2189a184aa2c53d1a5bb2c3"
+      },
+      "expiry": 1637582626948
+    },
+    "/home/jorgen/anaconda3/envs/master/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735",
+        "info": {
+          "architecture": 3,
+          "path": "/home/jorgen/anaconda3/envs/master/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.9.7-final",
+            "major": 3,
+            "minor": 9,
+            "patch": 7,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.9.7-final"
+          },
+          "sysPrefix": "/home/jorgen/anaconda3/envs/master",
+          "fileHash": "778c078fc269961cbcc8a04fed161692af173aba8171e2cda149e68fd22aa995101f982c224a347e960bc3f964650a971f25e7424a977fa85ded7111f10c7735",
+          "companyDisplayName": "Anaconda, Inc.",
+          "type": "Conda",
+          "envPath": "/home/jorgen/anaconda3/envs/master",
+          "envName": "master",
+          "displayName": "Python 3.9.7 64-bit ('master': conda)"
+        }
+      },
+      "expiry": 1637582626973
     }
   },
   "coc-python|/home/jorgen/Work/NTNU/SpecializationProject/ros2_ws/src/ferry-charger-ros2-wrapper": {

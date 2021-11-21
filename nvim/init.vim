@@ -12,13 +12,14 @@ source $XDG_CONFIG_HOME/nvim/Plugin/rainbow_config.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/vim_airline.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/vimspector.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/vimtex.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/ultisnippets.vim
 
 if has('win32')
 	let g:python3_host_prog='C:/Python310/python.exe'
 endif
 
-setlocal spell
-set spelllang=en_us
+" setlocal spell
+" set spelllang=en_us
 
 :let maplocalleader = "\\"
 
