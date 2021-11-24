@@ -1,5 +1,3 @@
-" This is necessary for VimTeX to load properly. The "indent" is optional.
-" Note that most plugin managers will do this automatically.
 " filetype plugin indent on
 
 " This enables Vim's and noevim's syntax-related features. Without this, some
@@ -27,5 +25,7 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = ","
 
-let g:vimtex_complete_enabled = 0
+syntax enable
+let g:vimtex_complete_enabled = 1
 
+set conceallevel=2
