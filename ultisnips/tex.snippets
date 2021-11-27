@@ -692,6 +692,10 @@ snippet sec* "section*" b
 \section*{$1}$2
 endsnippet
 
+snippet cite "site" iA
+\cite[$1]{$2}$0
+endsnippet
+
 global !p
 def create_matrix_placeholders(snip):
 	# Create anonymous snippet body
@@ -797,32 +801,32 @@ endsnippet
 
 # GREEK LETTERS
 context "math()"
-snippet aa "alpha" iA
+snippet aa "alpha" i
 \alpha
 endsnippet
 
 context "math()"
-snippet AA "Alpha" iA
+snippet AA "Alpha" i
 \Alpha
 endsnippet
 
 context "math()"
-snippet pp "pi" iA
+snippet pp "pi" i
 \pi
 endsnippet
 
 context "math()"
-snippet PP "Pi" iA
+snippet PP "Pi" i
 \Pi
 endsnippet
 
 context "math()"
-snippet bb "beta" iA
+snippet bb "beta" i
 \beta
 endsnippet
 
 context "math()"
-snippet BB "Beta" iA
+snippet BB "Beta" i
 \Beta
 endsnippet
 
@@ -843,7 +847,7 @@ def create_subfigures(rows, cols, offset=0):
 		subfig_string += "\t\\label{" + f"${placeholder}" + "}\n"
 		placeholder += 1
 		subfig_string += "\\end{subfigure}\n"
-		subfig_string += "\\hfill\n"
+		subfig_string += "\\hfill"
 	return subfig_string
 		
 	# res = ""
@@ -860,8 +864,7 @@ endglobal
 
 snippet 'subfig(\d+),(\d+)' "LaTeX subfigure" brA
 \begin{figure}[h]
-\centering
-`!p
+\centering `!p
 snip.rv = create_subfigures(match.group(1), match.group(2), 2)
 `
 \caption{$1}

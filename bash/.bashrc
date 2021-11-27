@@ -62,6 +62,7 @@ if [ "$color_prompt" = yes ]; then
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -143,3 +144,9 @@ source /home/jorgen/alacritty/extra/completions/alacritty.bash
 force_color_prompt=yes
 export XDG_CONFIG_HOME=~/.config/
 export EDITOR="nvim"
+
+neofetch
+
+if [ -f /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh ]; then
+    source /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh
+fi
