@@ -9,14 +9,16 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+exec --no-startup-id xrandr --output DVI-I-1 --auto --rotate normal --pos 0x0 --output DVI-D-0 --primary --auto --rotate normal --right-of DVI-I-1 --output HDMI-0 --rotate right --right-of DVI-D-0
+exec --no-startup-id picom --config ~/.dotfiles/picom/picom.conf
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8, FontAwesome 8
+font pango:monospace 12, FontAwesome 12
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# This font is widely installed, provides lots of unicode glyphs, right-to-left text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -77,7 +79,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+shift+v split h
+bindsym $mod+Shift+v split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -104,15 +106,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
+set $ws1 "1:"
+set $ws2 "2:"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws8 "8:﯈"
+set $ws9 "9:ﱘ"
 set $ws10 "10"
 
 # switch to workspace
@@ -176,7 +178,10 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	position top
         status_command i3status --config ~/.config/i3status.conf
+	font pango:monospace 12, FontAwesome 12
+	strip_workspace_numbers yes
 }
 # CUSTOM BINDINGS
 exec_always --no-startup-id "setxkbmap vl,no -option 'grp:alt_shift_toggle'"
@@ -195,19 +200,34 @@ bindsym Escape mode "default"
 bindsym $mod+shift+Z mode "$keyboard_layout"
 
 exec --no-startup-id setxkbmap vl,mode "default"
-exec --no-startup-id xrandr --output DVI-I-1 --auto --rotate normal --pos 0x0 --output DVI-D-0 --primary --auto --rotate normal --right-of DVI-I-1 --output HDMI-0 --rotate right --right-of DVI-D-0
 
 set $term --no-startup-id alacritty
 default_border pixel 1
 
 
 # Open programs at startup
-exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/firefox'
-exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/alacritty'
+# set $ws1 "1:"
+# set $ws2 "2:"
+# set $ws3 "3"
+# set $ws4 "4"
+# set $ws5 "5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8:﯈"
+# set $ws9 "9:ﱘ"
+# set $ws10 "10"
+assign [class="firefox"] $ws1
+assign [class="alacritty"] $ws2
+
+exec --no-startup-id firefox &
+exec --no-startup-id alacritty &
+# exec --no-startup-id i3-msg 'workspace 1:; exec /usr/bin/firefox'
+# exec --no-startup-id i3-msg 'workspace 2:; exec /usr/bin/alacritty'
 # exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/spotify'
 
-workspace 1 output DVI-I-1
-workspace 2 output DVI-D-0
+workspace $ws1 output DVI-I-1
+workspace $ws2 output DVI-D-0
+workspace $ws3 output HDMI-0
 # workspace 3 output DVI-I-1
 # bindsym $mod+shift+h move workspace to output right
 # bindsym $mod+shift+l move workspace to output left
@@ -218,4 +238,6 @@ workspace 2 output DVI-D-0
 for_window [class=".*"] border pixel 0
 smart_gaps on
 gaps inner 5
-gaps outer 5
+gaps outer 2
+
+exec --no-startup-id ~/.fehbg &
