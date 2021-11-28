@@ -29,3 +29,5 @@ syntax enable
 let g:vimtex_complete_enabled = 1
 
 set conceallevel=2
+let g:vimtex_compiler_latexmk = {'build_dir': 'build'}
+let g:vimtex_quickfix_open_on_warning = 0 
