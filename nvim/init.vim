@@ -13,6 +13,8 @@ source $XDG_CONFIG_HOME/nvim/Plugin/vimspector.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/vimtex.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/ultisnippets.vim
 
+source ~/.vim/plugged/vim-unimpaired/plugin/unimpaired.vim
+
 if has('win32')
 	let g:python3_host_prog='C:/Python310/python.exe'
 endif
@@ -25,4 +27,7 @@ endif
 nnoremap <silent> <leader>ev :execute 'edit' resolve($MYVIMRC)<cr>
 nnoremap <silent> <leader>xv :source $MYVIMRC<cr>
 
-nnoremap rp :!python %<cr>
+nnoremap rp :!python3 %<cr>
+
+" set smarttab
+set linebreak
