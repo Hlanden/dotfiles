@@ -1,0 +1,19 @@
+{
+    // stacked split container with 1 children
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "none",
+            "name": "Alacritty",
+            "percent": 1,
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^Alacritty$",
+                    "instance": "^Alacritty$"
+                }
+            ]
+        }
+    ]
+}
