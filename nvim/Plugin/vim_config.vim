@@ -7,6 +7,7 @@ endif
 set hlsearch
 syntax on
 set relativenumber
+highlight LineNr ctermfg=cyan
 set number
 set tags=./tags;/
 
