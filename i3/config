@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 exec --no-startup-id ~/.dotfiles/i3/startup.sh
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -200,7 +200,7 @@ bindsym $mod+r mode "resize"
 # }
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 # CUSTOM BINDINGS
-exec_always --no-startup-id "setxkbmap vl,no -option 'grp:alt_shift_toggle'"
+exec_always --no-startup-id "setxkbmap vl,no -option 'grp:rctrl_rshift_toggle'"
 exec_always --no-startup-id "setxkbmap -option ctrl:swapcaps"
 
 
@@ -219,7 +219,7 @@ bindsym $mod+greater move workspace to output right
 # bindsym XF86AudioMute exec amixer -q set Master toggle
 # You can also use any non-zero value if you'd like to have a border
 # class                 border  backgr. text    indicator child_border
-client.focused          #03fc56 #03fc56 #ffffff #2e9ef4   #03fcad
+client.focused          #03fc56 #03fc56 #ffffff #900000   #03fcad
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
