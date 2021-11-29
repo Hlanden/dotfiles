@@ -24,5 +24,6 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
+Plug 'lilydjwg/colorizer'
 call plug#end()
 
