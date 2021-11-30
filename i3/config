@@ -121,6 +121,7 @@ workspace $ws1 output DVI-I-1
 workspace $ws4 output DVI-I-1
 workspace $ws2 output DVI-D-0
 workspace $ws3 output DVI-D-0
+workspace $ws5 output HDMI-0
 workspace $ws8 output DVI-D-0
 workspace $ws9 output HDMI-0
 
@@ -236,3 +237,17 @@ gaps outer 2
 
 
 exec --no-startup-id ~/.dotfiles/i3/start_applications.sh
+
+# Custom key bindings
+bindsym $mod+F12 exec --no-startup-id firefox
+bindsym $mod+F11 exec --no-startup-id firefox -new-tab "https://outlook.office.com/mail/inbox"
+bindsym $mod+F10 exec --no-startup-id firefox -new-tab "https://ntnu.blackboard.com"
+bindsym $mod+F9 exec --no-startup-id firefox -new-tab "www.messenger.com"
+
+bindsym $mod+F1 exec --no-startup-id nautilus
+bindsym $mod+F2 exec --no-startup-id nautilus "/home/jorgen/Work"
+bindsym $mod+F3 exec --no-startup-id nautilus "/mnt/4AFC94E9FC94D115/OneDrive/9. Semester"
+bindsym $mod+F4 exec --no-startup-id okular
+
+bindsym $mod+F6 exec --no-startup-id firefox -new-window "www.youtube.com"
+bindsym $mod+F5 exec --no-startup-id spotify
