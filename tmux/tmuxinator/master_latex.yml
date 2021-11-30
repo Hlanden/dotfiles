@@ -58,7 +58,7 @@ windows:
       root: ~/Work/NTNU/SpecializationProject/latex
       panes: 
         - latex: 
-          - nvim main.tex
+          - nvim chapters/*
   - bib:
       root: ~/Work/NTNU/SpecializationProject/latex
       panes: 
