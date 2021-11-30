@@ -243,7 +243,7 @@ snippet beg "begin{} / end{}" bA
 endsnippet
 
 priority 100
-snippet ... "ldots" iA
+snippet ... "ldots" i
 \ldots
 endsnippet
 
@@ -953,7 +953,7 @@ snippet bf "Bold Face" i
 \textbf{$1}$0
 endsnippet
 
-snippet it "Italic" i
+snippet itali "Italic" i
 \textit{$1}$0
 endsnippet
 
@@ -1042,3 +1042,24 @@ snip.rv = create_subfigures(match.group(1), match.group(2), 2)
 \label{$2}
 \end{figure}
 endsnippet
+
+snippet say "Say" i
+\say{$1}$0
+endsnippet
+
+snippet replace "Replace" i
+\replace{${1:${VISUAL}}}{$2}$3
+endsnippet
+
+snippet highlight "Highligth" i
+\highlight{${1:${VISUAL}}}$2
+endsnippet
+
+snippet alert "alert" i
+\alert{${1:${VISUAL}}}$2
+endsnippet
+
+snippet comment "comment" i
+\comment{${1:${VISUAL}}}{$2}$3
+endsnippet
+
