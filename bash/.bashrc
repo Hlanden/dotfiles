@@ -150,3 +150,8 @@ neofetch
 if [ -f /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh ]; then
     source /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh
 fi
+
+export MANPATH="$MANPATH:/usr/local/texlive/2021/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/usr/local/texlive/2021/texmf-dist/doc/info"
+export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
+
