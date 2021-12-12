@@ -285,6 +285,13 @@ snippet desc "Description" b
 \end{description}
 endsnippet
 
+context "env('itemize')" 
+context "env('enumerate')"
+snippet ii "item" iA
+\item 
+endsnippet
+
+endsnippet
 snippet pac "Package" b
 \usepackage[${1:options}]{${2:package}}$0
 endsnippet
@@ -751,9 +758,9 @@ snippet RR "real" iA
 \R
 endsnippet
 
-snippet QQ "Q" iA
-\Q
-endsnippet
+# snippet QQ "Q" iA
+# \Q
+# endsnippet
 
 snippet ZZ "Z" iA
 \Z
@@ -837,6 +844,10 @@ snippet DD "D" iA
 \mathbb{D}
 endsnippet
 
+snippet Rb "R" iA
+\mathbb{R}^
+endsnippet
+
 # vim:ft=snippets
 
 # Custom snippets
@@ -847,11 +858,11 @@ snippet eq "equation" b
 \end{equation}
 endsnippet
 
-snippet todo "equation" iA
+snippet todo "todo" iA
 \todo{$1}$2
 endsnippet
 
-snippet todi "equation" iA
+snippet todi "todo" iA
 \todo[inline]{$1}$2
 endsnippet
 
@@ -861,6 +872,30 @@ endsnippet
 
 snippet sec* "section*" b
 \section*{$1}\label{sec:${2:${1/\W+/_/g}}}$3
+endsnippet
+
+snippet ssec "subsection" b
+\subsection{$1} \label{ssec:${2:${1/\W+/_/g}}}$3
+endsnippet
+
+snippet ssec* "subsection*" b
+\subsection*{$1}\label{ssec:${2:${1/\W+/_/g}}}$3
+endsnippet
+
+snippet sssec "subsubsection" b
+\subsubsection{$1} \label{sssec:${2:${1/\W+/_/g}}}$3
+endsnippet
+
+snippet sssec* "subsubsection*" b
+\subsubsection*{$1}\label{sssec:${2:${1/\W+/_/g}}}$3
+endsnippet
+
+snippet chap "chapter" b
+\chapter{$1} \label{chap:${2:${1/\W+/_/g}}}$3
+endsnippet
+
+snippet chap* "chapter*" b
+\chapter*{$1}\label{chap:${2:${1/\W+/_/g}}}$3
 endsnippet
 
 snippet cite "site" iA
@@ -891,7 +926,7 @@ def create_matrix_placeholders(snip):
 	# Expand anonymous snippet
 	snip.expand_anon(anon_snippet_body)
 
-def create_matrix(cols, rows, sep, start, end, offset=0):
+def create_matrix(rows, cols, sep, start, end, offset=0):
 	res = ""
 	placeholder = 1 + offset 
 	for _ in range(0, int(rows)):
@@ -906,12 +941,11 @@ endglobal
 
 post_jump "create_matrix_placeholders(snip)"
 snippet 'bmat(\d+),(\d+)' "LaTeX bmatrix" brA
-\begin{bmatrix}{
+\begin{bmatrix}
 `!p
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 `
-\end{bmatrix}
-$0
+\end{bmatrix} $0
 endsnippet
 
 post_jump "create_matrix_placeholders(snip)"
@@ -923,8 +957,7 @@ snip.rv = orient`}
 `!p
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 `
-\end{array}
-$0
+\end{array} $0
 endsnippet
 
 
@@ -954,7 +987,7 @@ snippet bf "Bold Face" i
 endsnippet
 
 snippet itali "Italic" i
-\textit{$1}$0
+\textit{${1:${VISUAL}}}$0
 endsnippet
 
 snippet ul "Underline" i
@@ -962,8 +995,8 @@ snippet ul "Underline" i
 endsnippet
 
 context "math()"
-snippet bm "Bold Math" iA
-\bm{$1}$0
+snippet bm "Bold Math" i
+\bm{${1:${VISUAL}}}$0
 endsnippet
 
 snippet cref "Cleverref" iA
@@ -987,7 +1020,7 @@ snippet pp "pi" i
 endsnippet
 
 context "math()"
-snippet PP "Pi" i
+snippet Pi "Pi" i
 \Pi
 endsnippet
 
@@ -1038,8 +1071,8 @@ snippet 'subfig(\d+),(\d+)' "LaTeX subfigure" brA
 \centering `!p
 snip.rv = create_subfigures(match.group(1), match.group(2), 2)
 `
-\caption{$1}
-\label{$2}
+\caption[$1]{$2}
+\label{$3}
 \end{figure}
 endsnippet
 
@@ -1063,3 +1096,201 @@ snippet comment "comment" i
 \comment{${1:${VISUAL}}}{$2}$3
 endsnippet
 
+snippet acrshort "short acronym" i
+\acrshort{$1}$0
+endsnippet
+
+snippet acrlong "long acronym" i
+\acrlong{$1}$0
+endsnippet
+
+snippet gls "glossary" i
+\gls{$1}$0
+endsnippet
+
+snippet url "url" i
+\url{${1:${VISUAL}}}$0
+endsnippet
+
+snippet footnote "footnote" i
+\footnote{${1:${VISUAL}}}$0
+endsnippet
+
+snippet '([s+](chapter))' "(sub)chapter" r
+`!p snip.rv = match.group(0).replace('s', 'sub')`
+endsnippet 
+
+snippet 'schapter' "(sub)chapter" r
+`!p snip.rv = match.group(0).replace('s', 'sub')`
+endsnippet 
+
+context "math()"
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet {{}} "Left/right curly braces" i
+\{$1\}$0
+endsnippet
+
+snippet underbrace "Underbrace" i
+\underbrace{${1:${VISUAL}}}_{$2}$0
+endsnippet
+
+# VECTORS IN MATH
+context "math()"
+snippet 'hat' "hat" iA
+\hat{$1}$0
+endsnippet
+
+context "math()"
+snippet 'tp' "vector p" iA
+\bm{\tilde p}^{$1}_{$2}$0
+endsnippet
+
+context "math()"
+snippet 'tx' "vector x" iA
+\bm{\tilde x}^{$1}_{$2}$0
+endsnippet
+
+context "math()"
+snippet 'qq' "vector q" iA
+\bm{q}^{$1}_{$2}$0
+endsnippet
+
+context "math()"
+snippet 'RR' "vector R" iA
+\bm{R}^{$1}_{$2}$0
+endsnippet
+
+context "math()"
+snippet 'II' "vector I" iA
+\bm{I}$0
+endsnippet
+
+context "math()"
+snippet 'uu' "vector u" iA
+\bm{u}^{$1}_{$2}$0$0
+endsnippet
+
+context "math()"
+snippet 'zz' "vector z" iA
+\bm{z}^{$1}_{$2}$0$0
+endsnippet
+
+context "math()"
+snippet 'ss' "frame s" iA
+\\{s\\}$0
+endsnippet
+
+context "math()"
+snippet 'bb' "frame b" iA
+\\{b\\}$0
+endsnippet
+
+cntext "math()"
+snippet 'rrr' "vector r" iA
+\bm{r}^{$1}_{$2}$0
+endsnippet
+
+context "math()"
+snippet 'TT' "vector T" iA
+\bm{T}^{$1}_{$2}$0
+endsnippet
+
+context "math()"
+snippet 'WW' "vector W" iA
+\bm{W}^{$1}_{$2}$0$0
+endsnippet
+
+context "math()"
+snippet 'KK' "vector K" iA
+\bm{K}^{$1}_{$2}$0$0
+endsnippet
+
+context "math()"
+snippet 'PP' "vector P" iA
+\bm{P}^{$1}_{$2}$0
+endsnippet
+
+snippet 'SS' "vector S" iA
+\bm{S}^{$1}_{$2}$0
+endsnippet
+
+snippet 'FF' "vector F" iA
+\bm{F}^{$1}_{$2}$0
+endsnippet
+
+snippet 'QQ' "vector Q" iA
+\bm{Q}^{$1}_{$2}$0
+endsnippet
+
+context "math()"
+snippet 'AAA' "vector A" iA
+\bm{A}$0
+endsnippet
+
+context "math()"
+snippet 'BBB' "vector B" iA
+\bm{B}$0
+endsnippet
+
+context "math()"
+snippet 'bmx' "vector x" iA
+\bm{x}_{$1}^{$2}$0
+endsnippet
+
+snippet 'vec([A-Za-z]+)' "auto subscript2" ir
+`!p snip.rv = "\\bm{"+ match.group(1)+ "}"`
+endsnippet
+
+snippet footn "footnote" iA
+\footnote{$1}$0
+endsnippet
+
+snippet wrt "with respect to" iA
+with respect to
+endsnippet
+
+snippet KF "Kalman Filter" iA
+\acrshort{kalman}
+endsnippet
+
+snippet EK "Extended Kalman Filter" iA
+\acrshort{ekalman}
+endsnippet
+
+context "math()"
+snippet hx "hat x" iA
+\hat{\bm{x}}_{$1}^{$2}$0
+endsnippet
+
+context "math()"
+snippet hz "hat z" iA
+\hat{\bm{z}_{$1}^{$2}}$0
+endsnippet
+
+context "math()"
+snippet part "partial" iA
+\partial
+endsnippet
+#ALGORITHM
+context "math()"
+snippet gets "gets" iA
+\gets
+endsnippet
+
+context "env('algorithmic')"
+snippet com "comment" iA
+\Comment{$1}$0
+endsnippet
+
+context "env('algorithmic')"
+snippet st "state" iA
+\State{\$$1\$}$0
+endsnippet

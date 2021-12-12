@@ -23,12 +23,12 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '>-2<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==i
-inoremap <C-k> <esc>:m .-2<CR>==i
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m .-2<CR>==
+" vnoremap J :m '>+1<CR>gv=gv
+" vnoremap K :m '>-2<CR>gv=gv
+" inoremap <C-j> <esc>:m .+1<CR>==i
+" inoremap <C-k> <esc>:m .-2<CR>==i
+" nnoremap <leader>j :m .+1<CR>==
+" nnoremap <leader>k :m .-2<CR>==
 
 " Disable arrow keys
 " Disable Arrow keys in Normal mode
@@ -46,3 +46,5 @@ imap <right> <nop>
 " Make ctrl-c work as esc
 inoremap <ESC> <C-C>
 
+" Remap add because of tmux
+nnoremap <C-j> <C-a>

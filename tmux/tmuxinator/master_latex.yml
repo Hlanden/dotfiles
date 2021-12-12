@@ -63,7 +63,7 @@ windows:
       root: ~/Work/NTNU/SpecializationProject/latex
       panes: 
         - bib: 
-          - nvim references.tex
+          - nvim references.bib
   - git:
       # layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
