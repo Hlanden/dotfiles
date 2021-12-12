@@ -46,8 +46,7 @@ endsnippet
 #$0
 #endsnippet
 #
-#snippet book "Book reference" b
-#@book{${1:name},
+#snippet book "Book reference" b #@book{${1:name},
 #	author={${2:author}},
 #	title={${3:title}},
 #	subtitle={${4:subtitle}},
@@ -85,7 +84,7 @@ snippet article "article"
 endsnippet
 
 snippet book "book"
-@Book{ ${1:id},
+@book{ ${1:id},
 	${2:author/editor} = {${3:$2s separated by "and"}},
 	title = {${4:title}},
 	publisher = {${5:publisher}},
@@ -94,7 +93,7 @@ snippet book "book"
 endsnippet
 
 snippet booklet "booklet"
-@Booklet{ ${1:id},
+@booklet{ ${1:id},
 	title = {${2:title}},
 	author = {${3:authors separated by "and"}},
 }

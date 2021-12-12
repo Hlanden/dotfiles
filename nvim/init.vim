@@ -20,14 +20,23 @@ if has('win32')
 endif
 
 " setlocal spell
-" set spelllang=en_us
+set spelllang=en_us
 
-" :let maplocalleader = "\\"
+" Map leader to space
+nnoremap <SPACE> <nop>
+let mapleader = " "
+
+" Map window movement
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
 
 nnoremap <silent> <leader>ev :execute 'edit' resolve($MYVIMRC)<cr>
 nnoremap <silent> <leader>xv :source $MYVIMRC<cr>
+nnoremap <silent> <leader>es :CocCommand snippets.editSnippets<cr>
 
-nnoremap rp :!python3 %<cr>
+" nnoremap rp :!python3 %<cr>
 
 " set smarttab
 set linebreak
