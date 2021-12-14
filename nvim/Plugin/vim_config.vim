@@ -4,6 +4,8 @@ if &term == "alacritty"
   let &term = "xterm-256color"
 endif
 
+let g:SignatureMarkTextHL = "DiagnosticError"
+
 set hlsearch
 syntax on
 set relativenumber
