@@ -154,4 +154,15 @@ fi
 export MANPATH="$MANPATH:/usr/local/texlive/2021/texmf-dist/doc/man"
 export INFOPATH="$INFOPATH:/usr/local/texlive/2021/texmf-dist/doc/info"
 export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
+export ONEDRIVE="/mnt/4AFC94E9FC94D115/OneDrive/9. Semester"
 
+export RANGER_LOAD_DEFAULT_RC=false
+export PAGER='most'
+
+
+# Aliases and shortcuts
+alias cdw='cd ~/Work'
+alias cdd='cd ~/.dotfiles/'
+alias cdc='cd ~/.config/'
+alias cdod='cd "/mnt/4AFC94E9FC94D115/OneDrive"'
+alias cdm='cd "/mnt/4AFC94E9FC94D115/OneDrive/9. Semester/Prosjektoppgave"'
