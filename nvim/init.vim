@@ -16,12 +16,10 @@ source $XDG_CONFIG_HOME/nvim/Plugin/vim_airline.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/vimspector.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/vimtex.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/ultisnippets.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/indent-line.vim
 
 " source ~/.vim/plugged/vim-unimpaired/plugin/unimpaired.vim
 
-if has('win32')
-	let g:python3_host_prog='C:/Python310/python.exe' endif
-endif
 
 " setlocal spell
 set spelllang=en_us
@@ -108,3 +106,8 @@ inoremap <ESC> <C-C>
 
 " Remap add because of tmux
 nnoremap <C-j> <C-a>
+
+if has('win32') || has('win64')
+	let g:python3_host_prog='C:/Python310/python.exe'
+	hi Normal guibg=NONE ctermbg=NONE
+endif
