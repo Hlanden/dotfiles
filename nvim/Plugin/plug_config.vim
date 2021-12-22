@@ -21,5 +21,6 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
 Plug 'kshenoy/vim-signature'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
