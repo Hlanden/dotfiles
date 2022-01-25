@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-exec --no-startup-id ~/.dotfiles/i3/startup.sh
+exec --no-startup-id ~/dotfiles/i3/startup.sh
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -117,8 +117,18 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-workspace $ws1 output DVI-I-1
-workspace $ws4 output DVI-I-1
+# # Three monitors
+# workspace $ws1 output DVI-I-1
+# workspace $ws4 output DVI-I-1
+# workspace $ws2 output DVI-D-0
+# workspace $ws3 output DVI-D-0
+# workspace $ws5 output HDMI-0
+# workspace $ws8 output DVI-D-0
+# workspace $ws9 output HDMI-0
+
+# Two monitors
+workspace $ws1 output HDMI-0
+workspace $ws4 output DVI-D-0
 workspace $ws2 output DVI-D-0
 workspace $ws3 output DVI-D-0
 workspace $ws5 output HDMI-0
@@ -236,7 +246,7 @@ gaps inner 5
 gaps outer 2
 
 
-exec --no-startup-id ~/.dotfiles/i3/start_applications.sh
+exec --no-startup-id ~/dotfiles/i3/start_applications.sh
 
 # Custom key bindings
 bindsym $mod+F12 exec --no-startup-id firefox
@@ -251,3 +261,8 @@ bindsym $mod+F4 exec --no-startup-id okular
 
 bindsym $mod+F6 exec --no-startup-id firefox -new-window "www.youtube.com"
 bindsym $mod+F5 exec --no-startup-id spotify
+
+bindsym Print exec --no-startup-id shutter -s
+bindsym $mod+mod2+KP_1 exec --no-startup-id xrandr --output HDMI-0 --rotate right --right-of DVI-D-0
+bindsym $mod+mod2+KP_2 exec --no-startup-id xrandr --output HDMI-0 --rotate normal --right-of DVI-D-0
+
