@@ -1,7 +1,7 @@
 # /home/jorgen/.config/tmuxinator/master.yml
 
-name: master_latex
-root: ~/Work/NTNU/SpecializationProject/latex
+name: ibi
+root: ~/Work/iBi
 tmux_command: TERM=xterm-256color tmux
 
 # Optional tmux socket
@@ -44,26 +44,11 @@ tmux_command: TERM=xterm-256color tmux
 
 # Controls whether the tmux session should be attached to automatically. Defaults to true.
 # attach: false
-# on_project_start:
-#   - xdotool windowsize --usehints $(xdotool getactivewindow) 165 100%
-#   - xdotool key --window $(xdotool getactivewindow) "super+c"
+on_project_start:
+  - xdotool windowsize --usehints $(xdotool getactivewindow) 165 100%
+  - xdotool key --window $(xdotool getactivewindow) "super+c"
 
 windows:
-  - main:
-      root: ~/Work/NTNU/SpecializationProject/latex
-      panes: 
-        - main: 
-          - nvim main.tex
-  - latex:
-      root: ~/Work/NTNU/SpecializationProject/latex
-      panes: 
-        - latex: 
-          - nvim chapters/*
-  - bib:
-      root: ~/Work/NTNU/SpecializationProject/latex
-      panes: 
-        - bib: 
-          - nvim references.bib
   - git:
       # layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
@@ -72,3 +57,6 @@ windows:
       panes:
         - git:
           - git status
+  - python:
+      panes:
+        - python:
