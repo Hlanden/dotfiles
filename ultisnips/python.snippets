@@ -51,8 +51,12 @@ $0
 endsnippet
 
 snippet ifmain "ifmain" b
+def main():
+	pass
+	${1:${VISUAL:pass}}
+
 if __name__ == `!p snip.rv = get_quoting_style(snip)`__main__`!p snip.rv = get_quoting_style(snip)`:
-	${1:${VISUAL:main()}}
+	main()
 endsnippet
 
 snippet with "with" b
@@ -753,7 +757,10 @@ endsnippet
 
 snippet doc "doc block (triple quotes)"
 `!p snip.rv = triple_quotes(snip)`
-${1:${VISUAL:doc}}
+$0
+
+${1:${VISUAL:Input Arguments:}}
+${2:${VISUAL:Returns:}}
 `!p snip.rv = triple_quotes(snip)`
 endsnippet
 
@@ -772,3 +779,14 @@ $0
 endsnippet
 
 # vim:ft=snippets:
+##########
+# CUSTOM #
+##########
+snippet init "__init__" b
+def __init__(self$1):
+	$0
+endsnippet
+
+snippet f' "format string" iA
+f'$0'
+endsnippet

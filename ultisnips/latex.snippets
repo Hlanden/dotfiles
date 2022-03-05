@@ -715,6 +715,11 @@ snippet inn "in " iA
 \in 
 endsnippet
 
+context "math()"
+snippet inr "in R" iA
+\in \mathcal{R}^{$1}$0
+endsnippet
+
 snippet NN "n" i
 \N
 endsnippet
@@ -1261,11 +1266,6 @@ snippet hz "hat z" iA
 endsnippet
 
 context "math()"
-snippet part "partial" iA
-\partial
-endsnippet
-
-context "math()"
 snippet Pr "probability" iA
 \text{Pr}($1)$0
 endsnippet
@@ -1343,6 +1343,12 @@ snippet jj "jj" iA
 _{$1}$0
 endsnippet
 
+context "math()"
+snippet whe "where" iA
+,\quad \text{where}\quad 
+$0
+endsnippet
+
 
 # context "math()"
 # snippet '(bm)(\S)' "Bold" rA
@@ -1383,9 +1389,9 @@ snippet cvv "cv" iA
 \acrshort{cv}
 endsnippet
 
-snippet lti "lti" iA
-\acrshort{lti}
-endsnippet
+# snippet lti "lti" iA
+# \acrshort{lti}
+# endsnippet
 
 snippet KF "Kalman Filter" iA
 \acrshort{kalman}
@@ -1393,4 +1399,20 @@ endsnippet
 
 snippet EK "Extended Kalman Filter" iA
 \acrshort{ekalman}
+endsnippet
+
+snippet urdf "urdf 2" iA
+\acrshort{urdf}
+endsnippet
+
+snippet ros "ros 2" iA
+\acrshort{ros}
+endsnippet
+
+snippet sdf "sdf" iA
+\acrshort{sdf}
+endsnippet
+
+snippet gaz "Gazebo" iA
+Gazebo
 endsnippet
