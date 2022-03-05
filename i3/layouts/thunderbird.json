@@ -1,0 +1,13 @@
+{
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+        "border": "none",
+        "name": "Thunderbird",
+        "percent": 1,
+        "type": "con",
+        "swallows": [ { "class": "^Thunderbird$", "instance": "^Mail$" } ]
+
+        }
+}
