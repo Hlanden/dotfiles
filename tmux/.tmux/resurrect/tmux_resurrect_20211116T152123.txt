@@ -1,3 +1,0 @@
-pane	0	0	1	:*	0	:/home/jorgen/Work/NTNU/SpecializationProject	1	bash	:
-window	0	0	:bash	1	:*	b5bd,192x42,0,0,0	:
-state	0	

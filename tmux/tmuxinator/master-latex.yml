@@ -1,7 +1,7 @@
 # /home/jorgen/.config/tmuxinator/master.yml
 
 name: master-latex
-root: ~/Work/NTNU/SpecializationProject/latex
+root: ~/Work/NTNU/master-thesis/latex
 tmux_command: TERM=xterm-256color tmux
 
 # Optional tmux socket
@@ -50,17 +50,15 @@ tmux_command: TERM=xterm-256color tmux
 
 windows:
   - main:
-      root: ~/Work/NTNU/master-thesis/latex
       panes: 
         - main: 
           - nvim main.tex
-  - content:
-      root: ~/Work/NTNU/master-thesis/latex
-      panes: 
-        - latex: 
-          # - nvim chapters/*
+  # - content:
+  #     root: ~/Work/NTNU/master-thesis/latex
+  #     panes: 
+  #       - latex: 
+  #         # - nvim chapters/*
   - bib:
-      root: ~/Work/NTNU/master-thesis/latex
       panes: 
         - bib: 
           - nvim references.bib
@@ -72,7 +70,13 @@ windows:
       panes:
         - git:
           - git status
+  - sketch:
+      root: ~/Work/NTNU/master-thesis/latex/figures/sketch/
+      panes: 
+        - sketch: 
+
   - term:
       root: ~/Work/NTNU/master-thesis/latex
       panes: 
         - term: 
+

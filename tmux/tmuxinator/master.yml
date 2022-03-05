@@ -62,8 +62,6 @@ windows:
       root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/
       panes:
         - ros:
-          - sourceconda 
-          - conda activate master
           - sourceros
           - source install/setup.bash
   - code: 
