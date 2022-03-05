@@ -134,9 +134,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-alias sourceros='source ~/ros2_foxy/install/setup.bash'
-alias sourceconda='source /home/jorgen/anaconda3/etc/profile.d/conda.sh'
-
 source /home/jorgen/alacritty/extra/completions/alacritty.bash
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -160,9 +157,55 @@ export RANGER_LOAD_DEFAULT_RC=false
 export PAGER='most'
 
 
-# Aliases and shortcuts
+### PATH VARIABLES ### 
+export PATH=$PATH:"home/jorgen/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/"
+
+### FZF ###
+#determines search program for fzf
+if type ag &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+fi
+
+### ALIASES ###
+# CD shortcuts
 alias cdw='cd ~/Work'
 alias cdd='cd ~/.dotfiles/'
 alias cdc='cd ~/.config/'
 alias cdod='cd "/mnt/4AFC94E9FC94D115/OneDrive"'
-alias cdm='cd "/mnt/4AFC94E9FC94D115/OneDrive/9. Semester/Prosjektoppgave"'
+alias cdm='cd ~/Work/NTNU/master-thesis/'
+
+# ls
+alias ls='ls -lah --color=auto'
+
+# confirm before overwriting something 
+alias cp="cp -i" 
+alias mv='mv -i' 
+alias rm='rm -i'
+
+# Go up directories
+up () {
+  local d=""
+  local limit="$1"
+
+  # Default to limit of 1
+  if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+    limit=1
+  fi
+
+  for ((i=1;i<=limit;i++)); do
+    d="../$d"
+  done
+
+  # perform cd. Show error if cd fails
+  if ! cd "$d"; then
+    echo "Couldn't go up $limit dirs.";
+  fi
+}
+
+# source environments
+alias sourceros='source /opt/ros/foxy/setup.bash'
+alias sourceconda='source /home/jorgen/anaconda3/etc/profile.d/conda.sh'
+alias sb='source ~/.bashrc'
+
+# Sync onedrive
+alias ods='onedrive --synchronize' 
