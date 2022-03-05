@@ -1,0 +1,116 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet xml "XML declaration" b
+<?xml version="1.0"?>
+
+endsnippet
+
+snippet t "Simple tag" b
+<${1:tag}>
+	${2:content}
+</${1/([\w:._-]+).*/$1/}>
+endsnippet
+
+snippet ti "Inline tag" b
+<${1:tag}>${2:content}</${1/([\w:._-]+).*/$1/}>
+endsnippet
+
+# roslaunch snippets
+snippet remap "roslaunch remap" b
+<remap from="${1}" to="${2}"/>
+endsnippet
+
+snippet rosparam "roslaunch rosparam" b
+<rosparam>
+	${1:param_name}: ${2:param_value}
+</rosparam>
+endsnippet
+
+snippet param "roslaunch param" b
+<param name="${1:name}" value="${2:value}"/>
+endsnippet
+
+snippet arg "roslaunch arg" b
+<arg name="${1:name}" default="${2:default}" />
+endsnippet
+
+snippet node "roslaunch node" b
+<node pkg="${1}" type="${2}" name="${3}" args="${4}" respawn="false" output="screen"/>
+endsnippet
+
+snippet group "roslaunch group" b
+<group if="${1:$(arg foo)}">
+	${2}
+</group>${3}
+endsnippet
+
+snippet catkin_maintainer "ros package maintainer" b
+<maintainer email="${1:dimatura@cmu.edu}">${2:Daniel Maturana}</maintainer>
+endsnippet
+
+snippet catkin_author "ros package author" b
+<author email="${1:dimatura@cmu.edu}">${2:Daniel Maturana}</author>
+endsnippet
+
+snippet catkin_buildtool "buildtool" b
+<buildtool_depend>catkin</buildtool_depend>
+endsnippet
+
+snippet catkin_depend "build_run_depend" b
+<build_depend>${1:roscpp}</build_depend>
+<run_depend>$1</run_depend>
+endsnippet
+
+snippet catkin_depend_cv "build_run_cv" b
+<build_depend>libopencv-dev</build_depend>
+<run_depend>libopencv-dev</run_depend>
+endsnippet
+
+snippet catkin_depend_pcl "depend_pcl" b
+<build_depend>libpcl-all-dev</build_depend>
+<run_depend>libpcl-all</run_depend>
+endsnippet
+
+snippet prop "xacro property" b
+<xacro:property name="$1" value="$2" />$0
+endsnippet
+
+snippet macro "Xacro macro" b
+<xacro:macro name="$1" params="$2">
+$0
+</xacro:macro>
+endsnippet
+
+snippet xif "xacro if" b
+<xacro:if value="${$1 ${2:==} '$3'}">
+${4:<... some xml code here ...>}
+</xacro:if>
+<xacro:unless value="${$5 ${6:==} '$7'}">
+${8:<... some xml code here ...>}
+</xacro:unless>
+$0
+endsnippet
