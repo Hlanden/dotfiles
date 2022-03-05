@@ -22,5 +22,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
 Plug 'kshenoy/vim-signature'
 Plug 'Yggdroot/indentLine'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'godlygeek/tabular'
 call plug#end()
-

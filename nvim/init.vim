@@ -17,6 +17,7 @@ source $XDG_CONFIG_HOME/nvim/Plugin/vimspector.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/vimtex.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/ultisnippets.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/indent-line.vim
+source $XDG_CONFIG_HOME/nvim/Plugin/markdown-preview.vim
 
 " source ~/.vim/plugged/vim-unimpaired/plugin/unimpaired.vim
 
@@ -111,3 +112,21 @@ if has('win32') || has('win64')
 	let g:python3_host_prog='C:/Python310/python.exe'
 	hi Normal guibg=NONE ctermbg=NONE
 endif
+
+nnoremap <silent> <Leader>- 5<C-W>< <CR>
+nnoremap <silent> <Leader>+ 5<C-W>> <CR>
+" nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+
+" Search for visual selection
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" Markdown preview
+nmap <leader>mp <Plug>MarkdownPreview
+nmap <leader>ms <Plug>MarkdownPreviewStop
+
+" Python specifip
+nmap <leader>rp :w <CR> :!python %<CR>
+
+" Cpp and c
+autocmd FileType c,cpp,h,hpp,objc map <buffer> = <Plug>(coc-format-selected)
