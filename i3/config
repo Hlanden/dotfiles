@@ -127,7 +127,7 @@ set $ws10 "10"
 # workspace $ws9 output HDMI-0
 
 # Two monitors
-workspace $ws1 output HDMI-0
+workspace $ws1 output DVI-D-0
 workspace $ws4 output DVI-D-0
 workspace $ws2 output DVI-D-0
 workspace $ws3 output DVI-D-0
