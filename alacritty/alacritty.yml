@@ -79,13 +79,15 @@ scrolling:
 #multiplier: 3
 # Font configuration
 Font:
-  size: 11
+  size: 14
   normal:
-    family: FiraCode Nerd Font Mono
+    family: FiraCode Nerd Font
+    # family: FontAwesome
     style: Regular
   italic:
     family: FiraCode Nerd Font
-    style: Regular
+    # family: FontAwesome
+    style: Italic
   # bold:
   #   family: Iosevka
   # italic:
