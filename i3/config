@@ -59,6 +59,10 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+# move focused workspace between monitors
+bindsym $mod+Ctrl+l move workspace to output right
+bindsym $mod+Ctrl+h move workspace to output left
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -117,23 +121,24 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# # Three monitors
-# workspace $ws1 output DVI-I-1
-# workspace $ws4 output DVI-I-1
-# workspace $ws2 output DVI-D-0
-# workspace $ws3 output DVI-D-0
-# workspace $ws5 output HDMI-0
-# workspace $ws8 output DVI-D-0
-# workspace $ws9 output HDMI-0
-
-# Two monitors
-workspace $ws1 output DVI-D-0
-workspace $ws4 output DVI-D-0
+# Three monitors
+workspace $ws1 output DVI-I-1
+workspace $ws4 output DVI-I-1
 workspace $ws2 output DVI-D-0
 workspace $ws3 output DVI-D-0
 workspace $ws5 output HDMI-0
 workspace $ws8 output DVI-D-0
 workspace $ws9 output HDMI-0
+
+# Two monitors
+# workspace $ws1 output DVI-D-0
+# workspace $ws4 output HDMI-D-0
+# workspace $ws2 output DVI-D-0
+# workspace $ws3 output DVI-D-0
+# workspace $ws5 output HDMI-0
+# workspace $ws7 output HDMI-D-0
+# workspace $ws8 output DVI-D-0
+# workspace $ws9 output HDMI-0
 
 # assign [class="Firefox"] $ws1
 # assign [class="Alacritty"] $ws2
