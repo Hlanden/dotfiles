@@ -209,3 +209,8 @@ alias sb='source ~/.bashrc'
 
 # Sync onedrive
 alias ods='onedrive --synchronize' 
+
+# Start tmux sessions
+alias ibi='tmuxinator ibi'
+alias master='tmuxinator master'
+alias mlatex='tmuxinator master-latex'
