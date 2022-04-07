@@ -8,7 +8,6 @@ source $XDG_CONFIG_HOME/nvim/Plugin/treesitter.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/vim_test_config.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/cocvim_config.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/fzf_config.vim
-source $XDG_CONFIG_HOME/nvim/Plugin/gruvbox_config.vim
 " source $XDG_CONFIG_HOME/nvim/Plugin/vim_config.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/ntree_config.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/rainbow_config.vim
@@ -20,7 +19,39 @@ source $XDG_CONFIG_HOME/nvim/Plugin/indent-line.vim
 source $XDG_CONFIG_HOME/nvim/Plugin/markdown-preview.vim
 
 " source ~/.vim/plugged/vim-unimpaired/plugin/unimpaired.vim
+set termguicolors
 
+" colorscheme gruvbox
+let g:tokyonight_style = "night"
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+
+" Example config in Vim-Script
+let g:solarized_italic_comments = v:true
+let g:solarized_italic_keywords = v:true
+let g:solarized_italic_functions = v:true
+let g:solarized_italic_variables = v:false
+let g:solarized_contrast = v:true
+let g:solarized_borders = v:false
+let g:solarized_disable_background = v:false
+
+" Change the "hint" color to the "orange" color, and make the "error" color bright red
+let g:tokyonight_colors = {
+  \ 'hint': 'orange',
+  \ 'error': '#ff0000',
+\ }
+
+" Load the colorscheme
+autocmd BufEnter * colorscheme tokyonight
+autocmd BufEnter * highlight CursorLineNR guifg=#ffcc00 ctermfg=yellow
+autocmd BufEnter * highlight LineNr guifg=#1ac949 ctermfg=none
+autocmd BufEnter * set bg=dark
+autocmd BufEnter * AirlineTheme violet
+autocmd BufEnter * ColorizerAttachToBuffer
+
+autocmd BufEnter *.tex colorscheme gruvbox
+autocmd BufEnter *.tex set bg=light
+autocmd BufEnter *.tex AirlineTheme solarized
 
 " setlocal spell
 set spelllang=en_us
@@ -38,7 +69,6 @@ nnoremap <silent> <leader>es :CocCommand snippets.editSnippets<CR>
 " Highligthing and numbering
 syntax on
 set relativenumber
-highlight LineNr ctermfg=cyan
 set number
 set tags=./tags;/
 set linebreak
@@ -55,6 +85,7 @@ xnoremap <leader>p "_dP
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
+nnoremap yp :let @" = expand("%") <cr>
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
@@ -130,3 +161,7 @@ nmap <leader>rp :w <CR> :!python %<CR>
 
 " Cpp and c
 autocmd FileType c,cpp,h,hpp,objc map <buffer> = <Plug>(coc-format-selected)
+
+" Python
+autocmd FileType python set colorcolumn=82
+

@@ -996,6 +996,10 @@ endsnippet
 # \bm{${1:${VISUAL}}}$0
 # endsnippet
 
+snippet Cref "Cleverref" iA
+\Cref{$1}$0
+endsnippet
+
 snippet cref "Cleverref" iA
 \cref{$1}$0
 endsnippet
@@ -1294,10 +1298,10 @@ snippet '(c)(b|h)(h|b)' "Combine Bold Hat" wrA
 \bm{\hat{$1}}$0
 endsnippet
 
-context "math()"
-snippet '(h)([A-Za-z])' "Hat" wrA
-\hat{`!p snip.rv = match.group(3)`}_{$1}^{$2}$0
-endsnippet
+# context "math()"
+# snippet '(h)([A-Za-z])' "Hat" wrA
+# \hat{`!p snip.rv = match.group(3)`}_{$1}^{$2}$0
+# endsnippet
 
 context "math()"
 snippet '(ibm)' "Bold" wrA
@@ -1309,10 +1313,10 @@ snippet '(tbm)' "Bold" wrA
 \bm{$1}^{T}$0
 endsnippet
 
-context "math()"
-snippet 'exp' "Expectation" iA
-\mathbb{E}[$1]$0
-endsnippet
+# context "math()"
+# snippet 'exp' "Expectation" iA
+# \mathbb{E}[$1]$0
+# endsnippet
 # context "math()"
 # snippet '(bm)' "Bold" wrA
 # \bm{$1}_{$3}^{$4}$2$0

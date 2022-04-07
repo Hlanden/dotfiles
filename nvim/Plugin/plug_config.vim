@@ -24,4 +24,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'Yggdroot/indentLine'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'godlygeek/tabular'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'shaunsingh/solarized.nvim'
+Plug 'https://gitlab.com/yorickpeterse/vim-paper.git'
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
