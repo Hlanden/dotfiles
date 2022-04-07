@@ -52,7 +52,6 @@ endsnippet
 
 snippet ifmain "ifmain" b
 def main():
-	pass
 	${1:${VISUAL:pass}}
 
 if __name__ == `!p snip.rv = get_quoting_style(snip)`__main__`!p snip.rv = get_quoting_style(snip)`:
@@ -321,7 +320,7 @@ endglobal
 ########################################
 
 snippet class "class with docstrings" b
-class ${1:MyClass}(${2:object}):
+class ${1:MyClass}:
 
 	`!p snip.rv = triple_quotes(snip)`${3:Docstring for $1. }`!p snip.rv = triple_quotes(snip)`
 
