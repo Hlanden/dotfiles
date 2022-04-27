@@ -50,7 +50,7 @@ on_project_start:
 
 windows:
   - git:
-      # layout: main-vertical
+      layout: even-horizontal
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
@@ -58,17 +58,37 @@ windows:
       panes:
         - git:
           - git status
-  - ros:
+  - ros-launch:
+      layout: even-horizontal
       root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/
       panes:
-        - ros:
+        - launch1:
           - sourceros
           - source install/setup.bash
-  - code: 
-      root: ~/Work/NTNU/master-thesis/code/
+        - launch2:
+          - sourceros
+          - source install/setup.bash
+  - general-code: 
+      root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/
       panes:
         - code:
-          # - sourceconda 
-          # - conda activate master
-          # - sourceros
-          # - source install/setup.bash
+          - sourceros
+          - source install/setup.bash
+  - ros-control: 
+      root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/src/ferry_charger/ferry_charger_controllers/
+      panes:
+        - code:
+          - sourceros
+          - source install/setup.bash
+  - ros-description: 
+      root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/src/ferry_charger/ferry_charger_description/
+      panes:
+        - code:
+          - sourceros
+          - source install/setup.bash
+  - ros-computer-vision: 
+      root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/src/ferry_charger/ferry_charger_computer_vision/
+      panes:
+        - code:
+          - sourceros
+          - source install/setup.bash
