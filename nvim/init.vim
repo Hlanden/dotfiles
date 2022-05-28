@@ -51,6 +51,7 @@ autocmd BufEnter * ColorizerAttachToBuffer
 
 autocmd BufEnter *.tex colorscheme gruvbox
 autocmd BufEnter *.tex set bg=light
+" autocmd BufEnter *.tex set bg=dark
 autocmd BufEnter *.tex AirlineTheme solarized
 
 " setlocal spell
