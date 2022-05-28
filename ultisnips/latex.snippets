@@ -717,7 +717,7 @@ endsnippet
 
 context "math()"
 snippet inr "in R" iA
-\in \mathcal{R}^{$1}$0
+\in \mathbb{R}^{$1}$0
 endsnippet
 
 snippet NN "n" i
@@ -817,16 +817,6 @@ endsnippet
 snippet letw "let omega" iA
 Let $\Omega \subset \C$ be open.
 endsnippet
-
-
-snippet HH "H" iA
-\mathbb{H}
-endsnippet
-
-snippet DD "D" iA
-\mathbb{D}
-endsnippet
-
 
 # vim:ft=snippets
 
@@ -995,6 +985,11 @@ endsnippet
 # snippet bm "Bold Math" i
 # \bm{${1:${VISUAL}}}$0
 # endsnippet
+
+context "math()"
+snippet dot "dot" iA
+\dot{${1:${VISUAL}}}$0
+endsnippet
 
 snippet Cref "Cleverref" iA
 \Cref{$1}$0
@@ -1279,9 +1274,6 @@ snippet prob "probability" iA
 p($1)$0
 endsnippet
 
-snippet cov "Cov" iA
-\text{Cov}($1)$0
-endsnippet
 
 context "math()"
 snippet gaus "gaus" iA
@@ -1376,6 +1368,9 @@ snippet st "state" iA
 endsnippet
 
 
+snippet verb "verb" i
+\verb|$1|$0
+endsnippet
 # TEMPORARY; Rember to remove after use
 # context "math()"
 # snippet ll "Description" iA
@@ -1385,8 +1380,8 @@ snippet imuu "imu" iA
 \acrshort{imu}
 endsnippet
 
-snippet ros "ros" iA
-\acrshort{ros}
+snippet dds "dds" iA
+\acrshort{dds}
 endsnippet
 
 snippet cvv "cv" iA
@@ -1405,11 +1400,19 @@ snippet EK "Extended Kalman Filter" iA
 \acrshort{ekalman}
 endsnippet
 
-snippet urdf "urdf 2" iA
+snippet urdff "urdf 2" iA
 \acrshort{urdf}
 endsnippet
 
-snippet ros "ros 2" iA
+snippet xacroo "xacro 2" iA
+\acrshort{xacro}
+endsnippet
+
+snippet xmll "xml 2" iA
+\acrshort{xml}
+endsnippet
+
+snippet ross "ros 2" iA
 \acrshort{ros}
 endsnippet
 
@@ -1419,4 +1422,39 @@ endsnippet
 
 snippet gaz "Gazebo" iA
 Gazebo
+endsnippet
+
+snippet lstt "listing" iA
+\begin{lstlisting}
+$1
+\end{lstlisting}
+$0
+endsnippet
+
+snippet pkg "package" iA
+package$0
+endsnippet
+
+snippet rcc "ros control" iA
+ros2\_control$0
+endsnippet
+
+snippet minipage "minipage" i
+\begin{minipage}{\linewidth}
+	${1:${VISUAL}}
+\end{minipage}
+$0
+endsnippet
+
+
+snippet yaml "yaml" iA
+\acrshort{yaml}
+endsnippet
+
+snippet plc "plc" iA
+\acrshort{plc}
+endsnippet
+
+snippet mt "master thesis" iA
+master's thesis $0
 endsnippet
