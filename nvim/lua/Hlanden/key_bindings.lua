@@ -9,32 +9,6 @@ map('n', '*', '*N')
 map('n', 'n', 'nzz')
 map('n', 'N', 'Nzz')
 
--- Mimic shell movements
-map('i', '<C-E>', '<ESC>A')
-map('i', '<C-A>', '<ESC>I')
-
--- Quickly save the current buffer or all buffers
-map('n', '<leader>w', '<CMD>update<CR>')
-map('n', '<leader>W', '<CMD>wall<CR>')
-
--- Quit neovim
-map('n', '<C-Q>', '<CMD>q<CR>')
-
--- leader-o/O inserts blank line below/above
-map('n', '<leader>o', 'o<ESC>')
-map('n', '<leader>O', 'O<ESC>')
-
--- Move to the next/previous buffer
-map('n', '<leader>[', '<CMD>bp<CR>')
-map('n', '<leader>]', '<CMD>bn<CR>')
-
--- Move to last buffer
-map('n', "''", '<CMD>b#<CR>')
-
--- Copying the vscode behaviour of making tab splits
-map('n', '<C-\\>', '<CMD>vsplit<CR>')
-map('n', '<A-\\>', '<CMD>split<CR>')
-
 -- Move line up and down in NORMAL and VISUAL modes
 -- Reference: https://vim.fandom.com/wiki/Moving_lines_up_or_down
 map('n', '<C-j>', '<CMD>move .+1<CR>')
@@ -42,7 +16,70 @@ map('n', '<C-k>', '<CMD>move .-2<CR>')
 map('x', '<C-j>', ":move '>+1<CR>gv=gv")
 map('x', '<C-k>', ":move '<-2<CR>gv=gv")
 
--- Use operator pending mode to visually select the whole buffer
--- e.g. dA = delete buffer ALL, yA = copy whole buffer ALL
-map('o', 'A', ':<C-U>normal! mzggVG<CR>`z')
-map('x', 'A', ':<C-U>normal! ggVG<CR>')
+-- Window movement
+map('n', '<leader>j', ':wincmd j<CR>')
+map('n', '<leader>h', ':wincmd h<CR>')
+map('n', '<leader>k', ':wincmd k<CR>')
+map('n', '<leader>l', ':wincmd l<CR>')
+
+-- Vimrc
+map('n', '<silent> <leader>ev', ":execute 'edit' resolve($MYVIMRC)<cr>")
+map('n', '<silent> <leader>xv', ':source $MYVIMRC<CR>')
+map('n', '<silent> <leader>es', ':CocCommand snippets.editSnippets<CR>')
+
+-- Map mark-command to other key
+-- map(n, '<leader><', '`')
+
+-- Movement in insert mode
+map('i','<C-e>','<C-o>$')
+map('i','<C-a>','<C-o>0')
+
+-- Copy/paste/delete
+map('x','<leader>p','"_dP')
+map('n','<leader>p','"+p')
+map('v','<leader>p','"+p')
+
+map('n','yp',':let,@",=,expand("%"),<cr>')
+map('n','<leader>y','"+y')
+map('v','<leader>y','"+y')
+map('n','<leader>Y','gg"+yG')
+map('n','Y','y$')
+
+-- Delete without saving to register
+map('n','<leader>d','"_d')
+map('v','<leader>d','"_d')
+
+-- KEY-BINDINGS:
+map('n','n','nzzzv')
+map('n','N','Nzzzv')
+map('n','J','mzJ`z,')
+
+map('i',',',',<c-g>u')
+map('i','.','.<c-g>u')
+map('i','!','!<c-g>u')
+map('i','?','?<c-g>u')
+
+map('v','J',":m,'>+1<CR>gv=gv")
+map('v','K',":m,'>-2<CR>gv=gv")
+
+-- Make ctrl-c work as esc
+map('i','<ESC>','<C-C>')
+
+-- Remap add because of tmux
+map('n','<C-a>','<C-a>')
+
+-- Window sizing
+map('n','<silent>','<Leader>-,5<C-W><,<CR>')
+map('n','<silent>','<Leader>+,5<C-W>>,<CR>')
+
+-- Search for visual selection
+-- TODO: This is invalid...
+-- map('v','//','y/\V<C-R>=escape(@","/\")<CR><CR>')
+
+-- Markdown preview
+map('n','<leader>mp','<Plug>MarkdownPreview')
+map('n','<leader>ms','<Plug>MarkdownPreviewStop')
+
+-- Python specifip
+map('n','<leader>rp',':w,<CR>,:!python,%<CR>')
+
