@@ -6,6 +6,15 @@ local o = vim.o
 
 o.termguicolors = true
 -- o.background = 'dark'
+vim.cmd[[
+colorscheme tokyonight
+]]
+-- AirlineTheme violet
+o.tokyonight_style = night
+o.tokyonight_italic_functions = 1
+-- g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+
+-- vim.cmd[]
 
 -- Do not save when switching buffers
 -- o.hidden = true
@@ -21,7 +30,7 @@ o.scrolloff = 8
 o.number = true
 o.numberwidth = 5
 o.relativenumber = true
-o.signcolumn = 'yes:2'
+o.signcolumn = 'yes:1'
 o.cursorline = true
 
 -- Better editing experience
