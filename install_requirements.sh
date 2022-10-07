@@ -14,9 +14,12 @@ sudo apt install git
 sudo apt install python3-pip
 
 # nvim
-sudo apt-get install neovim
-sudo apt-get install python3-neovim
+sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+git clone https://github.com/neovim/neovim
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
 
+sudo apt-get install python3-neovim
 # packer (neovim package manager)
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 	 ~/.local/share/nvim/site/pack/packer/start/packer.nvim
@@ -44,3 +47,8 @@ mkdir -p ~/.fonts
 unzip ~/FiraCode.zip -d ~/.fonts
 rm ~/FiraCode.zip
 fc-cache -fv
+
+# Language servers
+sudo npm install --global pyright
+sudo apt-get install clangd-12
+
