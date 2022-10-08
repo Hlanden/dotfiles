@@ -84,7 +84,7 @@ return require('packer').startup(function(use)
   use {'norcalli/nvim-colorizer.lua'}
 
   -- Markdown
-  use { 'iamcco/markdown-preview.nvim', ft = 'markdown', run = 'cd app && yarn install' }
+  -- use { 'iamcco/markdown-preview.nvim', ft = 'markdown', run = 'cd app && yarn install' }
 
   -- Tools
   use {'jiangmiao/auto-pairs'}
