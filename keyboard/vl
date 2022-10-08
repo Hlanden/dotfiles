@@ -8,6 +8,9 @@ xkb_symbols "basic" {
 
     key <BKSL>	{ [apostrophe,   asterisk, dead_doubleacute, multiply ]	};
     key <LSGT>	{ [      less,    greater,      onehalf, threequarters]	};
+    key <CAPS>	{ [ Control_L ]	};
+    key <LCTL>	{ [ Caps_lock ]	};
+
 
     key <AE01> {	[	  1,	exclam 		]	};
     key <AE02> {	[	  2,	quotedbl, at		]	};
