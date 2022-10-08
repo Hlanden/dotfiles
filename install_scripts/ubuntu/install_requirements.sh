@@ -48,6 +48,9 @@ unzip ~/FiraCode.zip -d ~/.fonts
 rm ~/FiraCode.zip
 fc-cache -fv
 
+# AG silver search
+sudo apt install silversearcher-ag
+
 # Language servers
 sudo npm install --global pyright
 sudo apt-get install clangd-12
