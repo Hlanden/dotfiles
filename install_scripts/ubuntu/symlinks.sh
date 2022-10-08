@@ -7,6 +7,7 @@ ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/tmux ~/.config/tmux
 ln -sf ~/dotfiles/ranger ~/.config/ranger
 ln -sf ~/dotfiles/ultisnips ~/.config/ultisnips
+ln -sf ~/dotfiles/xsession/.xsessionrc ~/.xsessionrc
 
 # alacritty
 # TODO: i3

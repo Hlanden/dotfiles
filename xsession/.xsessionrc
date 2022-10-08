@@ -1,0 +1,1 @@
+setxkbmap vl,no -option 'grp:rctrl_rshift_toggle,ctrl:swapcaps'
