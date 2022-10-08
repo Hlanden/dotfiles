@@ -9,7 +9,19 @@ o.termguicolors = true
 vim.cmd[[
 colorscheme tokyonight
 ]]
--- AirlineTheme violet
+
+require('lualine').setup{
+  tabline = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { require'tabline'.tabline_buffers },
+    lualine_x = { require'tabline'.tabline_tabs },
+    lualine_y = {},
+    lualine_z = {},
+  },
+}
+
+
 o.tokyonight_style = night
 o.tokyonight_italic_functions = 1
 -- g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
