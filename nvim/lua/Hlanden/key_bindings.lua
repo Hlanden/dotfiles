@@ -23,9 +23,9 @@ map('n', '<leader>k', ':wincmd k<CR>')
 map('n', '<leader>l', ':wincmd l<CR>')
 
 -- Vimrc
-map('n', '<silent> <leader>ev', ":execute 'edit' resolve($MYVIMRC)<cr>")
-map('n', '<silent> <leader>xv', ':source $MYVIMRC<CR>')
-map('n', '<silent> <leader>es', ':CocCommand snippets.editSnippets<CR>')
+map('n', '<leader>ev', ":execute 'edit' resolve($MYVIMRC)<cr>")
+map('n', '<leader>xv', ':source $MYVIMRC<CR>')
+map('n', '<leader>es', ':CocCommand snippets.editSnippets<CR>')
 
 -- Map mark-command to other key
 -- map(n, '<leader><', '`')
@@ -66,11 +66,11 @@ map('v','K',":m,'>-2<CR>gv=gv")
 map('i','<ESC>','<C-C>')
 
 -- Remap add because of tmux
-map('n','<C-a>','<C-a>')
+map('n','<C-a>','<C-a><C-a>')
 
 -- Window sizing
-map('n','<silent>','<Leader>-,5<C-W><,<CR>')
-map('n','<silent>','<Leader>+,5<C-W>>,<CR>')
+map('n','<Leader>-','5<C-W><,<CR>')
+map('n','<Leader>+','5<C-W>>,<CR>')
 
 -- Search for visual selection
 -- TODO: This is invalid...
@@ -82,4 +82,32 @@ map('n','<leader>ms','<Plug>MarkdownPreviewStop')
 
 -- Python specifip
 map('n','<leader>rp',':w,<CR>,:!python,%<CR>')
+
+-- FZF Fuzzyfinder
+map('n','<leader>f',':Files<CR>')
+map('n','<leader>t',':Ag<CR>')
+map('n','<leader>b',':Buffer<CR>')
+map('n','<leader>fm',':Marks<CR>')
+map('n','<leader>fg',':Commits<CR>')
+map('n','<leader>fw',':Windows<CR>')
+
+-- Nerdtree
+map('n','<leader>n',':NERDTreeFocus<CR>')
+map('n','n<C-n>',':NERDTree<CR>')
+map('n','n<C-t>',':NERDTreeToggle<CR>')
+map('n','n<C-f>',':NERDTreeFind<CR>')
+
+-- Debugger
+-- TODO: Check the plugins below, do you need them?
+map('n','t<C-n>',':TestNearest<CR>')
+map('n','t<C-f>',':TestFile<CR>')
+map('n','t<C-t>',':TestSuite<CR>')
+map('n','t<C-l>',':TestLast<CR>')
+map('n','t<C-g>',':TestVisit<CR>')
+-- for normal mode - the word under the cursor
+map('n','<Leader>di','<Plug>VimspectorBalloonEval')
+-- for visual mode, the visually selected text
+map('x','<Leader>di','<Plug>VimspectorBalloonEval')
+-- nmap <Leader>dd <Plug>Vimspector
+
 
