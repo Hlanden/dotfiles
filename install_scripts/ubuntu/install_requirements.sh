@@ -51,4 +51,5 @@ fc-cache -fv
 # Language servers
 sudo npm install --global pyright
 sudo apt-get install clangd-12
+sudo npm i -g bash-language-server
 
