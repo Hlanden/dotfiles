@@ -78,8 +78,8 @@ scrolling:
 # Scrolling distance multiplier.
 #multiplier: 3
 # Font configuration
-Font:
-  size: 14
+font:
+  size: 12
   normal:
     family: FiraCode Nerd Font
     # family: FontAwesome
