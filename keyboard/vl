@@ -8,22 +8,20 @@ xkb_symbols "basic" {
 
     key <BKSL>	{ [apostrophe,   asterisk, dead_doubleacute, multiply ]	};
     key <LSGT>	{ [      less,    greater,      onehalf, threequarters]	};
-    key <CAPS>	{ [ Control_L ]	};
-    key <LCTL>	{ [ Caps_lock ]	};
-
 
     key <AE01> {	[	  1,	exclam 		]	};
     key <AE02> {	[	  2,	quotedbl, at		]	};
     key <AE03> {	[	  3,	numbersign	]	};
     key <AE04> {	[	  4,	dollar		]	};
-    key <AE05> {	[	  5,	percent		]	};
-    key <AE06> {	[	  6,	asciicircum	]	};
-    key <AE07> {	[	  7,	ampersand	]	};
+    key <AE05> {	[	  5,	asciicircum			]	};
+    key <AE06> {	[	  6,	ampersand]	};
+    key <AE07> {	[	  7,	slash ]	};
     key <AE08> {	[	  8,	parenleft	]	};
     key <AE09> {	[	  9,	parenright	]	};
     key <AE10> {	[	  0,	equal	]	};
     key <AE11>	{ [      plus,   question,    plusminus, questiondown ]	};
-    key <AE12>	{ [ grave]	};
+    key <AE12>	{ [ backslash, grave]	};
+    
 
     key <AD01> {	[	  q,	Q 		]	};
     key <AD02> {	[	  w,	W		]	};
@@ -48,7 +46,7 @@ xkb_symbols "basic" {
     key <AC08> {	[	  k,	K		]	};
     key <AC09> {	[	  l,	L		]	};
     key <AC10> {	[ semicolon,	colon		]	};
-    key <AC11> {	[ slash,	backslash	]	};
+    key <AC11> {	[ slash,	quotes	]	};
 
     key <AB01> {	[	  z,	Z 		]	};
     key <AB02> {	[	  x,	X		]	};
@@ -57,8 +55,8 @@ xkb_symbols "basic" {
     key <AB05> {	[	  b,	B		]	};
     key <AB06> {	[	  n,	N		]	};
     key <AB07> {	[	  m,	M		]	};
-    key <AB08> {	[     comma,	asciitilde		]	};
-    key <AB09> {	[     period,	asciicircum		]	};
+    key <AB08> {	[     comma,	asciitilde ]	};
+    key <AB09> {	[     period,	percent			]	};
     key <AB10>	{ [     minus, underscore,       endash,       emdash ]	};
 
 };
