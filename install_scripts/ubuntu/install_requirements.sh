@@ -22,7 +22,7 @@ sudo make install
 sudo apt-get install python3-neovim
 # packer (neovim package manager)
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-	 ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	 $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # powerline
 pip install powerline-status
@@ -43,9 +43,9 @@ sudo apt install fonts-firacode
 
 sudo apt-get install unzip
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip
-mkdir -p ~/.fonts
-unzip ~/FiraCode.zip -d ~/.fonts
-rm ~/FiraCode.zip
+mkdir -p $HOME/.fonts
+unzip $HOME/FiraCode.zip -d $HOME/.fonts
+rm $HOME/FiraCode.zip
 fc-cache -fv
 
 # AG silver search
