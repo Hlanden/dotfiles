@@ -1,13 +1,13 @@
 # NOTE: Use at own risk. This will overwrite all existing symlinks
-mkdir -p ~/.config 
+mkdir -p $HOME/.config 
 
-ln -sf ~/dotfiles/bash/.bashrc ~/.bashrc
-ln -sf ~/dotfiles/bash/.bash_profile ~/.bash_profile
-ln -sf ~/dotfiles/nvim ~/.config/nvim
-ln -sf ~/dotfiles/tmux ~/.config/tmux
-ln -sf ~/dotfiles/ranger ~/.config/ranger
-ln -sf ~/dotfiles/ultisnips ~/.config/ultisnips
-ln -sf ~/dotfiles/xsession/.xsessionrc ~/.xsessionrc
+ln -sf $HOME/dotfiles/bash/.bashrc $HOME/.bashrc
+ln -sf $HOME/dotfiles/bash/.bash_profile $HOME/.bash_profile
+ln -sf $HOME/dotfiles/nvim $HOME/.config/nvim
+ln -sf $HOME/dotfiles/tmux $HOME/.config/tmux
+ln -sf $HOME/dotfiles/ranger $HOME/.config/ranger
+ln -sf $HOME/dotfiles/ultisnips $HOME/.config/ultisnips
+ln -sf $HOME/dotfiles/xsession/.xsessionrc $HOME/.xsessionrc
 
 # alacritty
 # TODO: i3
