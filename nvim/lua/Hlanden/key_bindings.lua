@@ -66,7 +66,7 @@ map('v','K',":m,'>-2<CR>gv=gv")
 map('i','<ESC>','<C-C>')
 
 -- Remap add because of tmux
-map('n','<C-a>','<C-a><C-a>')
+map('n','<C-a><C-a>','<C-a>')
 
 -- Window sizing
 map('n','<Leader>-','5<C-W><,<CR>')
@@ -110,4 +110,26 @@ map('n','<Leader>di','<Plug>VimspectorBalloonEval')
 map('x','<Leader>di','<Plug>VimspectorBalloonEval')
 -- nmap <Leader>dd <Plug>Vimspector
 
+-- Catkin make ros workspace
+function _G.build_current_catkin_ws()
+    path = vim.api.nvim_buf_get_name(0)
+    print("Current path", path)
+    pattern = '.*/catkin_ws/'
+    catkin_ws_path = string.match(path, pattern)
+    if (catkin_ws_path ~= nil) then
+        command = string.format("!cd %s && catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=1", catkin_ws_path)
+        print('Running command ', command)
+        -- local handle = io.popen(command)
+        -- local result = handle:read("*a")
+        -- handle:close()
+        vim.api.nvim_command(command)
+        return results
+    end
+    print.format('Unable to build workspace %s', catkin_ws_path)
+    return false
+end
+
+vim.keymap.set('n', '<leader>bc', ':lua build_current_catkin_ws()<CR>', { silent = false })
+
+map('t','<ESC>','<C-\\><C-n>')
 
