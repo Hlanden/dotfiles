@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
   use {'morhetz/gruvbox'}
   use {'shaunsingh/solarized.nvim'}
   use {'folke/tokyonight.nvim', branch = 'main'}
+  use { "rebelot/kanagawa.nvim"}
 
   -- Fuzzyfinder
   use {'junegunn/fzf', run = ":call fzf#install()"}

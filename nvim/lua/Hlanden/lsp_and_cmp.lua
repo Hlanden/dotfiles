@@ -115,3 +115,4 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 require('lspconfig').pyright.setup { capabilities = capabilities, on_attach = on_attach }
 require('lspconfig').clangd.setup  { capabilities = capabilities, on_attach = on_attach }
 require('lspconfig').bashls.setup  { capabilities = capabilities, on_attach = on_attach }
+require('lspconfig').lemminx.setup  { capabilities = capabilities, on_attach = on_attach , filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "urdf", "xacro"}}

@@ -55,4 +55,10 @@ sudo apt install silversearcher-ag
 sudo npm install --global pyright
 sudo apt-get install clangd-12
 sudo npm i -g bash-language-server
+wget https://github.com/redhat-developer/vscode-xml/releases/download/0.21.0/lemminx-linux.zip
+mkdir -p $HOME/language-servers/lemminx-linux
+unzip $HOME/lemminx-linux.zip -d $HOME/language-servers/lemminx-linux
+rm -rf $HOME/lemminx-linux.zip
+
+echo 'export "$PATH=$PATH:$HOME/language-servers/lemminx-linux"' >> $HOME/.bashrc
 

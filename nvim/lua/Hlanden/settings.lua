@@ -34,6 +34,9 @@ set sessionoptions+=tabpages,globals " store tabpages and globals in session
 ]]
 
 require('lualine').setup{
+    options = {
+        globalstatus = true, 
+    },
   tabline = {
     lualine_a = {},
     lualine_b = {},
@@ -47,6 +50,13 @@ require('lualine').setup{
 
 o.tokyonight_style = night
 o.tokyonight_italic_functions = 1
+vim.cmd[[
+highlight LineNr guifg=cyan
+highlight CursorLineNr guifg=yellow
+]]
+
+-- hi WinSeparator guibg=#000000 guifg=#ffffff
+-- hi VertSplit ctermbg=NONE guibg=NONE
 -- g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 
 -- vim.cmd[]
@@ -63,11 +73,14 @@ o.scrolloff = 8
 
 -- Better editor UI
 o.number = true
-o.numberwidth = 5
+o.numberwidth = 3
 o.relativenumber = true
 o.signcolumn = 'yes:1'
 o.cursorline = true
 
+vim.cmd[[
+highlight CursorLine guibg=#404040 guifg=NONE
+]]
 -- Better editing experience
 o.expandtab = true
 -- o.smarttab = true
@@ -122,3 +135,4 @@ o.jumpoptions = 'view'
 -- Map <leader> to space
 g.mapleader = ' '
 g.maplocalleader = ' '
+
