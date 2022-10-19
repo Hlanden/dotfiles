@@ -58,7 +58,12 @@ sudo npm i -g bash-language-server
 wget https://github.com/redhat-developer/vscode-xml/releases/download/0.21.0/lemminx-linux.zip
 mkdir -p $HOME/language-servers/lemminx-linux
 unzip $HOME/lemminx-linux.zip -d $HOME/language-servers/lemminx-linux
+mv $HOME/language-servers/lemminx-linux/lemminx-linux $HOME/language-servers/lemminx-linux/lemminx
 rm -rf $HOME/lemminx-linux.zip
 
-echo 'export "$PATH=$PATH:$HOME/language-servers/lemminx-linux"' >> $HOME/.bashrc
+echo 'export "PATH=$PATH:$HOME/language-servers/lemminx-linux"' >> $HOME/.bashrc
 
+# ZSH
+sudo apt install zsh 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install ripgrep
