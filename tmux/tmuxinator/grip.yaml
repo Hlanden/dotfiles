@@ -1,7 +1,7 @@
 # /home/jorgen/.config/tmuxinator/master.yml
 
-name: master
-root: ~/Work/NTNU/master-thesis/code/
+name: rosrun
+root: ~/dev/grip/catkin_ws
 tmux_command: TERM=xterm-256color tmux
 
 # Optional tmux socket
@@ -49,46 +49,38 @@ on_project_start:
   - xdotool key --window $(xdotool getactivewindow) "super+c"
 
 windows:
-  - git:
-      layout: even-horizontal
+  - rosrun:
+      layout: tiled
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
-      root: ~/Work/NTNU/master-thesis/code/
       panes:
-        - git:
-          - git status
-  - ros-launch:
+        - main:
+          - source devel/setup.zsh
+        - roscore:
+          - source devel/setup.zsh
+          - roscore
+        - teleop_twist:
+          - source devel/setup.zsh
+        - rqt_reconfigure:
+          - source devel/setup.zsh
+        - rqt_plot:
+          - source devel/setup.zsh
+        - ros_cli:
+          - source devel/setup.zsh
+  - grip_control:
       layout: even-horizontal
-      root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/
       panes:
-        - launch1:
-          - sourceros
-          - source install/setup.bash
-        - launch2:
-          - sourceros
-          - source install/setup.bash
-  - general-code: 
-      root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/
+        - editor: 
+          - cd src/grip/grip_control
+  - grip_description:
+      layout: even-horizontal
       panes:
-        - code:
-          - sourceros
-          - source install/setup.bash
-  - ros-control: 
-      root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/src/ferry_charger/ferry_charger_controllers/
+        - editor: 
+          - cd src/grip/grip_description
+  - grip_hw_interface:
+      layout: even-horizontal
       panes:
-        - code:
-          - sourceros
-          - source install/setup.bash
-  - ros-description: 
-      root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/src/ferry_charger/ferry_charger_description/
-      panes:
-        - code:
-          - sourceros
-          - source install/setup.bash
-  - ros-computer-vision: 
-      root: ~/Work/NTNU/master-thesis/code/ferry-charger-ros2ws/src/ferry_charger/ferry_charger_computer_vision/
-      panes:
-        - code:
-          - sourceros
-          - source install/setup.bash
+        - editor: 
+          - cd src/grip/grip_hw_interface
+
