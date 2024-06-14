@@ -81,11 +81,13 @@ scrolling:
 font:
   size: 12
   normal:
-    family: FiraCode Nerd Font
+    family: FiraCodeNerdFontComplete Nerd Font
+    # family: Iosevka Nerd Font
     # family: FontAwesome
     style: Regular
   italic:
-    family: FiraCode Nerd Font
+    family: FiraCodeNerdFontComplete Nerd Font
+    # family: Iosevka Nerd Font
     # family: FontAwesome
     style: Italic
   # bold:

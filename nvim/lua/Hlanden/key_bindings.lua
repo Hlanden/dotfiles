@@ -50,6 +50,8 @@ map('n', '<leader>d', '"_d')
 map('v', '<leader>d', '"_d')
 
 -- KEY-BINDINGS:
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z,')
@@ -69,8 +71,10 @@ map('i', '<ESC>', '<C-C>')
 map('n', '<C-a><C-a>', '<C-a>')
 
 -- Window sizing
-map('n', '<Leader>-', '5<C-W><,<CR>')
-map('n', '<Leader>+', '5<C-W>>,<CR>')
+map('n', '<Leader><', '5<C-W><,<CR>')
+map('n', '<Leader>>', '5<C-W>>,<CR>')
+map('n', '<Leader>+', '5<C-W>+,<CR>')
+map('n', '<Leader>-', '5<C-W>-,<CR>')
 
 -- Search for visual selection
 -- TODO: This is invalid...
@@ -93,20 +97,21 @@ map('n', '<leader>rp', ':w,<CR>,:!python,%<CR>')
 
 -- Telescope Fuzzyfinder
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', 'ff', builtin.find_files, {})
-vim.keymap.set('n', 'fg', builtin.live_grep, {})
-vim.keymap.set('n', 'fc', builtin.git_commits, {})
-vim.keymap.set('n', 'fb', builtin.buffers, {})
-vim.keymap.set('n', 'fq', builtin.quickfix, {})
-vim.keymap.set('n', 'fr', builtin.registers, {})
-vim.keymap.set('n', 'fm', builtin.marks, {})
-vim.keymap.set('n', 'fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+-- vim.keymap.set('n', '<leader>fc', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fq', builtin.quickfix, {})
+vim.keymap.set('n', '<leader>fr', builtin.registers, {})
+vim.keymap.set('n', '<leader>fm', builtin.marks, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
-vim.keymap.set('n', 'gd', builtin.lsp_definitions, bufopts)
-vim.keymap.set('n', 'gr', builtin.lsp_references, bufopts)
-vim.keymap.set('n', 'gi', builtin.lsp_implementations, bufopts)
-vim.keymap.set('n', 'gt', builtin.lsp_type_definitions, bufopts)
-vim.keymap.set('n', 'gs', builtin.lsp_document_symbols, bufopts)
+vim.keymap.set('n', 'gd', builtin.lsp_definitions)
+vim.keymap.set('n', 'gr', builtin.lsp_references)
+vim.keymap.set('n', 'gi', builtin.lsp_implementations)
+vim.keymap.set('n', 'gt', builtin.lsp_type_definitions)
+vim.keymap.set('n', 'gs', builtin.lsp_document_symbols)
+vim.keymap.set('n', 'gS', builtin.lsp_workspace_symbols)
 
 -- NeoTree file explorer
 map('n', '<leader>nn', ':NvimTreeToggle<CR>')
@@ -160,3 +165,201 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+-- DAP (debugging)
+map('n','<F5>',":lua require'dap'.continue()<CR>")
+map('n','<F10>',":lua require'dap'.step_over()<CR>")
+map('n','<F11>',":lua require'dap'.step_into()<CR>")
+map('n','<F12>',":lua require'dap'.step_out()<CR>")
+map('n','<leader>b',":lua require'dap'.toggle_breakpoint()<CR>")
+map('n','<leader>B',":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+map('n','<leader>lp',":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+map('n','<leader>dr',":lua require'dap'.repl.open()<CR>")
+map('n','<leader>dl',":lua require'dap'.run_last()<CR>")
+
+-- Clangd
+map('n', '<leader><leader>h', "<C-w>v<leader>l :ClangdSwitchSourceHeader<CR>")
+
+-- UndoTree
+map('n', '<leader>u', ":UndotreeToggle<CR>")
+
+-- ChatGPT
+map('n', '<leader>cc', ":ChatGPT<CR>")
+map('v', '<leader>cc', ":ChatGPTEditWithInstructions<CR>")
+
+
+-- Command center
+require("telescope").load_extension("commander")
+
+local commander = require("commander")
+local noremap = {noremap = true}
+
+commander.add({
+    {
+        desc = "Open command center",
+        cmd = "<CMD>Telescope commander<CR>",
+        keys = {
+            {"n", "<leader>fc", noremap},
+            {"v", "<leader>fc", noremap},
+        }
+    },
+
+    -- Pane navigation
+    {
+        desc = "Navigate to pane below",
+        cmd = "<CMD>wincmd j<CR>",
+        keys = {
+            {"n", "<leader>j", noremap},
+        }
+    },
+    {
+        desc = "Navigate to pane above",
+        cmd = "<CMD>wincmd k<CR>",
+        keys = {
+            {"n", "<leader>k", noremap},
+        }
+    },
+    {
+        desc = "Navigate to pane left",
+        cmd = "<CMD>wincmd h<CR>",
+        keys = {
+            {"n", "<leader>h", noremap},
+        }
+    },
+    {
+        desc = "Navigate to pane right",
+        cmd = "<CMD>wincmd l<CR>",
+        keys = {
+            {"n", "<leader>l", noremap},
+        }
+    },
+
+    -- Telescope stuff
+    {
+        desc = "Find files",
+        cmd = "<CMD>Telescope find_files<CR>",
+        keys = {"n", "<leader>ff", noremap}
+    },
+    {
+        desc = "Find hidden files",
+        cmd = "<CMD>Telescope find_files hidden=true<CR>",
+        keys = {"n", "<leader>fhf", noremap}
+    },
+    {
+        desc = "Search inside all files",
+        cmd = "<CMD>Telescope live_grep<CR>",
+        keys = {"n", "<leader>fg", noremap}
+    },
+    {
+        desc = "Search (grep) current word in all files",
+        cmd = "<CMD>Telescope grep_string<CR>",
+        keys = {"n", "<leader>faw", noremap},
+    },
+    {
+        desc  = "Search inside current buffer",
+        cmd = "<CMD>Telescope current_buffer_fuzzy_find<CR>",
+        keys = { "n", "<leader>fl", noremap },
+    },
+    {
+        desc = "Search in all vim-commands",
+        cmd = "<CMD>Telescope commands<CR>",
+        keys = { "n", "<leader>f:", noremap },
+    },
+    {
+        desc = "Search in vim-command-history",
+        cmd = "<CMD>Telescope command_history<CR>",
+        keys = { "n", "<leader>fh:", noremap },
+    },
+    {
+        desc = "Telescope LSP definitions",
+        cmd = "<CMD>Telescope lsp_definitions<CR>",
+        keys = { "n", "gd", noremap },
+    },
+    {
+        desc = "Telescope LSP references",
+        cmd = "<CMD>Telescope lsp_references<CR>",
+        keys = { "n", "gr", noremap},
+    },
+    {
+        desc = "Telescope LSP implmentations",
+        cmd = "<CMD>Telescope lsp_implementations<CR>",
+        keys = {"n", "gi", noremap},
+    },
+    {
+        desc = "Telescope document symbols",
+        cmd = "<CMD>Telescope lsp_document_symbols<CR>",
+        keys = {"n", "gs", noremap},
+    },
+    {
+        desc = "Telescope workspace symbols",
+        cmd = "<CMD>Telescope lsp_workspace_symbols<CR>",
+        keys = {"n", "gS", noremap},
+    },
+    {
+        desc = "Toggle term",
+        cmd = "<CMD>ToggleTerm<CR>",
+        keys = { "n" , "<leader>tt", noremap },
+    },
+
+    -- Keys to resize the window size. This calls Hydra to make resizing easier
+    {
+        desc = "Resize (increase) buffer height",
+        cmd = "zk",
+        keys = { "n", "zk", noremap },
+    },
+
+    {
+        desc = "DAP continue",
+        cmd = "<CMD>lua require('dap').continue()<CR>",
+        keys = { "n", "<F5>", noremap },
+    },
+
+    {
+        desc = "Toggle zen mode",
+        cmd = "<CMD>lua require('zen-mode').toggle()<CR>",
+        keys = { "n" , "<leader>zz", noremap },
+    },
+})
+
+-- Window resizer with hydra
+local Hydra = require('hydra')
+Hydra({
+    name = 'Resizer',
+    mode = 'n',
+    body = 'z',
+    heads = {
+        { 'k', '<CMD>:res +1<CR>' , {desc = "" }},
+        { 'j', '<CMD>:res -1<CR>' , {desc = "" }},
+        { 'h', '<CMD>:vertical resize -1<CR>', {desc = "" }},
+        { 'l', '<CMD>:vertical resize +1<CR>', {desc = "" }},
+    }
+})
+
+local dap = require('dap')
+Hydra({
+    name = "Debugger",
+    mode = "n",
+    body = "<leader>d",
+    config = {
+        -- Using the 'pink' color is important! Wihout it DAP commands don't quite work
+        color="pink",
+        hint = {
+            type = "window",
+            border = "rounded"
+        }
+    },
+    heads = {
+        { 'C', dap.continue, silent=true},
+        { 'B', "<CMD>lua require('dap').toggle_breakpoint()<CR>", {desc = "Toggle Breakpoint"}},
+        { 'J', "<CMD>lua require('dap').step_over()<CR>", {desc = "Over"}},
+        { 'L', "<CMD>lua require('dap').step_into()<CR>", {desc = "Into"}},
+        { 'e', "<CMD>lua require('dapui').eval()<CR>", exit=true, {desc = "Eval"}},
+        { 't', ":lua require('neotest').run.run({strategy = 'dap'})<CR>", {desc="Run nearest test with DAP"}},
+        { 's', ":lua require('neotest').summary.toggle()<CR>", {desc="Toggle test summary"}},
+        { 'v', "<CMD>lua require('dapui').toggle()<CR>", {desc = "Toggle View"}},
+        { '1', "<CMD>lua require('dapui').toggle(1)<CR>"},
+        { '2', "<CMD>lua require('dapui').toggle(2)<CR>"},
+        { 'j', "j" },
+        { 'k', "k" },
+    }
+})

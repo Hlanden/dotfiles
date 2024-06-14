@@ -13,13 +13,13 @@ cmp.setup({
         -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-b>'] = cmp.mapping.scroll_docs( -4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<Tab>'] = cmp.mapping.select_next_item(),
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<C-e>'] = cmp.mapping.abort(),
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
@@ -29,7 +29,7 @@ cmp.setup({
         -- { name = 'snippy' }, -- For snippy users.
     }, {
         { name = 'buffer' },
-    })
+    }),
 })
 
 -- Set configuration for specific filetype.
@@ -41,6 +41,7 @@ cmp.setup.filetype('gitcommit', {
     })
 })
 
+-- TODO: These does not work anymore
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
@@ -55,7 +56,12 @@ cmp.setup.cmdline(':', {
     sources = cmp.config.sources({
         { name = 'path' }
     }, {
-        { name = 'cmdline' }
+        {
+            name = 'cmdline',
+            option = {
+                ignore_cmds = { 'Man', '!' }
+            }
+        }
     })
 })
 
@@ -111,9 +117,17 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 require('lspconfig').pyright.setup { capabilities = capabilities, on_attach = on_attach }
 require('lspconfig').clangd.setup { capabilities = capabilities, on_attach = on_attach }
 require('lspconfig').bashls.setup { capabilities = capabilities, on_attach = on_attach }
+require('lspconfig').rust_analyzer.setup { capabilities = capabilities, on_attach = on_attach }
+require('lspconfig').kotlin_language_server.setup{ capabilities = capabilities, on_attach = on_attach }
+require('lspconfig').angularls.setup{ capabilities = capabilities, on_attach = on_attach }
+require'lspconfig'.biome.setup{}
+require'lspconfig'.vtsls.setup{}
+require('lspconfig').cssls.setup{ capabilities = capabilities, on_attach = on_attach }
+require'lspconfig'.html.setup{}
 require('lspconfig').lemminx.setup { capabilities = capabilities, on_attach = on_attach,
     filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "urdf", "xacro" } }
-require 'lspconfig'.sumneko_lua.setup {
+require('lspconfig').ltex.setup { capabilities = capabilities, on_attach = on_attach }
+require 'lspconfig'.lua_ls.setup {
     capabilities = capabilities, on_attach = on_attach,
     settings = {
         Lua = {
@@ -136,3 +150,75 @@ require 'lspconfig'.sumneko_lua.setup {
         },
     },
 }
+
+-- Formatters
+-- Utilities for creating configurations
+local util = require "formatter.util"
+
+-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
+require("formatter").setup {
+    -- Enable or disable logging
+    logging = true,
+    -- Set the log level
+    log_level = vim.log.levels.WARN,
+    -- All formatter configurations are opt-in
+    filetype = {
+        -- Formatter configurations for filetype "lua" go here
+        -- and will be executed in order
+        lua = {
+            -- "formatter.filetypes.lua" defines default configurations for the
+            -- "lua" filetype
+            require("formatter.filetypes.lua").stylua,
+
+            -- You can also define your own configuration
+            function()
+                -- Supports conditional formatting
+                if util.get_current_buffer_file_name() == "special.lua" then
+                    return nil
+                end
+
+                -- Full specification of configurations is down below and in Vim help
+                -- files
+                return {
+                    exe = "stylua",
+                    args = {
+                        "--search-parent-directories",
+                        "--stdin-filepath",
+                        util.escape_path(util.get_current_buffer_file_path()),
+                        "--",
+                        "-",
+                    },
+                    stdin = true,
+                }
+            end
+        },
+        python = {
+            require("formatter.filetypes.python").black,
+        },
+        json = {
+            require("formatter.filetypes.json").fixjson,
+        },
+        typescript = {
+            require("formatter.filetypes.typescript").tsfmt,
+        },
+
+        -- Use the special "*" filetype for defining formatter configurations on
+        -- any filetype
+        ["*"] = {
+            -- "formatter.filetypes.any" defines default configurations for any
+            -- filetype
+            require("formatter.filetypes.any").remove_trailing_whitespace
+        }
+    }
+}
+
+-- Linters
+require('lint').linters_by_ft = {
+    cpp = { 'cpplint', }
+}
+-- -- autocmd on write
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   callback = function()
+--     require("lint").try_lint()
+--   end,
+-- })
