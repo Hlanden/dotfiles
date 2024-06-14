@@ -267,3 +267,8 @@ exec_always --no-startup-id "feh --randomize --bg-fill ~/Pictures/wallpapers_old
 exec_always --no-startup-id "xinput set-prop 'SYNA8013:00 06CB:CE69 Touchpad' 'libinput Tapping Enabled' 1"
 exec_always --no-startup-id "xinput set-prop 'SYNA8013:00 06CB:CE69 Touchpad' 'libinput Natural Scrolling Enabled' 1"
 
+bindsym $mod+Shift+. exec --no-startup-id i3lock
+
+# set desktop background with custom effect
+exec_always --no-startup-id "betterlockscreen -w dim -u ~/Pictures/wallpapers_old/wallpapers/landscape"
+bindsym $mod+shift+x "exec betterlockscreen -l dim"

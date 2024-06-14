@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/bashrc.pre.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.pre.bash"
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -134,7 +136,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-source /home/jorgen/alacritty/extra/completions/alacritty.bash
+# source /home/jorgen/alacritty/extra/completions/alacritty.bash
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -142,10 +144,12 @@ force_color_prompt=yes
 export XDG_CONFIG_HOME=~/.config/
 export EDITOR="nvim"
 
-neofetch
-
-if [ -f /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh ]; then
-    source /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh
+# Powerline configuration
+if [ -f $HOME/.local/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh ]; then
+    $HOME/.local/bin/powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    source $HOME/.local/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
 export MANPATH="$MANPATH:/usr/local/texlive/2021/texmf-dist/doc/man"
@@ -168,11 +172,10 @@ fi
 
 ### ALIASES ###
 # CD shortcuts
-alias cdw='cd ~/Work'
 alias cdd='cd ~/.dotfiles/'
 alias cdc='cd ~/.config/'
-alias cdod='cd "/mnt/4AFC94E9FC94D115/OneDrive"'
-alias cdm='cd ~/Work/NTNU/master-thesis/'
+alias cdod='cd ~/OneDrive/'
+alias cdg='cd ~/dev/genius/ros_ws/'
 
 # ls
 alias ls='ls -lah --color=auto'
@@ -202,9 +205,11 @@ up () {
   fi
 }
 
+# Source base ros distro
+source /opt/ros/noetic/setup.bash
+
 # source environments
-alias sourceros='source /opt/ros/foxy/setup.bash'
-alias sourceconda='source /home/jorgen/anaconda3/etc/profile.d/conda.sh'
+alias sourceros='source ~/dev/genius/ros_ws/devel/setup.bash'
 alias sb='source ~/.bashrc'
 
 # Sync onedrive
@@ -214,3 +219,20 @@ alias ods='onedrive --synchronize'
 alias ibi='tmuxinator ibi'
 alias master='tmuxinator master'
 alias mlatex='tmuxinator master-latex'
+
+# Brew
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+xset r rate 250 30
+export "PATH=$PATH:$HOME/language-servers/lemminx-linux"
+. "$HOME/.cargo/env"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"
+export GCM_CREDENTIAL_STORE=gpg
+
+# Add newer cmake as default
+export "PATH=$HOME/system/bin/:$PATH"
+

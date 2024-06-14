@@ -83,4 +83,8 @@ windows:
       panes:
         - editor: 
           - cd src/grip/grip_hw_interface
-
+  - debugger:
+      layout: even-horizontal
+      panes:
+        - editor: 
+          - cd src/grip/grip_hw_interface

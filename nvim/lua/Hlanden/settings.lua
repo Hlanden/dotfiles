@@ -4,11 +4,40 @@ local o = vim.o
 -- cmd('syntax on')
 -- vim.api.nvim_command('filetype plugin indent on')
 
+-- vim.cmd[[
+-- colorscheme tokyonight
+-- ]]
+-- vim.cmd[[
+-- colorscheme gruvbox
+-- ]]
 o.termguicolors = true
 -- o.background = 'dark'
 vim.cmd[[
-colorscheme tokyonight
+colorscheme gruvbox
 ]]
+require('tokyonight').setup({
+    -- style="storm",
+    style="moon",
+    transparent=true,
+    terminal_colors=true,
+    sidebars = { "qf", "help" },
+})
+
+require('rose-pine').setup({
+    --- @usage 'auto'|'main'|'moon'|'dawn'
+	variant = 'moon',
+	--- @usage 'main'|'moon'|'dawn'
+	dark_variant = 'main',
+	bold_vert_split = false,
+	dim_nc_background = false,
+	disable_background = false,
+	disable_float_background = false,
+	disable_italics = false
+})
+
+vim.cmd('colorscheme nightfox')
+-- vim.cmd('colorscheme rose-pine')
+-- vim.cmd('colorscheme gruvbox')
 
 require'tabline'.setup {
     -- Defaults configuration options
@@ -28,6 +57,7 @@ require'tabline'.setup {
         show_tabs_only = false, -- this shows only tabs instead of tabs + buffers
     }
 }
+
 vim.cmd[[
 set guioptions-=e " Use showtabline in gui vim
 set sessionoptions+=tabpages,globals " store tabpages and globals in session
@@ -47,13 +77,10 @@ require('lualine').setup{
   },
 }
 
-
-o.tokyonight_style = night
-o.tokyonight_italic_functions = 1
-vim.cmd[[
-highlight LineNr guifg=cyan
-highlight CursorLineNr guifg=yellow
-]]
+-- vim.cmd[[
+-- highlight LineNr guifg=cyan
+-- highlight CursorLineNr guifg=yellow
+-- ]]
 
 -- hi WinSeparator guibg=#000000 guifg=#ffffff
 -- hi VertSplit ctermbg=NONE guibg=NONE
@@ -73,9 +100,9 @@ o.scrolloff = 8
 
 -- Better editor UI
 o.number = true
-o.numberwidth = 3
+-- o.numberwidth = 3
 o.relativenumber = true
-o.signcolumn = 'yes:1'
+o.signcolumn = 'auto'
 o.cursorline = true
 
 vim.cmd[[
@@ -136,6 +163,7 @@ o.jumpoptions = 'view'
 g.mapleader = ' '
 g.maplocalleader = ' '
 
+g.vim_json_conceal=0
 -- Lua tree default setup
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -241,3 +269,51 @@ require('telescope').setup{
     -- please take a look at the readme of the extension you want to configure
   }
 }
+
+require("dapui").setup()
+require("neotest").setup({
+  adapters = {
+    require("neotest-python")({
+        dap = { console = "integratedTerminal" },
+    }),
+  },
+  quickfix = {
+      enabled = false,
+      open = false
+  }, 
+  output = {
+      enabled = true,
+      open_on_run = false,
+      enter = true,
+      auto_close = true,
+      short = false,
+  }, 
+  -- summary = {
+  --     enabled = true, 
+  --     animated = true,
+  --     expand_errors = true,
+  --     follow = true,
+  -- }
+})
+
+-- Hex editor 
+require 'hex'.setup()
+
+g.vimtex_syntax_conceal_disable = true
+
+
+require("flutter-tools").setup {}
+-- Open dapui windows automaitically
+-- local dap, dapui = require("dap"), require("dapui")
+-- dap.listeners.after.event_initialized["dapui_config"] = function()
+--   dapui.open()
+-- end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+--   dapui.close()
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--   dapui.close()
+-- end
+
+-- Snippets 
+-- g.UltiSnipsSnippetDirectories = "/home/jorgen/dotfiles/nvim/lua/Hlanden/snippets/"

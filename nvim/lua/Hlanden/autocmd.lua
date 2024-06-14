@@ -8,19 +8,15 @@
 -- autocmd BufEnter *.tex set bg=light
 -- autocmd BufEnter *.tex AirlineTheme solarized
 -- autocmd FileType c,cpp,h,hpp,objc map <buffer> = <Plug>(coc-format-selected)
--- autocmd FileType python set colorcolumn=82
 -- au Filetype c,cpp,json,objc,objccp,py,js call rainbow#load()
 
 local api = vim.api
- 
+
 -- Highlight on yank
 local yankGrp = api.nvim_create_augroup("YankHighlight", { clear = true })
 api.nvim_create_autocmd("TextYankPost", {
-  command = "silent! lua vim.highlight.on_yank()",
-  group = yankGrp,
+    command = "silent! lua vim.highlight.on_yank()",
+    group = yankGrp,
 })
 
-api.nvim_create_autocmd(
-  "BufEnter",
-  { pattern = {'*.py'}, command = "set colorcolumn=82" }
-)
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

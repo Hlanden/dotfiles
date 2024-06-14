@@ -15,6 +15,15 @@ return require('packer').startup(function(use)
     use { 'shaunsingh/solarized.nvim' }
     use { 'folke/tokyonight.nvim', branch = 'main' }
     use { "rebelot/kanagawa.nvim" }
+    use({
+        'rose-pine/neovim',
+        as = 'rose-pine',
+        config = function()
+            require("rose-pine").setup()
+            vim.cmd('colorscheme rose-pine')
+        end
+    })
+    use({ 'EdenEast/nightfox.nvim', })
 
     -- Fuzzyfinder
     -- use {
@@ -30,6 +39,13 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    -- Tools/telescope
+    use {
+        "FeiyouG/command_center.nvim",
+        requires = { "nvim-telescope/telescope.nvim" }
+    }
+    use { 'anuvyklack/hydra.nvim' }
 
     -- Notifications
     use { 'rcarriga/nvim-notify' }
@@ -55,8 +71,20 @@ return require('packer').startup(function(use)
         requires = { { 'hoob3rt/lualine.nvim', opt = true }, { 'kyazdani42/nvim-web-devicons', opt = true } }
     }
 
-    -- ??
-    use { 'puremourning/vimspector' }
+    -- Debuggers
+    -- use { 'puremourning/vimspector' }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+    use { 'mfussenegger/nvim-dap-python' }
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-neotest/nvim-nio"
+        }
+    }
+    use {'nvim-neotest/neotest-python'}
 
     -- Tpope
     use { 'tpope/vim-obsession' }
@@ -65,6 +93,7 @@ return require('packer').startup(function(use)
     use { 'tpope/vim-fugitive' }
     use { 'tpope/vim-repeat' }
     use { 'tpope/vim-unimpaired' }
+    use { 'tpope/vim-rhubarb' }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -76,7 +105,8 @@ return require('packer').startup(function(use)
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/cmp-cmdline' }
+    use { 'hrsh7th/cmp-cmdline',
+        commit = "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063" }
     use { 'hrsh7th/nvim-cmp' }
     use { 'SirVer/ultisnips' }
     use { 'quangnguyen30192/cmp-nvim-ultisnips' }
@@ -94,7 +124,12 @@ return require('packer').startup(function(use)
     use { 'mhinz/vim-startify' }
 
     -- Markdown
-    -- use { 'iamcco/markdown-preview.nvim', ft = 'markdown', run = 'cd app && yarn install' }
+    -- -- install without yarn or npm
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+    -- use {"ellisonleao/glow.nvim"}
 
     -- Tools
     use { 'jiangmiao/auto-pairs' }
@@ -103,6 +138,7 @@ return require('packer').startup(function(use)
 
     -- Mason: Manage LSP, DAP, linters and formatters
     use { "williamboman/mason.nvim" }
+    use { "williamboman/mason-lspconfig.nvim" }
 
     -- Toggle term
     use { "akinsho/toggleterm.nvim", tag = '*', config = function()
@@ -129,4 +165,64 @@ return require('packer').startup(function(use)
     --  cmd = 'ALEEnable',
     --  config = 'vim.cmd[[ALEEnable]]'
     --}
+
+    -- Undotree
+    use { "mbbill/undotree" }
+
+    -- Formatters
+    use { 'mhartington/formatter.nvim' }
+
+    -- linters
+    use { 'mfussenegger/nvim-lint' }
+
+    -- ChatGPT
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup({
+                -- optional configuration
+            })
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
+
+
+    -- Documentation
+    use {
+        'kkoomen/vim-doge',
+        run = ':call doge#install()'
+    }
+
+    -- Zen mode
+    use {
+        "folke/zen-mode.nvim",
+        config = function()
+            require("zen-mode").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
+
+    -- Presentation
+    use { "sotte/presenting.vim" }
+
+    -- Hex editor
+    use { "RaafatTurki/hex.nvim" }
+
+    -- use { 'subnut/nvim-ghost.nvim' }
+    --
+    use { 'chrisbra/csv.vim' }
+
+    use { "dhruvasagar/vim-table-mode" }
+
+    use { "mzlogin/vim-markdown-toc" }
+
+    use { "akinsho/flutter-tools.nvim" }
+
 end)
