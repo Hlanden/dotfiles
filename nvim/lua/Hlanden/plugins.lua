@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
     -- }
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
@@ -56,7 +56,6 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
     use { 'lervag/vimtex' }
@@ -109,7 +108,7 @@ return require('packer').startup(function(use)
         commit = "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063" }
     use { 'hrsh7th/nvim-cmp' }
     use { 'SirVer/ultisnips' }
-    use { 'quangnguyen30192/cmp-nvim-ultisnips' }
+    -- use { 'quangnguyen30192/cmp-nvim-ultisnips' }
 
     -- Visual
     use { 'frazrepo/vim-rainbow' }

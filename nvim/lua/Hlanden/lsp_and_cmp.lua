@@ -127,6 +127,7 @@ require'lspconfig'.html.setup{}
 require('lspconfig').lemminx.setup { capabilities = capabilities, on_attach = on_attach,
     filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "urdf", "xacro" } }
 require('lspconfig').ltex.setup { capabilities = capabilities, on_attach = on_attach }
+require('lspconfig').texlab.setup { capabilities = capabilities, on_attach = on_attach }
 require 'lspconfig'.lua_ls.setup {
     capabilities = capabilities, on_attach = on_attach,
     settings = {
