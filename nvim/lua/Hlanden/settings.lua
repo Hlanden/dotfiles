@@ -316,4 +316,10 @@ require("flutter-tools").setup {}
 -- end
 
 -- Snippets 
--- g.UltiSnipsSnippetDirectories = "/home/jorgen/dotfiles/nvim/lua/Hlanden/snippets/"
+g.UltiSnipsSnippetDirectories = {"UltiSnips"}
+g.UltiSnipsExpandTrigger = "<tab>"
+g.UltiSnipsJumpForwardTrigger = "<c-j>"
+g.UltiSnipsJumpBackwardTrigger = "<c-k>"
+g.UltiSnipsEnableSnipMate = 0
+
+g.vimtex_view_general_viewer = 'okular'
