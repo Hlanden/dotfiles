@@ -166,16 +166,6 @@ end
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
--- DAP (debugging)
-map('n','<F5>',":lua require'dap'.continue()<CR>")
-map('n','<F10>',":lua require'dap'.step_over()<CR>")
-map('n','<F11>',":lua require'dap'.step_into()<CR>")
-map('n','<F12>',":lua require'dap'.step_out()<CR>")
-map('n','<leader>b',":lua require'dap'.toggle_breakpoint()<CR>")
-map('n','<leader>B',":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-map('n','<leader>lp',":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
-map('n','<leader>dr',":lua require'dap'.repl.open()<CR>")
-map('n','<leader>dl',":lua require'dap'.run_last()<CR>")
 
 -- Clangd
 map('n', '<leader><leader>h', "<C-w>v<leader>l :ClangdSwitchSourceHeader<CR>")
@@ -319,6 +309,52 @@ commander.add({
         cmd = "<CMD>lua require('zen-mode').toggle()<CR>",
         keys = { "n" , "<leader>zz", noremap },
     },
+    -- DAP (debugging)
+    { 
+        desc = "DAP continue"
+        cmd = ":lua require'dap'.continue()<CR>", 
+        keys = {"n", "<F5>", noremap}
+    }, 
+    {
+        desc = "DAP Step Over", 
+        cmd = ":lua require'dap'.step_over()<CR>",
+        keys = {'n','<F10>', noremap}
+    },
+    {
+        desc = "DAP Step Into", 
+        cmd = ":lua require'dap'.step_into()<CR>",
+        keys = {'n','<F11>', noremap}
+    },
+    {
+        desc = "DAP Step out", 
+        cmd = ":lua require'dap'.step_out()<CR>",
+        keys = {'n','<F12>', noremap}
+    },
+    {
+        desc = "DAP Toggle Breakpoint", 
+        cmd = ":lua require'dap'.toggle_breakpoint()<CR>",
+        keys = {'n','<leader>b', noremap}
+    },
+    {
+        desc = "DAP Toggle Breakpoint w. condition", 
+        cmd = ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+        keys = {'n','<leader>B', noremap}
+    },  
+    { 
+        desc = "DAP Toggle Breakpoint w. log point message", 
+        cmd = ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
+        keys = {'n','<leader>lp', noremap}
+    }, 
+    { 
+        desc = "DAP Repl Open", 
+        cmd = ":lua require'dap'.repl.open()<CR>",
+        keys = {'n','<leader>dr', noremap}
+    }, 
+    { 
+        desc = "DAP run last", 
+        cmd = ":lua require'dap'.run_last()<CR>",
+        keys = {'n','<leader>dl', noremap}
+    }
 })
 
 -- Window resizer with hydra
