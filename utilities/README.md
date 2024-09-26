@@ -44,10 +44,10 @@ You have to specify `--wait` in the editor to make sure vscode is blocking the e
 ### Examples: 
 **Reporting a bug using VS Code: **
 ```
-ado_ticket <organization> <Project> "New test" -e "code --wait"
+./create_ado_ticket <organization> <Project> "New test" -e "code --wait"
 ```
 
 **Reporting a task using Nano: **
 ```
-ado_ticket <organization> <Project> "New test" -e "nano" -t Task
+./create_ado_ticket <organization> <Project> "New test" -e "nano" -t Task
 ```
