@@ -42,8 +42,12 @@ The tickets have the following format:
 You have to specify `--wait` in the editor to make sure vscode is blocking the execution for the rest of the script. 
 
 ### Examples: 
-Reporting a bug using VS Code: 
+**Reporting a bug using VS Code: **
 ```
 ado_ticket <organization> <Project> "New test" -e "code --wait"
 ```
 
+**Reporting a task using Nano: **
+```
+ado_ticket <organization> <Project> "New test" -e "nano" -t Task
+```
