@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Default values
+EDITOR="nvim"
 ASSIGNED_TO=$(eval  az ad signed-in-user show | jq -r .mail)
 VERSION="Genius 2.2"
 AREA="Genius"
@@ -16,6 +17,7 @@ help_function() {
     echo -e "\tORG                  Required: Organization name in Azure DevOps"
     echo -e "\tPROJECT                  Required: Project name in Azure DevOps"
     echo -e "\tTITLE                  Required: Title of the work item."
+    echo -e "\t-e [EDITOR]              Editor to use to write markdown description (default: '$EDITOR')"
     echo -e "\t-t [TYPE]              Type of the ticket (default: '$TYPE')"
     echo -e "\t-a [ASSIGNED_TO]       Assign work item to someone (default: '$ASSIGNED_TO')"
     echo -e "\t-v [VERSION]           Set the version (default: '$VERSION')"
@@ -60,6 +62,7 @@ shift
 while [[ "$1" != "" ]]; do
     case "$1" in
         -a) ASSIGNED_TO="$2"; shift ;;
+        -e) EDITOR="$2"; shift ;;
         -t) TYPE="$2"; shift ;;
         -v) VERSION="$2"; shift ;;
         --area) AREA="$2"; shift ;;
@@ -81,7 +84,7 @@ mkdir -p azureticket/attachments  # Create a folder for attachments inside the t
 cd azureticket || exit
 
 DESCRIPTION="tmpfile.md"
-nvim $DESCRIPTION
+$EDITOR $DESCRIPTION
 
 if [ ! -f "tmpfile.md" ]; then
     echo "Error: The description file was not saved. Exiting without creating bug"
