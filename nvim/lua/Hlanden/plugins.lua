@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
     -- }
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
@@ -107,7 +107,7 @@ return require('packer').startup(function(use)
     use { 'hrsh7th/cmp-cmdline',
         commit = "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063" }
     use { 'hrsh7th/nvim-cmp' }
-    use { 'SirVer/ultisnips' }
+    -- use { 'SirVer/ultisnips' }
     -- use { 'quangnguyen30192/cmp-nvim-ultisnips' }
 
     -- Visual
