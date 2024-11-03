@@ -123,11 +123,15 @@ require('lspconfig').angularls.setup{ capabilities = capabilities, on_attach = o
 require'lspconfig'.biome.setup{}
 require'lspconfig'.vtsls.setup{}
 require('lspconfig').cssls.setup{ capabilities = capabilities, on_attach = on_attach }
+require('lspconfig').somesass_ls.setup{ capabilities = capabilities, on_attach = on_attach }
 require'lspconfig'.html.setup{}
 require('lspconfig').lemminx.setup { capabilities = capabilities, on_attach = on_attach,
     filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "urdf", "xacro" } }
 require('lspconfig').ltex.setup { capabilities = capabilities, on_attach = on_attach }
 require('lspconfig').texlab.setup { capabilities = capabilities, on_attach = on_attach }
+require'lspconfig'.csharp_ls.setup{}
+require'lspconfig'.terraformls.setup{}
+require'lspconfig'.tailwindcss.setup{}
 require 'lspconfig'.lua_ls.setup {
     capabilities = capabilities, on_attach = on_attach,
     settings = {
