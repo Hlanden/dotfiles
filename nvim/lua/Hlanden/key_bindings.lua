@@ -297,6 +297,11 @@ commander.add({
         cmd = "zk",
         keys = { "n", "zk", noremap },
     },
+    {
+        desc = "Show DAP UI",
+        cmd = "",
+        keys = { "n", "<leader>dv", noremap },
+    },
 
     {
         desc = "DAP continue",
@@ -311,48 +316,63 @@ commander.add({
     },
     -- DAP (debugging)
     { 
-        desc = "DAP continue"
-        cmd = ":lua require'dap'.continue()<CR>", 
+        desc = "DAP UI open",
+        cmd = "<CMD>lua require('dapui').toggle()<CR>", 
+        keys = {"n", "<F1>", noremap}
+    }, 
+    { 
+        desc = "DAP UI Toggle View 1",
+        cmd = "<CMD>lua require('dapui').toggle()<CR>", 
+        keys = {"n", "<leader>1", noremap}
+    }, 
+    { 
+        desc = "DAP UI Toggle View 2",
+        cmd = "<CMD>lua require('dapui').toggle()<CR>", 
+        keys = {"n", "<leader>2", noremap}
+    }, 
+    { 
+        desc = "DAP continue",
+        cmd = "<CMD>lua require('dap').continue()<CR>", 
         keys = {"n", "<F5>", noremap}
     }, 
     {
         desc = "DAP Step Over", 
-        cmd = ":lua require'dap'.step_over()<CR>",
+        cmd = "<CMD>lua require('dap').step_over()<CR>",
         keys = {'n','<F10>', noremap}
     },
     {
         desc = "DAP Step Into", 
-        cmd = ":lua require'dap'.step_into()<CR>",
+        cmd = "<CMD>lua require('dap').step_into()<CR>",
         keys = {'n','<F11>', noremap}
     },
     {
         desc = "DAP Step out", 
-        cmd = ":lua require'dap'.step_out()<CR>",
+        cmd = "<CMD>lua require('dap').step_out()<CR>",
         keys = {'n','<F12>', noremap}
     },
     {
         desc = "DAP Toggle Breakpoint", 
-        cmd = ":lua require'dap'.toggle_breakpoint()<CR>",
+        cmd = "<CMD>lua require('dap').toggle_breakpoint()<CR>",
         keys = {'n','<leader>b', noremap}
     },
     {
         desc = "DAP Toggle Breakpoint w. condition", 
-        cmd = ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+        cmd = "<CMD>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
         keys = {'n','<leader>B', noremap}
     },  
     { 
         desc = "DAP Toggle Breakpoint w. log point message", 
-        cmd = ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
+        cmd = "<CMD>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
         keys = {'n','<leader>lp', noremap}
     }, 
     { 
         desc = "DAP Repl Open", 
-        cmd = ":lua require'dap'.repl.open()<CR>",
+        cmd = "<CMD>lua require('dap').repl.open()<CR>",
         keys = {'n','<leader>dr', noremap}
     }, 
     { 
         desc = "DAP run last", 
-        cmd = ":lua require'dap'.run_last()<CR>",
+        cmd = "<CMD>lua require('dap').run_last()<CR>",
         keys = {'n','<leader>dl', noremap}
     }
 })
@@ -385,7 +405,7 @@ Hydra({
         }
     },
     heads = {
-        { 'C', dap.continue, silent=true},
+        { 'C', dap.continue, silent=true, {desc = "Continue"}},
         { 'B', "<CMD>lua require('dap').toggle_breakpoint()<CR>", {desc = "Toggle Breakpoint"}},
         { 'J', "<CMD>lua require('dap').step_over()<CR>", {desc = "Over"}},
         { 'L', "<CMD>lua require('dap').step_into()<CR>", {desc = "Into"}},
