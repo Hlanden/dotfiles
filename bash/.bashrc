@@ -138,7 +138,8 @@ unset __conda_setup
 
 # source /home/jorgen/alacritty/extra/completions/alacritty.bash
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash 
+source /usr/share/doc/fzf/examples/completion.bash
 
 force_color_prompt=yes
 export XDG_CONFIG_HOME=~/.config/
