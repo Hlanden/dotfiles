@@ -1,6 +1,4 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
-# Import additional configuration files
+# Configuration for Alacritty, the GPU enhanced terminal emulator. Import additional configuration files
 #
 # Imports are loaded in order, skipping all missing files, with the importing
 # file being loaded last. If a field is already present in a previous import, it
@@ -15,6 +13,8 @@
 # set by alacritty itself.
 #env:
 # TERM variable
+env:
+WINIT_X11_SCALE_FACTOR: '1.0'
 #
 # This value is used to set the `$TERM` environment variable for
 # each instance of Alacritty. If it is not present, alacritty will
@@ -81,14 +81,10 @@ scrolling:
 font:
   size: 12
   normal:
-    family: FiraCodeNerdFontComplete Nerd Font
-    # family: Iosevka Nerd Font
-    # family: FontAwesome
+    family: FiraCode Nerd Font
     style: Regular
   italic:
-    family: FiraCodeNerdFontComplete Nerd Font
-    # family: Iosevka Nerd Font
-    # family: FontAwesome
+    family: FiraCode Nerd Font
     style: Italic
   # bold:
   #   family: Iosevka
