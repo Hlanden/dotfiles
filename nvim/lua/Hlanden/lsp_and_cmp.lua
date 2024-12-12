@@ -112,6 +112,31 @@ local on_attach = function(client, bufnr)
 end
 
 -- Set up lspconfig.
+-- require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "pyright",
+        "clangd",
+        "bashls",
+        "rust_analyzer",
+        "kotlin_language_server",
+        "angularls",
+        "biome",
+        "vtsls",
+        "cssls",
+        "html",
+        "lemminx",
+        "ltex",
+        "texlab",
+        "csharp_ls",
+        "terraformls",
+        "tailwindcss",
+        "robotframework_ls",
+        "lua_ls"
+    },
+    automatic_installation = true,
+})
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require('lspconfig').pyright.setup { capabilities = capabilities, on_attach = on_attach }
@@ -132,6 +157,7 @@ require('lspconfig').texlab.setup { capabilities = capabilities, on_attach = on_
 require'lspconfig'.csharp_ls.setup{}
 require'lspconfig'.terraformls.setup{}
 require'lspconfig'.tailwindcss.setup{}
+require'lspconfig'.robotframework_ls.setup{}
 require 'lspconfig'.lua_ls.setup {
     capabilities = capabilities, on_attach = on_attach,
     settings = {
