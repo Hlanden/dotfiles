@@ -158,6 +158,7 @@ require'lspconfig'.csharp_ls.setup{}
 require'lspconfig'.terraformls.setup{}
 require'lspconfig'.tailwindcss.setup{}
 require'lspconfig'.robotframework_ls.setup{}
+require'lspconfig'.eslint.setup{}
 require 'lspconfig'.lua_ls.setup {
     capabilities = capabilities, on_attach = on_attach,
     settings = {
@@ -231,6 +232,9 @@ require("formatter").setup {
         },
         typescript = {
             require("formatter.filetypes.typescript").tsfmt,
+        },
+        typescriptreact = {
+            require("formatter.filetypes.typescript").prettier,
         },
 
         -- Use the special "*" filetype for defining formatter configurations on
