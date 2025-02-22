@@ -4,7 +4,6 @@ require('Hlanden.settings')
 require('Hlanden.autocmd')
 require('Hlanden.key_bindings')
 require('Hlanden.lsp_and_cmp')
-require('Hlanden.debugging')
 
 ---Pretty print lua table
 function _G.dump(...)
