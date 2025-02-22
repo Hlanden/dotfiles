@@ -162,7 +162,4 @@ return require('packer').startup(function(use)
     use { "dhruvasagar/vim-table-mode" }
 
     use { "mzlogin/vim-markdown-toc" }
-
-    use { "akinsho/flutter-tools.nvim" }
-
 end)
