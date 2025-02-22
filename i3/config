@@ -9,7 +9,6 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-exec --no-startup-id ~/dotfiles/i3/configure_displays.sh 
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
