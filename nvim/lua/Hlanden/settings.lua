@@ -192,9 +192,6 @@ require("nvim-tree").setup({
   },
 })
 
--- Mason setup
-require("mason").setup()
-
 -- Use nvim.notify for notifications
 vim.notify = require("notify")
 

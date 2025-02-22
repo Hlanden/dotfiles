@@ -1,4 +1,5 @@
 require('Hlanden.plugins')
+require('Hlanden.mason')
 require('Hlanden.settings')
 require('Hlanden.autocmd')
 require('Hlanden.key_bindings')
