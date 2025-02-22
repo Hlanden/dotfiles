@@ -31,3 +31,4 @@ export PATH=$HOME/system/bin/:$PATH
 export TERMINAL=/usr/bin/alacritty
 
 setxkbmap vl,no -option 'grp:rctrl_rshift_toggle,ctrl:swapcaps'
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
