@@ -1,3 +1,5 @@
+vim.cmd('let $SHELL = "' .. vim.env.SHELL .. '"')
+
 require('Hlanden.plugins')
 require('Hlanden.mason')
 require('Hlanden.vim_settings')
