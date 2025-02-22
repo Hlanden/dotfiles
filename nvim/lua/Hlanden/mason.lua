@@ -20,6 +20,7 @@ require("mason-lspconfig").setup({
 		"tailwindcss",
 		"robotframework_ls",
 		"lua_ls",
+		"eslint",
 	},
 	automatic_installation = true,
 })
@@ -27,6 +28,10 @@ require("mason-lspconfig").setup({
 require("mason-tool-installer").setup({
 	ensure_installed = {
 		"stylua",
+		"cpplint",
+		"black",
+		"fixjson",
+		"prettier",
 	},
 	auto_update = true,
 	run_on_start = true,
