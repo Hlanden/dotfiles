@@ -1,4 +1,3 @@
--- Vanilla Config
 require('Hlanden.plugins')
 require('Hlanden.settings')
 require('Hlanden.autocmd')

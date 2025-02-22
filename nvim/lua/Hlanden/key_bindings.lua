@@ -378,44 +378,44 @@ commander.add({
 })
 
 -- Window resizer with hydra
-local Hydra = require('hydra')
-Hydra({
-    name = 'Resizer',
-    mode = 'n',
-    body = 'z',
-    heads = {
-        { 'k', '<CMD>:res +1<CR>' , {desc = "" }},
-        { 'j', '<CMD>:res -1<CR>' , {desc = "" }},
-        { 'h', '<CMD>:vertical resize -1<CR>', {desc = "" }},
-        { 'l', '<CMD>:vertical resize +1<CR>', {desc = "" }},
-    }
-})
+-- local Hydra = require('hydra')
+-- Hydra({
+--     name = 'Resizer',
+--     mode = 'n',
+--     body = 'z',
+--     heads = {
+--         { 'k', '<CMD>:res +1<CR>' , {desc = "" }},
+--         { 'j', '<CMD>:res -1<CR>' , {desc = "" }},
+--         { 'h', '<CMD>:vertical resize -1<CR>', {desc = "" }},
+--         { 'l', '<CMD>:vertical resize +1<CR>', {desc = "" }},
+--     }
+-- })
 
-local dap = require('dap')
-Hydra({
-    name = "Debugger",
-    mode = "n",
-    body = "<leader>d",
-    config = {
-        -- Using the 'pink' color is important! Wihout it DAP commands don't quite work
-        color="pink",
-        hint = {
-            type = "window",
-            border = "rounded"
-        }
-    },
-    heads = {
-        { 'C', dap.continue, silent=true, {desc = "Continue"}},
-        { 'B', "<CMD>lua require('dap').toggle_breakpoint()<CR>", {desc = "Toggle Breakpoint"}},
-        { 'J', "<CMD>lua require('dap').step_over()<CR>", {desc = "Over"}},
-        { 'L', "<CMD>lua require('dap').step_into()<CR>", {desc = "Into"}},
-        { 'e', "<CMD>lua require('dapui').eval()<CR>", exit=true, {desc = "Eval"}},
-        { 't', ":lua require('neotest').run.run({strategy = 'dap'})<CR>", {desc="Run nearest test with DAP"}},
-        { 's', ":lua require('neotest').summary.toggle()<CR>", {desc="Toggle test summary"}},
-        { 'v', "<CMD>lua require('dapui').toggle()<CR>", {desc = "Toggle View"}},
-        { '1', "<CMD>lua require('dapui').toggle(1)<CR>"},
-        { '2', "<CMD>lua require('dapui').toggle(2)<CR>"},
-        { 'j', "j" },
-        { 'k', "k" },
-    }
-})
+-- local dap = require('dap')
+-- Hydra({
+--     name = "Debugger",
+--     mode = "n",
+--     body = "<leader>d",
+--     config = {
+--         -- Using the 'pink' color is important! Wihout it DAP commands don't quite work
+--         color="pink",
+--         hint = {
+--             type = "window",
+--             border = "rounded"
+--         }
+--     },
+--     heads = {
+--         { 'C', dap.continue, silent=true, {desc = "Continue"}},
+--         { 'B', "<CMD>lua require('dap').toggle_breakpoint()<CR>", {desc = "Toggle Breakpoint"}},
+--         { 'J', "<CMD>lua require('dap').step_over()<CR>", {desc = "Over"}},
+--         { 'L', "<CMD>lua require('dap').step_into()<CR>", {desc = "Into"}},
+--         { 'e', "<CMD>lua require('dapui').eval()<CR>", exit=true, {desc = "Eval"}},
+--         { 't', ":lua require('neotest').run.run({strategy = 'dap'})<CR>", {desc="Run nearest test with DAP"}},
+--         { 's', ":lua require('neotest').summary.toggle()<CR>", {desc="Toggle test summary"}},
+--         { 'v', "<CMD>lua require('dapui').toggle()<CR>", {desc = "Toggle View"}},
+--         { '1', "<CMD>lua require('dapui').toggle(1)<CR>"},
+--         { '2', "<CMD>lua require('dapui').toggle(2)<CR>"},
+--         { 'j', "j" },
+--         { 'k', "k" },
+--     }
+-- })
