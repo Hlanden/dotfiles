@@ -6,3 +6,9 @@ api.nvim_create_autocmd("TextYankPost", {
     command = "silent! lua vim.highlight.on_yank()",
     group = yankGrp,
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+  callback = function()
+    vim.lsp.codelens.refresh({ bufnr = 0 })
+  end,
+})

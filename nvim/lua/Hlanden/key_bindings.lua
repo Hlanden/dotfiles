@@ -341,6 +341,11 @@ commander.add({
 		cmd = vim.lsp.buf.outgoing_calls,
 		keys = { "n", "<leader>co", noremap },
 	},
+	{
+		desc = "LSP: Show incoming calls",
+		cmd = vim.lsp.codelens.run,
+		keys = { "n", "<leader>cl", noremap },
+	},
 	-- LSP END
 	-- DAP (debugging)
 	{
