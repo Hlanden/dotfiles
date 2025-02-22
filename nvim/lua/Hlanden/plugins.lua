@@ -1,13 +1,6 @@
---call plug#begin('~/.vim/plugged')
---call plug#end()
---
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     -- Colorthemes
@@ -24,16 +17,6 @@ return require('packer').startup(function(use)
         end
     })
     use({ 'EdenEast/nightfox.nvim', })
-
-    -- Fuzzyfinder
-    -- use {
-    --     'ojroques/nvim-lspfuzzy',
-    --     requires = {
-    --         { 'junegunn/fzf' },
-    --         { 'junegunn/fzf.vim' }, -- to enable preview (optional)
-    --     },
-    -- }
-
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.8',
         -- or                            , branch = '0.1.x',
@@ -71,7 +54,6 @@ return require('packer').startup(function(use)
     }
 
     -- Debuggers
-    -- use { 'puremourning/vimspector' }
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use { 'mfussenegger/nvim-dap-python' }
     use {
@@ -99,16 +81,6 @@ return require('packer').startup(function(use)
     use { 'nvim-treesitter/playground' }
     use { 'nvim-treesitter/nvim-treesitter-context' }
 
-    -- Completion
-    use { 'neovim/nvim-lspconfig' }
-    use { 'hrsh7th/cmp-nvim-lsp' }
-    use { 'hrsh7th/cmp-buffer' }
-    use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/cmp-cmdline',
-        commit = "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063" }
-    use { 'hrsh7th/nvim-cmp' }
-    -- use { 'SirVer/ultisnips' }
-    -- use { 'quangnguyen30192/cmp-nvim-ultisnips' }
 
     -- Visual
     use { 'frazrepo/vim-rainbow' }
@@ -135,60 +107,31 @@ return require('packer').startup(function(use)
     use { 'Yggdroot/indentLine' }
     use { 'godlygeek/tabular' }
 
-    -- Mason: Manage LSP, DAP, linters and formatters
-    use { "williamboman/mason.nvim" }
-    use { "williamboman/mason-lspconfig.nvim" }
 
-    -- Toggle term
     use { "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end }
 
-    -- Plugins can have post-install/update hooks
-
-    -- Post-install/update hook with neovim command
-
-    -- Inspiration for future expansion:
-    --
-    -- Lazy loading:
-    -- Load on specific commands
-    -- use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
-    -- Load on an autocommand event
-    -- use {'andymass/vim-matchup', event = 'VimEnter'}
-
-    -- Load on a combination of conditions: specific filetypes or commands
-    -- Also run code after load (see the "config" key)
-    --use {
-    --  'w0rp/ale',
-    --  ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
-    --  cmd = 'ALEEnable',
-    --  config = 'vim.cmd[[ALEEnable]]'
-    --}
-
-    -- Undotree
     use { "mbbill/undotree" }
 
-    -- Formatters
+    -- LSP, formatter and linters
+    use { 'neovim/nvim-lspconfig' }
+
+    use { "williamboman/mason.nvim" }
+    use { "williamboman/mason-lspconfig.nvim" }
+    use { "WhoIsSethDaniel/mason-tool-installer.nvim", requires = { "williamboman/mason.nvim" }, }
+
     use { 'mhartington/formatter.nvim' }
 
-    -- linters
     use { 'mfussenegger/nvim-lint' }
 
-    -- ChatGPT
-    use({
-        "jackMort/ChatGPT.nvim",
-        config = function()
-            require("chatgpt").setup({
-                -- optional configuration
-            })
-        end,
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
-    })
-
+    -- Completion
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline',
+        commit = "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063" }
+    use { 'hrsh7th/nvim-cmp' }
 
     -- Documentation
     use {
@@ -214,8 +157,6 @@ return require('packer').startup(function(use)
     -- Hex editor
     use { "RaafatTurki/hex.nvim" }
 
-    -- use { 'subnut/nvim-ghost.nvim' }
-    --
     use { 'chrisbra/csv.vim' }
 
     use { "dhruvasagar/vim-table-mode" }
