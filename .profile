@@ -26,7 +26,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export TERMINAL=/home/jorgen/system/bin/alacritty
 export PATH=$PATH:/usr/local/go/bin
-export "PATH=$HOME/system/bin/:$PATH"
+export PATH=$HOME/system/bin/:$PATH
+export TERMINAL=/usr/bin/alacritty
+
 setxkbmap vl,no -option 'grp:rctrl_rshift_toggle,ctrl:swapcaps'

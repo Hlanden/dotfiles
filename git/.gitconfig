@@ -1,0 +1,17 @@
+[includeIf "gitdir:~/dev/personal/"]
+  path = ~/dotfiles/git/.gitconfig-personal
+[includeIf "gitdir:~/dotfiles/"]
+  path = ~/dotfiles/git/.gitconfig-personal
+[includeIf "gitdir:~/dev/work/"]
+  path = ~/dotfiles/git/.gitconfig-work
+
+[credential]
+	helper = /home/jorgen/system/bin/git-credential-manager
+	credentialStore = secretservice
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[init]
+	defaultBranch = main
+[alias]
+	st = status
+	c = commit -m
