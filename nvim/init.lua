@@ -1,13 +1,19 @@
 vim.cmd('let $SHELL = "' .. vim.env.SHELL .. '"')
 
-require('Hlanden.plugins')
-require('Hlanden.mason')
+-- Map <leader> to space
+local g = vim.g
+local o = vim.o
+g.mapleader = ' '
+g.maplocalleader = ' '
+
+require('Hlanden.lazy')
 require('Hlanden.vim_settings')
-require('Hlanden.treesitter')
 require('Hlanden.plug_settings')
-require('Hlanden.autocmd')
 require('Hlanden.key_bindings')
 require('Hlanden.lsp_and_cmp')
+require('Hlanden.mason')
+require('Hlanden.treesitter')
+require('Hlanden.autocmd')
 
 ---Pretty print lua table
 function _G.dump(...)
