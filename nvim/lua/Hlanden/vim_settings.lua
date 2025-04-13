@@ -62,10 +62,6 @@ o.splitbelow = true
 -- Preserve view while jumping
 o.jumpoptions = 'view'
 
--- Map <leader> to space
-g.mapleader = ' '
-g.maplocalleader = ' '
-
 g.vim_json_conceal = 0
 
 -- Lua tree default setup

@@ -1,171 +1,183 @@
-vim.cmd([[packadd packer.nvim]])
+-- ~/.config/nvim/lua/plugins/init.lua
+return {
+  -- Lazy itself
+  { "folke/lazy.nvim", version = false },
 
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
+  -- Colorschemes
+  { "morhetz/gruvbox" },
+  { "shaunsingh/solarized.nvim" },
+  { "folke/tokyonight.nvim", branch = "main" },
+  { "rebelot/kanagawa.nvim" },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      require("rose-pine").setup()
+      vim.cmd("colorscheme rose-pine")
+    end,
+  },
+  { "EdenEast/nightfox.nvim" },
 
-	-- Colorthemes
-	use({ "morhetz/gruvbox" })
-	use({ "shaunsingh/solarized.nvim" })
-	use({ "folke/tokyonight.nvim", branch = "main" })
-	use({ "rebelot/kanagawa.nvim" })
-	use({
-		"rose-pine/neovim",
-		as = "rose-pine",
-		config = function()
-			require("rose-pine").setup()
-			vim.cmd("colorscheme rose-pine")
-		end,
-	})
-	use({ "EdenEast/nightfox.nvim" })
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
-		-- or                            , branch = '0.1.x',
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+  -- Telescope and Extensions
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.8",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "FeiyouG/command_center.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+  },
+  { "anuvyklack/hydra.nvim" },
 
-	-- Tools/telescope
-	use({
-		"FeiyouG/command_center.nvim",
-		requires = { "nvim-telescope/telescope.nvim" },
-	})
-	use({ "anuvyklack/hydra.nvim" })
+  -- Notifications
+  { "rcarriga/nvim-notify" },
 
-	-- Notifications
-	use({ "rcarriga/nvim-notify" })
+  -- File Explorer
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 
-	-- File explorer
-	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
-		},
-	})
+  -- TeX
+  { "lervag/vimtex" },
 
-	use({ "lervag/vimtex" })
+  -- Statusline & Tabline
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+  },
+  {
+    "kdheepak/tabline.nvim",
+    dependencies = {
+      "hoob3rt/lualine.nvim",
+      "kyazdani42/nvim-web-devicons",
+    },
+  },
 
-	-- Statusline and tabline
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
-	use({
-		"kdheepak/tabline.nvim",
-		requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
-	})
+  -- Debugging & Testing
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}, 
+    commit = "bc81f8d3440aede116f821114547a476b082b319"
+  },
+  { "mfussenegger/nvim-dap-python" },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/nvim-nio",
+    },
+  },
+  { "nvim-neotest/neotest-python" },
 
-	-- Debuggers
-	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-	use({ "mfussenegger/nvim-dap-python" })
-	use({
-		"nvim-neotest/neotest",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"antoinemadec/FixCursorHold.nvim",
-			"nvim-neotest/nvim-nio",
-		},
-	})
-	use({ "nvim-neotest/neotest-python" })
+  -- Tpope
+  { "tpope/vim-obsession" },
+  { "tpope/vim-commentary" },
+  { "tpope/vim-surround" },
+  { "tpope/vim-fugitive" },
+  { "tpope/vim-repeat" },
+  { "tpope/vim-unimpaired" },
+  { "tpope/vim-rhubarb" },
 
-	-- Tpope
-	use({ "tpope/vim-obsession" })
-	use({ "tpope/vim-commentary" })
-	use({ "tpope/vim-surround" })
-	use({ "tpope/vim-fugitive" })
-	use({ "tpope/vim-repeat" })
-	use({ "tpope/vim-unimpaired" })
-	use({ "tpope/vim-rhubarb" })
+  -- Treesitter
+  { "nvim-treesitter/nvim-treesitter" },
+  { "nvim-treesitter/playground" },
+  { "nvim-treesitter/nvim-treesitter-context" },
 
-	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use({ "nvim-treesitter/playground" })
-	use({ "nvim-treesitter/nvim-treesitter-context" })
+  -- Visual Enhancements
+  { "frazrepo/vim-rainbow" },
+  { "kshenoy/vim-signature" },
+  { "norcalli/nvim-colorizer.lua" },
+  { "nvim-tree/nvim-web-devicons" },
 
-	-- Visual
-	use({ "frazrepo/vim-rainbow" })
-	use({ "kshenoy/vim-signature" }) -- To see marks
-	use({ "norcalli/nvim-colorizer.lua" })
-	use({ "nvim-tree/nvim-web-devicons" })
+  -- Illumination
+  { "RRethy/vim-illuminate" },
 
-	-- Illuminate
-	use({ "RRethy/vim-illuminate" })
+  -- Startup
+  { "mhinz/vim-startify" },
 
-	-- Startup
-	use({ "mhinz/vim-startify" })
+  -- Markdown
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    ft = { "markdown" },
+    config = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  -- { "ellisonleao/glow.nvim" },
 
-	-- Markdown
-	-- -- install without yarn or npm
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	})
-	-- use {"ellisonleao/glow.nvim"}
+  -- Tools
+  { "jiangmiao/auto-pairs" },
+  { "Yggdroot/indentLine" },
+  { "godlygeek/tabular" },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function()
+      require("toggleterm").setup()
+    end,
+  },
+  { "mbbill/undotree" },
 
-	-- Tools
-	use({ "jiangmiao/auto-pairs" })
-	use({ "Yggdroot/indentLine" })
-	use({ "godlygeek/tabular" })
+  -- LSP & Tools
+  { "neovim/nvim-lspconfig" },
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+  },
+  { "mhartington/formatter.nvim" },
+  { "mfussenegger/nvim-lint" },
 
-	use({
-		"akinsho/toggleterm.nvim",
-		tag = "*",
-		config = function()
-			require("toggleterm").setup()
-		end,
-	})
+  -- Completion
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-path" },
+  { "hrsh7th/cmp-cmdline" },
+  { "hrsh7th/nvim-cmp" },
+  { "SirVer/ultisnips" },
 
-	use({ "mbbill/undotree" })
+  -- Documentation
+  {
+    "kkoomen/vim-doge",
+    build = ":call doge#install()",
+  },
 
-	-- LSP, formatter and linters
-	use({ "neovim/nvim-lspconfig" })
+  -- Zen mode
+  {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup()
+    end,
+  },
 
-	use({ "williamboman/mason.nvim" })
-	use({ "williamboman/mason-lspconfig.nvim" })
-	use({ "WhoIsSethDaniel/mason-tool-installer.nvim", requires = { "williamboman/mason.nvim" } })
+  -- Presentation
+  { "sotte/presenting.vim" },
 
-	use({ "mhartington/formatter.nvim" })
+  -- Hex Editor
+  { "RaafatTurki/hex.nvim" },
 
-	use({ "mfussenegger/nvim-lint" })
+  -- CSV
+  { "chrisbra/csv.vim" },
 
-	-- Completion
-	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-buffer" })
-	use({ "hrsh7th/cmp-path" })
-	use({ "hrsh7th/cmp-cmdline", commit = "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063" })
-	use({ "hrsh7th/nvim-cmp" })
+  -- Table tools
+  { "dhruvasagar/vim-table-mode" },
 
-	-- Documentation
-	use({
-		"kkoomen/vim-doge",
-		run = ":call doge#install()",
-	})
+  -- Markdown TOC
+  { "mzlogin/vim-markdown-toc" },
 
-	-- Zen mode
-	use({
-		"folke/zen-mode.nvim",
-		config = function()
-			require("zen-mode").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	})
+  -- Fuzzy + Animation
+  {
+    "frankroeder/parrot.nvim",
+    dependencies = {
+      "ibhagwan/fzf-lua",
+      "nvim-lua/plenary.nvim",
+    },
+  },
+}
 
-	-- Presentation
-	use({ "sotte/presenting.vim" })
-
-	-- Hex editor
-	use({ "RaafatTurki/hex.nvim" })
-
-	use({ "chrisbra/csv.vim" })
-
-	use({ "dhruvasagar/vim-table-mode" })
-
-	use({ "mzlogin/vim-markdown-toc" })
-
-	use({ "frankroeder/parrot.nvim", requires = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" } })
-end)
