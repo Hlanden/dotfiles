@@ -94,7 +94,9 @@ return {
   { "nvim-tree/nvim-web-devicons" },
 
   -- Illumination
-  { "RRethy/vim-illuminate" },
+  -- TODO: This breaks markdown files. Yet to find a workaround
+  -- https://www.reddit.com/r/neovim/comments/1jybyxj/error_method_textdocumentdocumenthighlight_is_not/?rdt=53642
+  -- { "RRethy/vim-illuminate" },
 
   -- Startup
   { "mhinz/vim-startify" },
