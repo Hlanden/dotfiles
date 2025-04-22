@@ -56,30 +56,30 @@ cmp.setup.cmdline(":", {
 -- LSP START
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require("lspconfig").pyright.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").clangd.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").bashls.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").rust_analyzer.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").kotlin_language_server.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").angularls.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").biome.setup({})
-require("lspconfig").vtsls.setup({})
-require("lspconfig").cssls.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").somesass_ls.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").html.setup({})
+require("lspconfig").pyright.setup({ capabilities = capabilities })
+require("lspconfig").clangd.setup({ capabilities = capabilities })
+require("lspconfig").bashls.setup({ capabilities = capabilities })
+require("lspconfig").rust_analyzer.setup({ capabilities = capabilities })
+require("lspconfig").kotlin_language_server.setup({ capabilities = capabilities })
+require("lspconfig").angularls.setup({ capabilities = capabilities, })
+require("lspconfig").biome.setup({ capabilities = capabilities })
+require("lspconfig").vtsls.setup({ capabilities = capabilities })
+require("lspconfig").cssls.setup({ capabilities = capabilities })
+require("lspconfig").somesass_ls.setup({ capabilities = capabilities })
+require("lspconfig").html.setup({ capabilities = capabilities })
 require("lspconfig").lemminx.setup({
     capabilities = capabilities,
-    on_attach = on_attach,
     filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "urdf", "xacro" },
 })
-require("lspconfig").ltex.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").texlab.setup({ capabilities = capabilities, on_attach = on_attach })
-require("lspconfig").csharp_ls.setup({})
-require("lspconfig").terraformls.setup({})
-require("lspconfig").tailwindcss.setup({})
-require("lspconfig").robotframework_ls.setup({})
-require("lspconfig").eslint.setup({})
-require("lspconfig").lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+require("lspconfig").ltex.setup({ capabilities = capabilities, filetypes = { "tex" } })
+require("lspconfig").texlab.setup({ capabilities = capabilities, filetypes = { "tex" } })
+require("lspconfig").csharp_ls.setup({ capabilities = capabilities })
+require("lspconfig").terraformls.setup({ capabilities = capabilities })
+require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
+require("lspconfig").robotframework_ls.setup({ capabilities = capabilities })
+require("lspconfig").eslint.setup({ capabilities = capabilities })
+require("lspconfig").lua_ls.setup({ capabilities = capabilities })
+require("lspconfig").harper_ls.setup({ capabilities = capabilities })
 -- LSP END
 
 -- FORMATTERS START

@@ -21,6 +21,7 @@ require("mason-lspconfig").setup({
 		"robotframework_ls",
 		"lua_ls",
 		"eslint",
+		"harper_ls",
 	},
 	automatic_installation = true,
 })
