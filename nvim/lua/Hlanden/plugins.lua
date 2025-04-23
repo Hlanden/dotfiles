@@ -135,6 +135,7 @@ return {
   },
   { "mhartington/formatter.nvim" },
   { "mfussenegger/nvim-lint" },
+  { "kosayoda/nvim-lightbulb" },
 
   -- Completion
   { "hrsh7th/cmp-nvim-lsp" },

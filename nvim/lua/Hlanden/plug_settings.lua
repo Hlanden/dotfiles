@@ -179,3 +179,7 @@ require("lualine").setup({
 		lualine_z = { parrot_status },
 	},
 })
+
+require("nvim-lightbulb").setup({
+  autocmd = { enabled = true }
+})
