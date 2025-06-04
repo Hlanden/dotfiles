@@ -123,14 +123,28 @@ vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl =
 -- Parrot: AI implementation
 require("parrot").setup({
 	-- Providers must be explicitly added to make them available.
-	providers = {
-		pplx = {
-			api_key = os.getenv("PERPLEXITY_API_KEY"),
-			topic = {
-				model = "sonar",
-				params = { max_tokens = 64 },
-			},
-		},
+    providers = {
+        pplx = {
+            name = "pplx",
+            api_key = os.getenv("PERPLEXITY_API_KEY"),
+            endpoint = "https://api.perplexity.ai/chat/completions",
+            params = {
+                chat = { temperature = 1.1, top_p = 1 },
+                command = { temperature = 1.1, top_p = 1 },
+            },
+            topic = {
+                model = "sonar",
+                params = { max_tokens = 64 },
+            },
+            models = {
+                "sonar",
+                "sonar-pro",
+                "sonar-reasoning",
+                "sonar-reasoning-pro",
+                "sonar-deep-research",
+                "r1-1776",
+            },
+        },
 	},
 	hooks = {
 		UnitTest = function(prt, params)
