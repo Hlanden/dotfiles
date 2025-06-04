@@ -15,7 +15,9 @@
 [alias]
 	st = status
 	c = commit -m
-    lg = log --graph --all --oneline
-    co = checkout
+	lg = log --graph --all --oneline
+	co = checkout
 [core]
-    editor = nvim
+    	editor = nvim
+[sequence]
+    	editor = nvim
