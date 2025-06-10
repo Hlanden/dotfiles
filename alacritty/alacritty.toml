@@ -18,19 +18,15 @@ red = "#ff5555"
 white = "#bfbfbf"
 yellow = "#f1fa8c"
 
-[colors.primary]
-background = "#282a36"
-foreground = "#f8f8f2"
-
 [font]
 size = 12
 
 [font.italic]
-family = "FiraCode Nerd Font"
+family = "Firacode Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "FiraCode Nerd Font"
+family = "Firacode Nerd Font Mono"
 style = "Regular"
 
 [scrolling]
