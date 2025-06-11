@@ -182,5 +182,9 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
+
+  {
+    "johnfrankmorgan/whitespace.nvim"
+  },
 }
 
