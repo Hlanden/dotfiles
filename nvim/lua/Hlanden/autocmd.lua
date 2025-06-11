@@ -6,3 +6,11 @@ api.nvim_create_autocmd("TextYankPost", {
     command = "silent! lua vim.highlight.on_yank()",
     group = yankGrp,
 })
+
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.g.indentLine_setConceal = 0
+  end,
+})
