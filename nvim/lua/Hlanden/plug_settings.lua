@@ -197,3 +197,10 @@ require("lualine").setup({
 require("nvim-lightbulb").setup({
   autocmd = { enabled = true }
 })
+
+require('whitespace-nvim').setup({
+    highlight = 'Substitute',
+    ignored_filetypes = { 'TelescopePrompt', 'Trouble', 'help', 'dashboard' },
+    ignore_terminal = true,
+
+})
