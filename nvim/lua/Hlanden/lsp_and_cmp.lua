@@ -103,6 +103,22 @@ require("formatter").setup({
         typescriptreact = {
             require("formatter.filetypes.typescript").prettier,
         },
+        sh = {
+            require("formatter.filetypes.sh").shfmt,
+        },
+        markdown = {
+            function()
+                return {
+                    exe = "prettier",
+                    args = {
+                        "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
+                        "--prose-wrap=always",
+                        "--print-width=80"
+                    },
+                    stdin = true
+                }
+            end
+        },
 
         -- Use the special "*" filetype for defining formatter configurations on
         -- any filetype
