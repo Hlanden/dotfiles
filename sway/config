@@ -55,7 +55,7 @@ bindsym $mod+d exec rofi -show drun -show-icons
 
 input type:keyboard {
     xkb_layout "us,no"
-    xkb_options "grp:rctrl_rshift_toggle"
+    xkb_options "grp:shifts_toggle"
 }
 
 # change focus
