@@ -71,7 +71,7 @@
 	bases = master,main
 	protected = *production
 [sequence]
-	editor = interactive-rebase-tool
+	editor = nvim
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
