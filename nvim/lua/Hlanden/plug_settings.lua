@@ -8,7 +8,7 @@ require("tabline").setup({
 		-- These options can be used to override those settings.
 		section_separators = { "", "" },
 		component_separators = { "", "" },
-		max_bufferline_percent = 66, -- set to nil by default, and it uses vim.o.columns * 2/3
+		max_bufferline_percent = 66, -- set to nil by default, and it uses vim.
 		show_tabs_always = false, -- this shows tabs only when there are more than one tab or if the first tab is named
 		show_devicons = true, -- this shows devicons in buffer section
 		show_bufnr = false, -- this appends [bufnr] to buffer section,
@@ -19,7 +19,15 @@ require("tabline").setup({
 	},
 })
 
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+  view = {
+    adaptive_size = true,
+    width = {
+      min = 20,
+      max = 50,
+    },
+  },
+})
 
 vim.notify = require("notify")
 
@@ -73,6 +81,7 @@ require("telescope").setup({
 		},
 	},
 })
+require("telescope").load_extension("ui-select")
 
 require("dapui").setup()
 require("neotest").setup({
@@ -121,54 +130,54 @@ vim.fn.sign_define(
 vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" })
 
 -- Parrot: AI implementation
-require("parrot").setup({
-	-- Providers must be explicitly added to make them available.
-    providers = {
-        pplx = {
-            name = "pplx",
-            api_key = os.getenv("PERPLEXITY_API_KEY"),
-            endpoint = "https://api.perplexity.ai/chat/completions",
-            params = {
-                chat = { temperature = 1.1, top_p = 1 },
-                command = { temperature = 1.1, top_p = 1 },
-            },
-            topic = {
-                model = "sonar",
-                params = { max_tokens = 64 },
-            },
-            models = {
-                "sonar",
-                "sonar-pro",
-                "sonar-reasoning",
-                "sonar-reasoning-pro",
-                "sonar-deep-research",
-                "r1-1776",
-            },
-        },
-	},
-	hooks = {
-		UnitTest = function(prt, params)
-			local chat_prompt = [[
-             I have the following code from {{filename}}:
-
-            ```
-            {{filecontent}}
-            ```
-
-            Please look at the following section specifically and write suitable unit tests:
-            ```
-            {{selection}}
-            ```
-
-            Do not add comments to the code.
-        ]]
-			local model_obj = prt.get_model("command")
-			prt.ChatNew(params, chat_prompt)
-			-- prt.Prompt(params, prt.ui.Target.rewrite, model_obj, "🤖 Ask ~ ", chat_prompt)
-		end,
-	},
-})
-
+-- require("parrot").setup({
+-- 	-- Providers must be explicitly added to make them available.
+--     providers = {
+--         pplx = {
+--             name = "pplx",
+--             api_key = os.getenv("PERPLEXITY_API_KEY"),
+--             endpoint = "https://api.perplexity.ai/chat/completions",
+--             params = {
+--                 chat = { temperature = 1.1, top_p = 1 },
+--                 command = { temperature = 1.1, top_p = 1 },
+--             },
+--             topic = {
+--                 model = "sonar",
+--                 params = { max_tokens = 64 },
+--             },
+--             models = {
+--                 "sonar",
+--                 "sonar-pro",
+--                 "sonar-reasoning",
+--                 "sonar-reasoning-pro",
+--                 "sonar-deep-research",
+--                 "r1-1776",
+--             },
+--         },
+-- 	},
+-- 	hooks = {
+-- 		UnitTest = function(prt, params)
+-- 			local chat_prompt = [[
+--              I have the following code from {{filename}}:
+--
+--             ```
+--             {{filecontent}}
+--             ```
+--
+--             Please look at the following section specifically and write suitable unit tests:
+--             ```
+--             {{selection}}
+--             ```
+--
+--             Do not add comments to the code.
+--         ]]
+-- 			local model_obj = prt.get_model("command")
+-- 			prt.ChatNew(params, chat_prompt)
+-- 			-- prt.Prompt(params, prt.ui.Target.rewrite, model_obj, "🤖 Ask ~ ", chat_prompt)
+-- 		end,
+-- 	},
+-- })
+--
 local function parrot_status()
 	local status_info = require("parrot.config").get_status_info()
 	local status = ""
@@ -183,6 +192,7 @@ end
 require("lualine").setup({
 	options = {
 		globalstatus = true,
+		theme = "gruvbox_dark",
 	},
 	tabline = {
 		lualine_a = {},
@@ -190,17 +200,22 @@ require("lualine").setup({
 		lualine_c = { require("tabline").tabline_buffers },
 		lualine_x = { require("tabline").tabline_tabs },
 		lualine_y = {},
-		lualine_z = { parrot_status },
+		lualine_z = {},
 	},
 })
 
 require("nvim-lightbulb").setup({
-  autocmd = { enabled = true }
+	autocmd = { enabled = true },
 })
 
-require('whitespace-nvim').setup({
-    highlight = 'Substitute',
-    ignored_filetypes = { 'TelescopePrompt', 'Trouble', 'help', 'dashboard' },
-    ignore_terminal = true,
+require("whitespace-nvim").setup({
+	highlight = "Substitute",
+	ignored_filetypes = { "TelescopePrompt", "Trouble", "help", "dashboard" },
+	ignore_terminal = true,
+})
 
+require("octo").setup()
+
+require("ibl").setup({
+	exclude = { filetypes = { "json", "jsonc", "markdown", "help", "dashboard" } },
 })

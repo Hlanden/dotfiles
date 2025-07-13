@@ -16,6 +16,10 @@ map("n", "<leader>j", ":wincmd j<CR>")
 map("n", "<leader>h", ":wincmd h<CR>")
 map("n", "<leader>k", ":wincmd k<CR>")
 map("n", "<leader>l", ":wincmd l<CR>")
+map("v", "<leader>j", "y<Esc>:wincmd j<CR>")
+map("v", "<leader>h", "y<Esc>:wincmd h<CR>")
+map("v", "<leader>k", "y<Esc>:wincmd k<CR>")
+map("v", "<leader>l", "y<Esc>:wincmd l<CR>")
 
 -- Vimrc
 map("n", "<leader>ev", ":execute 'edit' resolve($MYVIMRC)<cr>")
@@ -93,6 +97,17 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- UndoTree
 map("n", "<leader>u", ":UndotreeToggle<CR>")
 
+-- Remove default bindings
+map("n", "q:", "<Nop>")
+map("n", "q/", "<Nop>")
+map("n", "q?", "<Nop>")
+
+-- Tmux navigation
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<M-h>", "<cmd>silent !tmux neww tmux-sessionizer -s 0<CR>")
+
+
+
 -- Command center
 local commander = require("commander")
 require("telescope").load_extension("commander")
@@ -111,6 +126,22 @@ commander.add({
 
     -- MISC START
     {
+        desc = "Toggle quickfix list",
+        cmd = function()
+            if vim.fn.empty(vim.fn.getqflist()) == 1 then
+                print("Quickfix list is empty")
+            else
+                local is_open = vim.fn.getwininfo(vim.fn.getqflist({ winid = 0 }).winid)[1] ~= nil
+                if is_open then
+                    vim.cmd("cclose")
+                else
+                    vim.cmd("copen")
+                end
+            end
+        end,
+        keys = { "n", "<leader>q", noremap },
+    },
+    {
         desc = "Navigate to pane below",
         cmd = "<CMD>wincmd j<CR>",
         keys = {
@@ -121,8 +152,7 @@ commander.add({
         desc = "Navigate to pane above",
         cmd = "<CMD>wincmd k<CR>",
         { "n", "<leader>k", noremap },
-        keys = {
-        },
+        keys = {},
     },
     {
         desc = "Navigate to pane left",
@@ -281,7 +311,7 @@ commander.add({
     {
         desc = "LSP: Add diagnostics to location list",
         cmd = vim.diagnostic.setloclist,
-        keys = { "n", "<leader>q", noremap },
+        keys = { "n", "<leader>dl", noremap },
     },
     {
         desc = "LSP: Go to declaration",
@@ -422,139 +452,220 @@ commander.add({
     {
         desc = "Test: Run nearest test",
         cmd = ":TestNearest<CR>",
-        keys = { "n", "t<C-n>", noremap }
+        keys = { "n", "t<C-n>", noremap },
     },
     {
         desc = "Test: Run file tests",
         cmd = ":TestFile<CR>",
-        keys = { "n", "t<C-f>", noremap }
+        keys = { "n", "t<C-f>", noremap },
     },
     {
         desc = "Test: Run test suite",
         cmd = ":TestSuite<CR>",
-        keys = { "n", "t<C-t>", noremap }
+        keys = { "n", "t<C-t>", noremap },
     },
     {
         desc = "Test: Run last test",
         cmd = ":TestLast<CR>",
-        keys = { "n", "t<C-l>", noremap }
+        keys = { "n", "t<C-l>", noremap },
     },
     {
         desc = "Test: Visit test file",
         cmd = ":TestVisit<CR>",
-        keys = { "n", "t<C-g>", noremap }
+        keys = { "n", "t<C-g>", noremap },
     },
     -- DAP END
-    -- PARROT AI INTEGRATION START
+    -- AI/COPILOT CHAT START
     {
-        desc = "AI: Open a new chat",
-        cmd = ":PrtChatNew<CR>",
-        keys = { "n", "<leader>an", noremap }
+        cmd = function()
+            require("CopilotChat").toggle()
+        end,
+        keys = { "n", "<leader>aa", noremap },
     },
     {
-        desc = "AI: Toggle chat",
-        cmd = ":PrtChatToggle<CR>",
-        keys = { "n", "<leader>at", noremap }
+        desc = "AI Open",
+        cmd = function()
+            require("CopilotChat").open()
+        end,
+        keys = { "n", "<leader>aa", noremap },
     },
     {
-        desc = "AI: Paste visual selection into chat",
-        cmd = ":PrtChatPaste<CR>",
-        keys = { "v", "<leader>ap", noremap }
+        desc = "AI Jump To Diff",
+        cmd = function()
+            require("CopilotChat").jump_to_diff()
+        end,
+        keys = { "n", "gj", noremap },
     },
     {
-        desc = "AI: Print plugin config",
-        cmd = ":PrtInfo<CR>",
-        keys = { "n", "<leader>ai", noremap }
+        desc = "AI Open Quickfix Answers",
+        cmd = function()
+            require("CopilotChat").quickfix_diffs()
+        end,
+        keys = { "n", "<leader>al", noremap },
+    },
+    close = {
+        desc = "AI Close",
+        cmd = function()
+            require("CopilotChat").close()
+        end,
+        keys = { { "n", "q", noremap }, { "i", "<C-c>", noremap } },
+    },
+    reset = {
+        desc = "AI Reset",
+        cmd = function()
+            require("CopilotChat").reset()
+        end,
+        keys = { { "n", "<C-l>", noremap }, { "i", "<C-l>", noremap } },
+    },
+    submit_prompt = {
+        desc = "AI Submit Prompt",
+        cmd = function()
+            require("CopilotChat").submit_prompt()
+        end,
+        keys = { { "n", "<CR>", noremap }, { "i", "<C-s>", noremap } },
+    },
+    toggle_sticky = {
+        desc = "AI Toggle Sticky",
+        cmd = function()
+            require("CopilotChat").toggle_sticky()
+        end,
+        keys = { "n", "grr", noremap },
+    },
+    clear_stickies = {
+        desc = "AI Clear Stickies",
+        cmd = function()
+            require("CopilotChat").clear_stickies()
+        end,
+        keys = { "n", "grx", noremap },
+    },
+    accept_diff = {
+        desc = "AI Accept Diff",
+        cmd = function()
+            require("CopilotChat").accept_diff()
+        end,
+        keys = { { "n", "<C-y>", noremap }, { "i", "<C-y>", noremap } },
+    },
+    yank_diff = {
+        desc = "AI Yank Diff",
+        cmd = function()
+            require("CopilotChat").yank_diff()
+        end,
+        keys = { "n", "gy", noremap },
+    },
+    show_diff = {
+        desc = "AI Show Diff",
+        cmd = function()
+            require("CopilotChat").show_diff()
+        end,
+        keys = { "n", "gd", noremap },
+    },
+    show_info = {
+        desc = "AI Show Info",
+        cmd = function()
+            require("CopilotChat").show_info()
+        end,
+        keys = { "n", "gi", noremap },
+    },
+    show_context = {
+        desc = "AI Show Context",
+        cmd = function()
+            require("CopilotChat").show_context()
+        end,
+        keys = { "n", "gc", noremap },
+    },
+    show_help = {
+        desc = "AI Show Help",
+        cmd = function()
+            require("CopilotChat").show_help()
+        end,
+        keys = { "n", "gh", noremap },
     },
     {
-        desc = "AI: Edit local context file",
-        cmd = ":PrtContext<CR>",
-        keys = { "n", "<leader>ac", noremap }
+        desc = "AI Stop",
+        cmd = function()
+            require("CopilotChat").stop()
+        end,
+        keys = { "n", "<leader>as", noremap },
     },
     {
-        desc = "AI: Fuzzy search chat files",
-        cmd = ":PrtChatFinder<CR>",
-        keys = { "n", "<leader>af", noremap }
+        desc = "AI Models",
+        cmd = function()
+            require("CopilotChat").select_model()
+        end,
+        keys = { "n", "<leader>am", noremap },
     },
     {
-        desc = "AI: Delete current chat file",
-        cmd = ":PrtChatDelete<CR>",
-        keys = { "n", "<leader>ad", noremap }
+        desc = "AI Prompts",
+        cmd = function()
+            require("CopilotChat").select_prompt()
+        end,
+        keys = {
+            { "n", "<leader>ap", noremap },
+            { "v", "<leader>ap", noremap },
+        },
     },
     {
-        desc = "AI: Trigger chat respond",
-        cmd = ":PrtChatRespond<CR>",
-        keys = { "n", "<leader>a", noremap }
+        desc = "AI Question",
+        cmd = function()
+            vim.ui.input({
+                prompt = "AI Question> ",
+            }, function(input)
+                if input ~= "" then
+                    require("CopilotChat").ask(input)
+                end
+            end)
+        end,
+        keys = {
+            { "n", "<leader>aq", noremap },
+            { "v", "<leader>aq", noremap },
+        },
     },
     {
-        desc = "AI: Interrupt ongoing respond",
-        cmd = ":PrtStop<CR>",
-        keys = { "n", "<leader>as", noremap }
+        desc = "Octo: Open PR list",
+        cmd = "<CMD>Octo pr list<CR>",
+        keys = { "n", "<leader>oo", noremap },
     },
     {
-        desc = "AI: Switch provider",
-        cmd = ":PrtProvider<CR>",
-        keys = { "n", "<leader>ap", noremap }
+        desc = "Octo: Create PR",
+        cmd = "<CMD>Octo pr create<CR>",
+        keys = { "n", "<leader>op", noremap },
     },
     {
-        desc = "AI: Switch model",
-        cmd = ":PrtModel<CR>",
-        keys = { "n", "<leader>am", noremap }
+        desc = "Toggle fugitive",
+        cmd = function()
+            local fugitive_buf = nil
+            for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                if vim.api.nvim_buf_is_loaded(buf) then
+                    local name = vim.api.nvim_buf_get_name(buf)
+                    if name:match("fugitive://") then
+                        fugitive_buf = buf
+                        break
+                    end
+                end
+            end
+            if fugitive_buf then
+                -- Close the window showing the fugitive buffer
+                for _, win in ipairs(vim.api.nvim_list_wins()) do
+                    if vim.api.nvim_win_get_buf(win) == fugitive_buf then
+                        vim.api.nvim_win_close(win, true)
+                        return
+                    end
+                end
+            else
+                vim.cmd("Git")
+            end
+        end,
+        keys = { "n", "<leader>gg", noremap },
     },
     {
-        desc = "AI: Rewrite visual selection",
-        cmd = ":PrtRewrite<CR>",
-        keys = { "v", "<leader>aw", noremap }
+        desc = "Git: Push (Fugitive)",
+        cmd = "<CMD>Git push<CR>",
+        keys = { "n", "<leader>gP", noremap },
     },
     {
-        desc = "AI: Edit last prompt and rewrite",
-        cmd = ":PrtEdit<CR>",
-        keys = { "v", "<leader>ae", noremap }
+        desc = "Git: Pull --rebase (Fugitive)",
+        cmd = "<CMD>Git pull --rebase<CR>",
+        keys = { "n", "<leader>gp", noremap },
     },
-    {
-        desc = "AI: Append to visual selection",
-        cmd = ":PrtAppend<CR>",
-        keys = { "v", "<leader>aa", noremap }
-    },
-    {
-        desc = "AI: Prepend to visual selection",
-        cmd = ":PrtPrepend<CR>",
-        keys = { "v", "<leader>ap", noremap }
-    },
-    {
-        desc = "AI: Respond in new window",
-        cmd = ":PrtNew<CR>",
-        keys = { "n", "<leader>aw", noremap }
-    },
-    {
-        desc = "AI: Respond in new buffer",
-        cmd = ":PrtEnew<CR>",
-        keys = { "n", "<leader>ab", noremap }
-    },
-    {
-        desc = "AI: Respond in vsplit",
-        cmd = ":PrtVnew<CR>",
-        keys = { "n", "<leader>av", noremap }
-    },
-    {
-        desc = "AI: Respond in new tab",
-        cmd = ":PrtTabnew<CR>",
-        keys = { "n", "<leader>at", noremap }
-    },
-    {
-        desc = "AI: Repeat last action",
-        cmd = ":PrtRetry<CR>",
-        keys = { "n", "<leader>ar", noremap }
-    },
-    {
-        desc = "AI: Write unit test",
-        cmd = ":PrtUnitTest<CR>",
-        keys = { "n", "<leader>au", noremap }
-    },
-    {
-        desc = "AI: Implement comment as code",
-        cmd = ":PrtImplement<CR>",
-        keys = { "n", "<leader>ai", noremap }
-    }
-    -- PARROT AI INTEGRATION END
 })
+

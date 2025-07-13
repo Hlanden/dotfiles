@@ -4,38 +4,39 @@ local arch = vim.loop.os_uname().machine
 local is_arm = string.find(arch:lower(), "arm") or string.find(arch:lower(), "aarch64")
 
 local base_packages = {
-    "pyright",
-    "bashls",
-    "rust_analyzer",
-    "kotlin_language_server",
-    "angularls",
-    "biome",
-    "vtsls",
-    "cssls",
-    "html",
-    "ltex",
-    "texlab",
-    "terraformls",
-    "tailwindcss",
-    "robotframework_ls",
-    "lua_ls",
-    "eslint",
-    "harper_ls",
+	"pyright",
+	"bashls",
+	"rust_analyzer",
+	"kotlin_language_server",
+	"angularls",
+	"biome",
+	"vtsls",
+	"cssls",
+	"html",
+	"ltex",
+	"texlab",
+	"terraformls",
+	"tailwindcss",
+	"powershell_es",
+	-- "robotframework_ls",
+	"lua_ls",
+	"eslint",
+	"harper_ls",
+	"omnisharp",
 }
 
 -- Packages that only exists on AMD
 local non_arm_packages = {
-    "clangd",
-    "lemminx",
-    "csharp_ls",
+	"clangd",
+	"lemminx",
 }
 
 local mason_packages = base_packages
 
 if not is_arm then
-    for _, pkg in ipairs(non_arm_packages) do
-        mason_packages[#mason_packages + 1] = pkg
-    end
+	for _, pkg in ipairs(non_arm_packages) do
+		mason_packages[#mason_packages + 1] = pkg
+	end
 end
 
 require("mason-lspconfig").setup({
