@@ -32,26 +32,26 @@ cmp.setup({
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
-    sources = cmp.config.sources({
-        { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-        { name = "buffer" },
-    }),
+	sources = cmp.config.sources({
+		{ name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+	}, {
+		{ name = "buffer" },
+	}),
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = "path" },
-    }, {
-        {
-            name = "cmdline",
-            option = {
-                ignore_cmds = { "Man", "!" },
-            },
-        },
-    }),
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{
+			name = "cmdline",
+			option = {
+				ignore_cmds = { "Man", "!" },
+			},
+		},
+	}),
 })
 
 require("cmp_git").setup()
@@ -71,8 +71,8 @@ require("lspconfig").cssls.setup({ capabilities = capabilities })
 require("lspconfig").somesass_ls.setup({ capabilities = capabilities })
 require("lspconfig").html.setup({ capabilities = capabilities })
 require("lspconfig").lemminx.setup({
-    capabilities = capabilities,
-    filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "urdf", "xacro" },
+	capabilities = capabilities,
+	filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "urdf", "xacro" },
 })
 require("lspconfig").ltex.setup({ capabilities = capabilities, filetypes = { "tex" } })
 require("lspconfig").texlab.setup({ capabilities = capabilities, filetypes = { "tex" } })
@@ -160,7 +160,6 @@ require("formatter").setup({
                 }
             end,
         },
-
         -- Use the special "*" filetype for defining formatter configurations on
         -- any filetype
         ["*"] = {
@@ -179,6 +178,6 @@ require("formatter").setup({
 -- FORMATTERS END
 -- LINTERS START
 require("lint").linters_by_ft = {
-    cpp = { "cpplint" },
+	cpp = { "cpplint" },
 }
 -- LINTERS END
