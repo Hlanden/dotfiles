@@ -356,13 +356,6 @@ commander.add({
         keys = { "n", "<leader>ca", noremap },
     },
     {
-        desc = "LSP: Format buffer",
-        cmd = function()
-            vim.lsp.buf.format({ async = true })
-        end,
-        keys = { "n", "<leader>=", noremap },
-    },
-    {
         desc = "LSP: Show incoming calls",
         cmd = vim.lsp.buf.incoming_calls,
         keys = { "n", "<leader>ci", noremap },
