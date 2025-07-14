@@ -7,6 +7,6 @@ g.mapleader = " "
 g.maplocalleader = " "
 
 require("Hlanden.lazy")
-require("Hlanden.vim_settings")
+require("Hlanden.settings")
 require("Hlanden.key_bindings")
 require("Hlanden.autocmd")

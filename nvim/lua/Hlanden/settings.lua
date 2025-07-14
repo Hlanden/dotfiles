@@ -5,11 +5,6 @@ o.termguicolors = true
 
 vim.cmd("colorscheme catppuccin-macchiato")
 
-vim.cmd([[
-set guioptions-=e " Use showtabline in gui vim
-set sessionoptions+=tabpages,globals " store tabpages and globals in session
-]])
-
 -- Decrease update time
 o.timeoutlen = 500
 o.ttimeoutlen = 10
@@ -38,14 +33,10 @@ o.tabstop = 4
 o.shiftwidth = 0
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 o.list = true
-o.listchars = "trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂"
+o.listchars = "trail:·,nbsp:◇,extends:▸,precedes:◂"
 
 -- Makes neovim and host OS clipboard play nicely with each other
 o.clipboard = "unnamedplus"
-
-o.fileformats = "unix,dos,mac" 
-o.fileformat = "unix"
-o.fixendofline = false
 
 -- Case insensitive searching UNLESS /C or capital in search
 o.ignorecase = true
@@ -70,10 +61,6 @@ o.jumpoptions = "view"
 -- Lua tree default setup
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
-g.vimtex_syntax_conceal_disable = true
-
-g.vimtex_view_general_viewer = "okular"
 
 g.vim_markdown_conceal = 0
 g.vim_markdown_conceal_code_blocks = 0
