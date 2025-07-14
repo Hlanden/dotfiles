@@ -1,4 +1,4 @@
 return {
     -- Lazy itself
-    { "folke/lazy.nvim", version = false },
+    { "folke/lazy.nvim", version = false, opts = {}},
 }
