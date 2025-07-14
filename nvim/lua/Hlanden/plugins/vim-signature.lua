@@ -1,3 +1,3 @@
 return {
-    { "kshenoy/vim-signature", opts = {}}
+    { "kshenoy/vim-signature" }
 }

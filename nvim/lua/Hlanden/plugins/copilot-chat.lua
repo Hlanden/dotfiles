@@ -105,6 +105,7 @@ return {
             },
         },
         keys = {
+            { "<leader>aa", "<cmd>CopilotChatToggle<cr>",  mode = {"n", "v"}, desc = "AI Toggle" },
             { "<leader>ae", "<cmd>CopilotChatExplain<cr>",  desc = "AI Explain" },
             { "<leader>ar", "<cmd>CopilotChatReview<cr>",   desc = "AI Review" },
             { "<leader>at", "<cmd>CopilotChatTests<cr>",    desc = "AI Tests" },

@@ -1,3 +1,3 @@
 return {
-    { "godlygeek/tabular", opts = {} }
+    { "godlygeek/tabular" }
 }

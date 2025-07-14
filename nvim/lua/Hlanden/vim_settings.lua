@@ -73,13 +73,6 @@ vim.g.loaded_netrwPlugin = 1
 
 g.vimtex_syntax_conceal_disable = true
 
--- Snippets
-g.UltiSnipsSnippetDirectories = { "UltiSnips" }
-g.UltiSnipsExpandTrigger = "<tab>"
-g.UltiSnipsJumpForwardTrigger = "<c-j>"
-g.UltiSnipsJumpBackwardTrigger = "<c-k>"
-g.UltiSnipsEnableSnipMate = 0
-
 g.vimtex_view_general_viewer = "okular"
 
 g.vim_markdown_conceal = 0

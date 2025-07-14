@@ -1,3 +1,3 @@
 return {
-    { "jiangmiao/auto-pairs", opts = {}}
+    { "jiangmiao/auto-pairs" }
 }
