@@ -40,8 +40,5 @@ return {
 				end,
 			},
 		},
-        keys = {
-            {"<leader>tt", "<cmd>ToggleTerm<cr>", mode = {"n"}, desc = "Toggle Terminal"},
-        },
 	},
 }

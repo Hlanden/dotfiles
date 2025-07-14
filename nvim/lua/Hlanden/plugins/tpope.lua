@@ -28,11 +28,11 @@ return {
 	{ "tpope/vim-surround" },
 	{
 		"tpope/vim-fugitive",
-		keys = {
-			{ "<leader>gg", toggle_fugitive, mode = { "n" }, desc = "Toggle fugitive" },
-			{ "<leader>gP", "<CMD>Git push<CR>", mode = { "n" }, desc = "Git: Push (Fugitive)" },
-			{ "<leader>gp", "<CMD>Git pull --rebase<CR>", mode = { "n" }, desc = "Git: Pull --rebase (Fugitive)" },
-		},
+		config = function()
+			vim.keymap.set("n", "<leader>gg", toggle_fugitive, { desc = "Toggle fugitive" })
+			vim.keymap.set("n", "<leader>gP", "<CMD>Git push<CR>", { desc = "Git: Push (Fugitive)" })
+			vim.keymap.set("n", "<leader>gp", "<CMD>Git pull --rebase<CR>", { desc = "Git: Pull --rebase (Fugitive)" })
+		end,
 	},
 	{ "tpope/vim-repeat" },
 	{ "tpope/vim-unimpaired" },
