@@ -121,6 +121,7 @@ return {
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
+					local builtin = require("telescope.builtin")
 					vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { desc = "LSP: Go to previous diagnostic" })
 					vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { desc = "LSP: Go to next diagnostic" })
 					vim.keymap.set(
@@ -152,6 +153,11 @@ return {
 					vim.keymap.set("n", "<leader>ci", vim.lsp.buf.incoming_calls, { desc = "LSP: Show incoming calls" })
 					vim.keymap.set("n", "<leader>co", vim.lsp.buf.outgoing_calls, { desc = "LSP: Show outgoing calls" })
 					vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, { desc = "LSP: Run codelens" })
+					vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "LSP: Definitions" })
+					vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "LSP: References" })
+					vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "LSP: Implementations" })
+					vim.keymap.set("n", "gs", builtin.lsp_document_symbols, { desc = "LSP: Document symbols" })
+					vim.keymap.set("n", "gS", builtin.lsp_workspace_symbols, { desc = "LSP: Workspace symbols" })
 				end,
 			})
 		end,
