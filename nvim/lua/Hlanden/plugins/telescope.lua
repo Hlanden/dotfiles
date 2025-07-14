@@ -42,7 +42,6 @@ return {
             { "gi", "<CMD>Telescope lsp_implementations<CR>",  desc = "LSP: Implementations" },
             { "gs", "<CMD>Telescope lsp_document_symbols<CR>",  desc = "LSP: Document symbols" },
             { "gS", "<CMD>Telescope lsp_workspace_symbols<CR>",  desc = "LSP: Workspace symbols" },
-            { "<leader>e", "<CMD>Telescope lsp_diagnostics<CR>",  desc = "LSP: Open float diagnostic" },
         },
 	},
 	{ "nvim-telescope/telescope-ui-select.nvim" },
