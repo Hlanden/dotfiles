@@ -1,3 +1,7 @@
 return {
-    { "mzlogin/vim-markdown-toc", opts = {} }
+    {
+        "mzlogin/vim-markdown-toc",
+     config = function()
+     end
+}
 }

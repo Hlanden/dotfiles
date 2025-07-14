@@ -11,40 +11,6 @@ return {
 			"Hoffs/omnisharp-extended-lsp.nvim",
 			"hrsh7th/nvim-cmp",
 		},
-		keys = {
-			{ "gd", "<CMD>Telescope lsp_definitions<CR>", mode = { "n" }, desc = "LSP: Definitions" },
-			{ "gr", "<CMD>Telescope lsp_references<CR>", mode = { "n" }, desc = "LSP: References" },
-			{ "gi", "<CMD>Telescope lsp_implementations<CR>", mode = { "n" }, desc = "LSP: Implementations" },
-			{ "gs", "<CMD>Telescope lsp_document_symbols<CR>", mode = { "n" }, desc = "LSP: Document symbols" },
-			{ "gS", "<CMD>Telescope lsp_workspace_symbols<CR>", mode = { "n" }, desc = "LSP: Workspace symbols" },
-			{ "<leader>e", "<CMD>Telescope lsp_diagnostics<CR>", mode = { "n" }, desc = "LSP: Open float diagnostic" },
-			{ "[g", vim.diagnostic.goto_prev, mode = { "n" }, desc = "LSP: Go to previous diagnostic" },
-			{ "]g", vim.diagnostic.goto_next, mode = { "n" }, desc = "LSP: Go to next diagnostic" },
-			{ "<leader>dl", vim.diagnostic.setloclist, mode = { "n" }, desc = "LSP: Add diagnostics to location list" },
-			{ "gD", vim.lsp.buf.declaration, mode = { "n" }, desc = "LSP: Go to declaration" },
-			{ "K", vim.lsp.buf.hover, mode = { "n" }, desc = "LSP: Show hover information" },
-			{ "gs", vim.lsp.buf.signature_help, mode = { "n" }, desc = "LSP: Show signature help" },
-			{ "<leader>wa", vim.lsp.buf.add_workspace_folder, mode = { "n" }, desc = "LSP: Add workspace folder" },
-			{
-				"<leader>wr",
-				vim.lsp.buf.remove_workspace_folder,
-				mode = { "n" },
-				desc = "LSP: Remove workspace folder",
-			},
-			{
-				"<leader>wl",
-				function()
-					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				end,
-				mode = { "n" },
-				desc = "LSP: List workspace folders",
-			},
-			{ "<leader>rn", vim.lsp.buf.rename, mode = { "n" }, desc = "LSP: Rename symbol" },
-			{ "<leader>ca", vim.lsp.buf.code_action, mode = { "n" }, desc = "LSP: Code action" },
-			{ "<leader>ci", vim.lsp.buf.incoming_calls, mode = { "n" }, desc = "LSP: Show incoming calls" },
-			{ "<leader>co", vim.lsp.buf.outgoing_calls, mode = { "n" }, desc = "LSP: Show outgoing calls" },
-			{ "<leader>cl", vim.lsp.codelens.run, mode = { "n" }, desc = "LSP: Run codelens" },
-		},
 		config = function()
 			local arch = vim.loop.os_uname().machine
 			local is_arm = string.find(arch:lower(), "arm") or string.find(arch:lower(), "aarch64")
@@ -152,6 +118,42 @@ return {
 			require("lspconfig").lua_ls.setup({ capabilities = capabilities })
 			require("lspconfig").harper_ls.setup({ capabilities = capabilities })
 			require("lspconfig").powershell_es.setup({ capabilities = capabilities })
+
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { desc = "LSP: Go to previous diagnostic" })
+					vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { desc = "LSP: Go to next diagnostic" })
+					vim.keymap.set(
+						"n",
+						"<leader>dl",
+						vim.diagnostic.setloclist,
+						{ desc = "LSP: Add diagnostics to location list" }
+					)
+					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: Go to declaration" })
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP: Show hover information" })
+					vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { desc = "LSP: Show signature help" })
+					vim.keymap.set(
+						"n",
+						"<leader>wa",
+						vim.lsp.buf.add_workspace_folder,
+						{ desc = "LSP: Add workspace folder" }
+					)
+					vim.keymap.set(
+						"n",
+						"<leader>wr",
+						vim.lsp.buf.remove_workspace_folder,
+						{ desc = "LSP: Remove workspace folder" }
+					)
+					vim.keymap.set("n", "<leader>wl", function()
+						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+					end, { desc = "LSP: List workspace folders" })
+					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
+					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
+					vim.keymap.set("n", "<leader>ci", vim.lsp.buf.incoming_calls, { desc = "LSP: Show incoming calls" })
+					vim.keymap.set("n", "<leader>co", vim.lsp.buf.outgoing_calls, { desc = "LSP: Show outgoing calls" })
+					vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, { desc = "LSP: Run codelens" })
+				end,
+			})
 		end,
 	},
 }

@@ -3,12 +3,14 @@ return {
 		"stevearc/conform.nvim",
 		keys = {
 			{
-				"<leader>=",
+				-- Customize or remove this keymap to your liking
+				"<leader>f",
 				function()
-					require("conform").format()
+					require("conform").format({ async = true })
 				end,
-				mode = { "n", "v" },
-				desc = "Format Injected Langs",
+				mode = "",
+
+				desc = "Format buffer",
 			},
 		},
 		opts = {

@@ -1,3 +1,3 @@
 return {
-    { "dhruvasagar/vim-table-mode", opts ={}}
+    { "dhruvasagar/vim-table-mode" }
 }
