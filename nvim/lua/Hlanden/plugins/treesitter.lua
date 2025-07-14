@@ -5,6 +5,8 @@ return {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
 		},
+		build = ":TSUpdate",
+		event = { "VeryLazy" },
 		opts = {
 			ensure_installed = {
 				"python",
@@ -29,14 +31,13 @@ return {
 				"query",
 				"regex",
 				"markdown",
+				"markdown_inline",
 			},
 			highlight = {
 				enable = true,
-				additional_vim_regex_highlighting = false,
 			},
 			incremental_selection = {
 				enable = true,
-
 				keymaps = {
 					init_selection = "<C-space>",
 					node_incremental = "<C-space>",
@@ -104,5 +105,8 @@ return {
 				},
 			},
 		},
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
+		end,
 	},
 }
