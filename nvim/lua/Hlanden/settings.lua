@@ -32,8 +32,6 @@ o.textwidth = 300
 o.tabstop = 4
 o.shiftwidth = 0
 o.softtabstop = -1 -- If negative, shiftwidth value is used
-o.list = true
-o.listchars = "trail:·,nbsp:◇,extends:▸,precedes:◂"
 
 -- Makes neovim and host OS clipboard play nicely with each other
 o.clipboard = "unnamedplus"
@@ -61,6 +59,3 @@ o.jumpoptions = "view"
 -- Lua tree default setup
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
-g.vim_markdown_conceal = 0
-g.vim_markdown_conceal_code_blocks = 0
