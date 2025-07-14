@@ -11,5 +11,9 @@ return {
 				},
 			},
 		},
+		keys = {
+			{ "<leader>nn", "<cmd>NvimTreeToggle<cr>", mode = { "n" }, desc = "Toggle NvimTree" },
+			{ "<leader>nf", "<cmd>NvimTreeFindFile<cr>", mode = { "n" }, desc = "Find File in NvimTree" },
+		},
 	},
 }
