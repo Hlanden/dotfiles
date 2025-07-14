@@ -1,3 +1,3 @@
 return {
-    { 'RaafatTurki/hex.nvim' }
+    { 'RaafatTurki/hex.nvim', opts = {}}
 }
