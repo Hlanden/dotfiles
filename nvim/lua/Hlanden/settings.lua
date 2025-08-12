@@ -59,3 +59,7 @@ o.jumpoptions = "view"
 -- Lua tree default setup
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Ctrl + backspace behavior
+vim.keymap.set("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-h>", "<C-w>", { noremap = true, silent = true })
