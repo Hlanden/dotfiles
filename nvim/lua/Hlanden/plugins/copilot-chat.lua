@@ -1,20 +1,40 @@
 return {
     {
-        "deathbeam/CopilotChat.nvim",
+        "CopilotC-Nvim/CopilotChat.nvim",
         dependencies = {
             { "github/copilot.vim" },
             { "nvim-lua/plenary.nvim", branch = "master" },
         },
-        branch = "tools",
+        branch = "main",
         build = "make tiktoken",
         init = function()
             vim.g.copilot_no_tab_map = true
             vim.g.copilot_hide_during_completion = false
             vim.g.copilot_proxy_strict_ssl = false
             vim.g.copilot_settings = { selectedCompletionModel = "gpt-4o-copilot" }
+            vim.g.copilot_enabled = false
             vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
                 expr = true,
                 replace_keycodes = false,
+            })
+            vim.keymap.set("n", "<leader>ct", function()
+                vim.g.copilot_enabled = not vim.g.copilot_enabled
+                print("Copilot enabled: " .. tostring(vim.g.copilot_enabled))
+            end, { desc = "Toggle Copilot" })
+            -- Enable Copilot only in CopilotChat buffer
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "copilot-chat",
+                callback = function()
+                    vim.g.copilot_enabled = true
+                end,
+            })
+            vim.api.nvim_create_autocmd("BufLeave", {
+                pattern = "*",
+                callback = function()
+                    if vim.bo.filetype == "copilot-chat" then
+                        vim.g.copilot_enabled = false
+                    end
+                end,
             })
         end,
         event = "VeryLazy",
@@ -26,13 +46,14 @@ return {
             answer_header = "Answer",
             error_header = "> Error",
             log_level = "debug",
+            sticky = {"@neovim"},
             mappings = {
                 complete = {
                     insert = "<Tab>",
                 },
                 close = {
                     normal = "q",
-                    insert = "<C-c>",
+                    insert = ""
                 },
                 reset = {
                     normal = "<C-l>",

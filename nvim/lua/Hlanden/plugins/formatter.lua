@@ -48,7 +48,8 @@ return {
 				},
 				trim_whitespace = {
 					function(ctx)
-						local bufname = vim.api.nvim_buf_get_name(ctx.buf)
+                        local buf = ctx.buf or 0
+                        local bufname = vim.api.nvim_buf_get_name(buf)
 						if string.match(bufname, "octo://") or vim.bo.filetype == "octo" then
 							return nil
 						end
@@ -58,9 +59,10 @@ return {
 				prettier = {
 					command = "prettier",
 					args = function(ctx)
+                        local buf = ctx.buf or 0
 						local args = {
 							"--stdin-filepath",
-							vim.fn.fnameescape(vim.api.nvim_buf_get_name(ctx.buf)),
+							vim.fn.fnameescape(vim.api.nvim_buf_get_name(buf)),
 						}
 						if vim.bo.filetype == "markdown" then
 							vim.list_extend(args, { "--prose-wrap=always", "--print-width=80" })

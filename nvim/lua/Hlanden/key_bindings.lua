@@ -101,3 +101,17 @@ function toggle_quickfix()
 	end
 end
 map("n", "<leader>q", toggle_quickfix)
+function toggle_loclist()
+	if vim.fn.empty(vim.fn.getloclist(0)) == 1 then
+		print("Location list is empty")
+	else
+		local winid = vim.fn.getloclist(0, { winid = 0 }).winid
+		local is_open = winid ~= 0 and vim.fn.getwininfo(winid)[1] ~= nil
+		if is_open then
+			vim.cmd("lclose")
+		else
+			vim.cmd("lopen")
+		end
+	end
+end
+map("n", "<leader>ll", toggle_loclist)

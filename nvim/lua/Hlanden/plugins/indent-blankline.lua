@@ -6,6 +6,9 @@ return {
 		---@type ibl.config
 		opts = {
 			exclude = { filetypes = { "json", "jsonc", "markdown", "help", "dashboard" } },
+			scope = {
+				enabled = false,
+			},
 		},
 	},
 }
