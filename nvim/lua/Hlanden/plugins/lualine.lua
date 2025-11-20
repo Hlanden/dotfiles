@@ -10,7 +10,12 @@ return {
 				theme = "gruvbox_dark",
 			},
 			tabline = {
-				lualine_a = {},
+				lualine_a = {
+					{
+						"tabs",
+						max_length = vim.o.columns / 3,
+					},
+				},
 				lualine_b = {},
 				lualine_c = {
 					{

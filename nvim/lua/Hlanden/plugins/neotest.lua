@@ -8,11 +8,13 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			-- Required adapters
 			{"Hlanden/neotest-vitest", branch="bug/run-all"},
+            "Issafalcon/neotest-dotnet",
 		},
 		config = function()
 			require("neotest").setup({
 				adapters = {
 					require("neotest-vitest"),
+					require("neotest-dotnet"),
 				},
 			})
 		end,

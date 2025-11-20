@@ -3,13 +3,11 @@ return {
 		"stevearc/conform.nvim",
 		keys = {
 			{
-				-- Customize or remove this keymap to your liking
 				"gff",
 				function()
 					require("conform").format({ async = true })
 				end,
 				mode = "",
-
 				desc = "Format buffer",
 			},
 		},
@@ -33,6 +31,8 @@ return {
 				terraform = { "terraform_fmt" },
 				cs = { "csharpier" },
 				markdown = { "prettier" },
+				apex = { "prettier_apex" },
+				visualforce = { "prettier_apex" },
 				["*"] = { "trim_whitespace" },
 			},
 			formatters = {
@@ -48,8 +48,8 @@ return {
 				},
 				trim_whitespace = {
 					function(ctx)
-                        local buf = ctx.buf or 0
-                        local bufname = vim.api.nvim_buf_get_name(buf)
+						local buf = ctx.buf or 0
+						local bufname = vim.api.nvim_buf_get_name(buf)
 						if string.match(bufname, "octo://") or vim.bo.filetype == "octo" then
 							return nil
 						end
@@ -59,17 +59,34 @@ return {
 				prettier = {
 					command = "prettier",
 					args = function(ctx)
-                        local buf = ctx.buf or 0
+						local buf = ctx.buf or 0
 						local args = {
 							"--stdin-filepath",
 							vim.fn.fnameescape(vim.api.nvim_buf_get_name(buf)),
 						}
-						if vim.bo.filetype == "markdown" then
+						if vim.bo[buf].filetype == "markdown" then
 							vim.list_extend(args, { "--prose-wrap=always", "--print-width=80" })
 						end
 						return args
 					end,
 					stdin = true,
+				},
+				prettier_apex = {
+					command = "npx",
+					args = function(ctx)
+						local buf = ctx.buf or 0
+						return {
+							"prettier",
+							"--plugin", "prettier-plugin-apex",
+							"--parser", "apex",
+							"--stdin-filepath",
+							vim.fn.fnameescape(vim.api.nvim_buf_get_name(buf)),
+						}
+					end,
+					stdin = true,
+					cwd = function()
+						return vim.fn.expand("~/.local/share/nvim/mason/packages/prettier")
+					end,
 				},
 			},
 		},
