@@ -1,9 +1,16 @@
 local g = vim.g
 local o = vim.o
 
+vim.lsp.set_log_level("debug")
 o.termguicolors = true
 
-vim.cmd("colorscheme catppuccin-macchiato")
+-- vim.cmd("colorscheme catppuccin-macchiato")
+vim.cmd("colorscheme gruvbox")
+-- Set diff colors
+vim.cmd([[highlight DiffAdd guibg=#006600 guifg=#88FF88]])
+vim.cmd([[highlight DiffChange guibg=#003F5F guifg=#88CCFF]])
+vim.cmd([[highlight DiffDelete guibg=#660000 guifg=#FF8888]])
+vim.cmd([[highlight DiffText guibg=#666600 guifg=#FFFF88]])
 
 -- Decrease update time
 o.timeoutlen = 500
@@ -63,3 +70,22 @@ vim.g.loaded_netrwPlugin = 1
 -- Ctrl + backspace behavior
 vim.keymap.set("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-h>", "<C-w>", { noremap = true, silent = true })
+
+-- In your Neovim config (init.lua)
+vim.keymap.set("n", "<leader>yp", function()
+	local path = vim.fn.expand("%")
+	vim.fn.setreg("+", path)
+	vim.notify("Copied: " .. path)
+end, { noremap = true })
+vim.keymap.set("n", "<leader>yP", function()
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	vim.notify("Copied: " .. path)
+end, { noremap = true })
+
+vim.filetype.add({
+	pattern = {
+		[".*/*.cls"] = "apex",
+		[".*/*.trigger"] = "apex",
+	},
+})

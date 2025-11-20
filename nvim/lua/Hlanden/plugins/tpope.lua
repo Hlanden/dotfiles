@@ -32,6 +32,13 @@ return {
 			vim.keymap.set("n", "<leader>gg", toggle_fugitive, { desc = "Toggle fugitive" })
 			vim.keymap.set("n", "<leader>gP", "<CMD>Git push<CR>", { desc = "Git: Push (Fugitive)" })
 			vim.keymap.set("n", "<leader>gp", "<CMD>Git pull --rebase<CR>", { desc = "Git: Pull --rebase (Fugitive)" })
+			vim.api.nvim_create_user_command("DiffMain", function()
+                vim.cmd("only")
+                vim.cmd("diffoff!")
+				vim.cmd("Gvdiffsplit! main")
+			end, {})
+
+			vim.keymap.set("n", "<leader>dm", ":DiffMain<CR>", { desc = "Diff with main branch", silent = true })
 		end,
 	},
 	{ "tpope/vim-repeat" },

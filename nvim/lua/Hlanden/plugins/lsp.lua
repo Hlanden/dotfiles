@@ -75,50 +75,7 @@ return {
 				cmp_lsp.default_capabilities()
 			)
 
-			require("lspconfig").pyright.setup({ capabilities = capabilities })
-			require("lspconfig").clangd.setup({ capabilities = capabilities })
-			require("lspconfig").bashls.setup({ capabilities = capabilities })
-			require("lspconfig").rust_analyzer.setup({ capabilities = capabilities })
-			require("lspconfig").kotlin_language_server.setup({ capabilities = capabilities })
-			require("lspconfig").angularls.setup({ capabilities = capabilities })
-			require("lspconfig").biome.setup({ capabilities = capabilities })
-			require("lspconfig").vtsls.setup({ capabilities = capabilities })
-			require("lspconfig").cssls.setup({ capabilities = capabilities })
-			require("lspconfig").somesass_ls.setup({ capabilities = capabilities })
-			require("lspconfig").html.setup({ capabilities = capabilities })
-			require("lspconfig").lemminx.setup({
-				capabilities = capabilities,
-				filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "urdf", "xacro" },
-			})
-			require("lspconfig").ltex.setup({ capabilities = capabilities, filetypes = { "tex" } })
-			require("lspconfig").texlab.setup({ capabilities = capabilities, filetypes = { "tex" } })
-			require("lspconfig").omnisharp.setup({
-				capabilities = capabilities,
-				cmd = { "OmniSharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
-				on_attach = function(client, bufnr)
-					local map = function(mode, lhs, rhs)
-						vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
-					end
-
-					map("n", "gd", "<cmd>lua require('omnisharp_extended').telescope_lsp_definition()<cr>")
-					map("n", "<leader>D", "<cmd>lua require('omnisharp_extended').telescope_lsp_type_definition()<cr>")
-					map("n", "gr", "<cmd>lua require('omnisharp_extended').telescope_lsp_references()<cr>")
-					map("n", "gi", "<cmd>lua require('omnisharp_extended').telescope_lsp_implementation()<cr>")
-				end,
-				settings = {
-					RoslynExtensionsOptions = {
-						enableDecompilationSupport = true,
-					},
-				},
-			})
-			require("lspconfig").terraformls.setup({ capabilities = capabilities })
-			require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
-			require("lspconfig").robotframework_ls.setup({ capabilities = capabilities })
-			require("lspconfig").eslint.setup({ capabilities = capabilities })
-			require("lspconfig").lua_ls.setup({ capabilities = capabilities })
-			require("lspconfig").harper_ls.setup({ capabilities = capabilities })
-			require("lspconfig").powershell_es.setup({ capabilities = capabilities })
-
+			-- Setup LspAttach autocmd for keybindings
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local builtin = require("telescope.builtin")
@@ -160,6 +117,91 @@ return {
 					vim.keymap.set("n", "gS", builtin.lsp_workspace_symbols, { desc = "LSP: Workspace symbols" })
 				end,
 			})
+
+			-- Configure omnisharp with custom settings
+			vim.lsp.config("omnisharp", {
+				capabilities = capabilities,
+				cmd = { "OmniSharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+				on_attach = function(client, bufnr)
+					local map = function(mode, lhs, rhs)
+						vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
+					end
+
+					map("n", "gd", "<cmd>lua require('omnisharp_extended').telescope_lsp_definition()<cr>")
+					map("n", "<leader>D", "<cmd>lua require('omnisharp_extended').telescope_lsp_type_definition()<cr>")
+					map("n", "gr", "<cmd>lua require('omnisharp_extended').telescope_lsp_references()<cr>")
+					map("n", "gi", "<cmd>lua require('omnisharp_extended').telescope_lsp_implementation()<cr>")
+				end,
+				settings = {
+					RoslynExtensionsOptions = {
+						enableDecompilationSupport = true,
+					},
+				},
+			})
+
+			-- Configure lemminx with custom filetypes
+			vim.lsp.config("lemminx", {
+				capabilities = capabilities,
+				filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "urdf", "xacro" },
+			})
+
+			-- Configure ltex for tex only
+			vim.lsp.config("ltex", {
+				capabilities = capabilities,
+				filetypes = { "tex" },
+			})
+
+			-- Configure texlab for tex only
+			vim.lsp.config("texlab", {
+				capabilities = capabilities,
+				filetypes = { "tex" },
+			})
+
+			vim.lsp.config("apex_ls", {
+				capabilities = capabilities,
+				apex_jar_path = vim.fn.stdpath("data") .. "/mason/share/apex-language-server/apex-jorje-lsp.jar",
+			})
+
+			-- Enable all LSP servers with default capabilities
+			local servers = {
+				"pyright",
+				"bashls",
+				"rust_analyzer",
+				"kotlin_language_server",
+				"angularls",
+				"biome",
+				"vtsls",
+				"cssls",
+				"somesass_ls",
+				"html",
+				"terraformls",
+				"tailwindcss",
+				"robotframework_ls",
+				"eslint",
+				"lua_ls",
+				"harper_ls",
+				"powershell_es",
+                "apex_ls"
+			}
+
+			-- Set default capabilities for all servers
+			for _, server in ipairs(servers) do
+				vim.lsp.config(server, { capabilities = capabilities })
+				vim.lsp.enable(server)
+			end
+
+			-- Enable servers that should only run on non-ARM
+			if not is_arm then
+				vim.lsp.enable("clangd")
+				vim.lsp.enable("lemminx")
+			end
+
+			-- Enable all base servers
+
+			-- Enable servers with custom config
+			vim.lsp.enable("omnisharp")
+			vim.lsp.enable("ltex")
+			vim.lsp.enable("texlab")
 		end,
 	},
 }
