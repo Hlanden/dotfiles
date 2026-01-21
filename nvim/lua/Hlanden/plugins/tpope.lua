@@ -1,4 +1,4 @@
-local function toggle_fugitive()
+local function toggle_fugitive(vertical)
 	local fugitive_buf = nil
 	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 		if vim.api.nvim_buf_is_loaded(buf) then
@@ -18,10 +18,9 @@ local function toggle_fugitive()
 			end
 		end
 	else
-		vim.cmd("Git")
+		vim.cmd(vertical and "vert Git" or "Git")
 	end
 end
-
 return {
 	{ "tpope/vim-obsession" },
 	{ "tpope/vim-commentary" },
@@ -29,12 +28,17 @@ return {
 	{
 		"tpope/vim-fugitive",
 		config = function()
-			vim.keymap.set("n", "<leader>gg", toggle_fugitive, { desc = "Toggle fugitive" })
+			vim.keymap.set("n", "<leader>gg", function()
+				toggle_fugitive()
+			end, { desc = "Toggle fugitive" })
+			vim.keymap.set("n", "<leader>gv", function()
+				toggle_fugitive(true)
+			end, { desc = "Toggle fugitive (vertical)" })
 			vim.keymap.set("n", "<leader>gP", "<CMD>Git push<CR>", { desc = "Git: Push (Fugitive)" })
 			vim.keymap.set("n", "<leader>gp", "<CMD>Git pull --rebase<CR>", { desc = "Git: Pull --rebase (Fugitive)" })
 			vim.api.nvim_create_user_command("DiffMain", function()
-                vim.cmd("only")
-                vim.cmd("diffoff!")
+				vim.cmd("only")
+				vim.cmd("diffoff!")
 				vim.cmd("Gvdiffsplit! main")
 			end, {})
 
