@@ -1,6 +1,7 @@
 return {
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
+        enabled = false,
 		dependencies = {
 			{ "github/copilot.vim" },
 			{ "nvim-lua/plenary.nvim", branch = "master" },
@@ -46,7 +47,7 @@ return {
 			answer_header = "Answer",
 			error_header = "> Error",
 			log_level = "info",
-			sticky = { "#buffer", "/SystemPrompt", "$claude-sonnet-4.5" },
+			sticky = { "#neovim_Buffer", "/SystemPrompt", "$claude-opus-4.5" },
 			tools = { "neovim", "copilot" },
 			mappings = {
 				complete = {
