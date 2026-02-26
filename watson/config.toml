@@ -1,0 +1,30 @@
+[copilot]
+# model = "gpt-4o"
+
+
+[history.summariser]
+model    = "gpt-5-mini"
+provider = "copilot"
+
+[prompts]
+# global = []
+# files  = []
+
+[logging]
+# level   = "info"
+# log_dir = "~/.local/share/watson"
+
+[skills]
+dirs = ["~/.config/watson/skills", "~/dev/work/gmg-skills"]
+
+[tui]
+# scroll_lead = 3
+editor = "simple"
+
+[context]
+warn_threshold = 0.85
+max_tokens     = 150000
+
+[compact]
+auto          = true
+recent_tokens = 20000
