@@ -15,7 +15,7 @@ provider = "copilot"
 # log_dir = "~/.local/share/watson"
 
 [skills]
-dirs = ["~/.config/watson/skills", "~/dev/work/gmg-skills"]
+dirs = ["~/.config/watson/skills", "~/.config/watson/gmg-skills"]
 
 [tui]
 # scroll_lead = 3
