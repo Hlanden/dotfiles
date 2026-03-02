@@ -69,6 +69,21 @@ return {
       mode = { "n" },
     },
     {
+      "<leader>wp",
+      function()
+        local port = vim.fn.input("Watson port: ")
+        if port == "" then return end
+        local n = tonumber(port)
+        if not n then
+          vim.notify("[watson] Invalid port: " .. port, vim.log.levels.WARN)
+          return
+        end
+        require("watson").open({ port = n })
+      end,
+      desc = "Watson: open at port",
+      mode = { "n" },
+    },
+    {
       "<leader>ws",
       "<cmd>WatsonSidebar<CR>",
       desc = "Toggle Watson sidebar",
