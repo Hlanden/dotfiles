@@ -85,8 +85,8 @@ return {
     },
     {
       "<leader>ws",
-      "<cmd>WatsonSidebar<CR>",
-      desc = "Toggle Watson sidebar",
+      "<cmd>WatsonNewSession<CR>",
+      desc = "Watson: new session",
       mode = { "n" },
     },
     {
@@ -99,6 +99,24 @@ return {
       "<leader>wd",
       "<cmd>WatsonDeleteAgent<CR>",
       desc = "Watson: delete/reset agent",
+      mode = { "n" },
+    },
+    {
+      "<leader>wS",
+      "<cmd>WatsonSidebar<CR>",
+      desc = "Watson: toggle sidebar",
+      mode = { "n" },
+    },
+    {
+      "<leader>wc",
+      "<cmd>WatsonCompact<CR>",
+      desc = "Watson: compact context",
+      mode = { "n" },
+    },
+    {
+      "<leader>wv",
+      "<cmd>WatsonSave<CR>",
+      desc = "Watson: save session",
       mode = { "n" },
     },
   },
