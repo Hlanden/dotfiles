@@ -123,3 +123,29 @@ export LC_ALL=en_US.UTF-8
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s '\eh' "tmux-sessionizer -s 0\n"
 export BROWSER=wslview
+
+# Convert markdown to PDF with pandoc
+md2pdf() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: md2pdf <markdown_file>"
+    return 1
+  fi
+  local input="$1"
+  local output="${input%.md}.pdf"
+  pandoc "$input" -o "$output" --toc -V titlepage --number-sections -V geometry:margin=2.7cm --filter mermaid-filter
+  echo "Created: $output"
+}
+
+# Create dated markdown file with header
+mdnote() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: mdnote <name>"
+    return 1
+  fi
+  local date_prefix=$(date +%Y-%m-%d)
+  local filename="${date_prefix}-${1}.md"
+  local title=$(echo "$1" | sed 's/_/ /g' | sed 's/-/ /g' | sed 's/\b\w/\u&/g')
+  echo "# ${date_prefix}: ${title}" > "$filename"
+  echo "Created: $filename"
+  nvim "$filename"
+}
