@@ -1,0 +1,40 @@
+font-family = FiraCode Nerd Font Mono
+font-size = 14
+font-style = Regular
+font-style-italic = Italic
+
+scrollback-limit = 100000
+
+selection-invert-fg-bg = false
+
+window-decoration = false
+window-padding-x = 0
+window-padding-y = 0
+
+background-opacity = 1.0
+
+# Pass alt-enter to AeroSpace (do not handle it in Ghostty)
+keybind = alt+enter=ignore
+
+# Ctrl+zoom (Linux/Windows style)
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
+
+# Colors (Dracula)
+palette = 0=#000000
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#caa9fa
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#bfbfbf
+palette = 8=#575b70
+palette = 9=#ff6e67
+palette = 10=#5af78e
+palette = 11=#f4f99d
+palette = 12=#caa9fa
+palette = 13=#ff92d0
+palette = 14=#9aedfe
+palette = 15=#e6e6e6

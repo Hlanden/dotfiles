@@ -1,0 +1,142 @@
+config-version = 2
+
+after-startup-command = ['exec-and-forget borders', 'exec-and-forget sketchybar']
+
+start-at-login = true
+
+exec-on-workspace-change = ['/bin/bash', '-c', '/Users/jorgen/dotfiles/sketchybar/aerospace-workspace-change.sh']
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+automatically-unhide-macos-hidden-apps = false
+
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+on-mode-changed = []
+
+[key-mapping]
+    preset = 'qwerty'
+
+[gaps]
+    inner.horizontal = 5
+    inner.vertical   = 5
+    outer.left       = 2
+    outer.bottom     = 2
+    outer.top        = 40
+    outer.right      = 2
+
+[workspace-to-monitor-force-assignment]
+    1  = 'secondary'
+    2  = 'main'
+    3  = 'secondary'
+    4  = 'main'
+    5  = 'secondary'
+    6  = 'secondary'
+    7  = 'secondary'
+    8  = 'secondary'
+    9  = 'secondary'
+    10 = 'secondary'
+
+[mode.main.binding]
+    alt-enter = 'exec-and-forget /Applications/Ghostty.app/Contents/MacOS/ghostty'
+    alt-d = 'exec-and-forget osascript -e "tell application \"System Events\" to keystroke space using command down"'
+
+    alt-h = 'focus left'
+    alt-j = 'focus down'
+    alt-k = 'focus up'
+    alt-l = 'focus right'
+
+    alt-left  = 'focus left'
+    alt-down  = 'focus down'
+    alt-up    = 'focus up'
+    alt-right = 'focus right'
+
+    alt-shift-h = 'move left'
+    alt-shift-j = 'move down'
+    alt-shift-k = 'move up'
+    alt-shift-l = 'move right'
+
+    alt-shift-left  = 'move left'
+    alt-shift-down  = 'move down'
+    alt-shift-up    = 'move up'
+    alt-shift-right = 'move right'
+
+    alt-ctrl-h = 'move-workspace-to-monitor --wrap-around left'
+    alt-ctrl-l = 'move-workspace-to-monitor --wrap-around right'
+    alt-ctrl-j = 'move-workspace-to-monitor --wrap-around down'
+    alt-ctrl-k = 'move-workspace-to-monitor --wrap-around up'
+
+    alt-shift-v = 'layout tiles horizontal'
+    alt-v       = 'layout tiles vertical'
+    alt-e       = 'layout tiles horizontal vertical'
+    alt-s       = 'layout accordion horizontal vertical'
+    alt-w       = 'layout accordion horizontal vertical'
+
+    alt-f           = 'fullscreen'
+    alt-shift-space = 'layout floating tiling'
+    alt-space       = 'layout floating tiling'
+    alt-shift-q     = 'close'
+
+    alt-r               = 'mode resize'
+    alt-shift-semicolon = 'mode service'
+
+    alt-tab       = 'workspace-back-and-forth'
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+    alt-0 = 'workspace 10'
+
+    alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+    alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+    alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+    alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+    alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+    alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+    alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
+    alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
+    alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
+    alt-shift-0 = ['move-node-to-workspace 10', 'workspace 10']
+
+[mode.service.binding]
+    esc       = ['reload-config', 'mode main']
+    r         = ['flatten-workspace-tree', 'mode main']
+    f         = ['layout floating tiling', 'mode main']
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    alt-shift-h = ['join-with left', 'mode main']
+    alt-shift-j = ['join-with down', 'mode main']
+    alt-shift-k = ['join-with up', 'mode main']
+    alt-shift-l = ['join-with right', 'mode main']
+
+    alt-r = 'mode resize'
+
+[mode.resize.binding]
+    h   = 'resize width -50'
+    l   = 'resize width +50'
+    k   = 'resize height -50'
+    j   = 'resize height +50'
+
+    left  = 'resize width -50'
+    right = 'resize width +50'
+    up    = 'resize height -50'
+    down  = 'resize height +50'
+
+    enter = 'mode main'
+    esc   = 'mode main'
+    alt-r = 'mode main'
