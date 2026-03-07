@@ -151,6 +151,16 @@
             ]
           },
           {
+            "description": "Ctrl+Shift+Esc — Open Activity Monitor (Windows Task Manager equivalent)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "escape", "modifiers": { "mandatory": ["left_control", "shift"] } },
+                "to": [{ "shell_command": "/usr/bin/open -a 'Activity Monitor'" }]
+              }
+            ]
+          },
+          {
             "description": "Ctrl+Backspace — Delete word (everywhere)",
             "manipulators": [
               {

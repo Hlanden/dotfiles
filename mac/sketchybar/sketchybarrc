@@ -162,6 +162,20 @@ sketchybar --add item vpn right \
         update_freq=15 \
         script="$PLUGIN_DIR/vpn.sh"
 
+# ===== Right: Keyboard Layout =====
+sketchybar --add item keyboard right \
+    --set keyboard \
+        icon="󰌌" \
+        icon.font="FiraCode Nerd Font Mono:Regular:16.0" \
+        icon.color=$FG_DIM \
+        label.color=$ACTIVE \
+        label.font="FiraCode Nerd Font Mono:Bold:14.0" \
+        padding_left=2 \
+        padding_right=2 \
+        update_freq=5 \
+        script="$PLUGIN_DIR/keyboard.sh" \
+    --subscribe keyboard mouse.clicked
+
 # ===== Right: Wifi =====
 sketchybar --add item wifi right \
     --set wifi \

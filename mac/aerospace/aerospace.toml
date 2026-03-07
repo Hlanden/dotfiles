@@ -4,7 +4,7 @@ after-startup-command = ['exec-and-forget borders', 'exec-and-forget sketchybar'
 
 start-at-login = true
 
-exec-on-workspace-change = ['/bin/bash', '-c', '/Users/jorgen/dotfiles/sketchybar/aerospace-workspace-change.sh']
+exec-on-workspace-change = ['/bin/bash', '-c', '/Users/jorgen/.config/sketchybar/aerospace-workspace-change.sh']
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -20,7 +20,9 @@ automatically-unhide-macos-hidden-apps = false
 
 persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
-on-mode-changed = []
+[[on-window-detected]]
+if.app-name-regex-substring = 'Activity Monitor'
+run = 'layout floating'
 
 [key-mapping]
     preset = 'qwerty'
@@ -83,7 +85,7 @@ on-mode-changed = []
     alt-f           = 'fullscreen'
     alt-shift-space = 'layout floating tiling'
     alt-space       = 'layout floating tiling'
-    alt-shift-q     = 'close'
+    alt-shift-q     = 'close --quit-if-last-window'
 
     alt-r               = 'mode resize'
     alt-shift-semicolon = 'mode service'
