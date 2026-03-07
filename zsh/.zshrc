@@ -149,3 +149,4 @@ mdnote() {
   echo "Created: $filename"
   nvim "$filename"
 }
+export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
