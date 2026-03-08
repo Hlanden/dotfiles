@@ -13,8 +13,14 @@ window-padding-y = 0
 
 background-opacity = 1.0
 
+confirm-close-surface = false
+
 # Pass alt-enter to AeroSpace (do not handle it in Ghostty)
 keybind = alt+enter=ignore
+
+# Windows-style copy/paste
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
 
 # Ctrl+zoom (Linux/Windows style)
 keybind = ctrl+equal=increase_font_size:1
