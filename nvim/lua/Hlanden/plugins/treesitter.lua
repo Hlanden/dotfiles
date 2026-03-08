@@ -79,6 +79,9 @@ return {
 			},
 		},
 		config = function(_, opts)
+			-- tree-sitter CLI >= 0.25 removed --no-bindings; override the install args
+			require("nvim-treesitter.install").ts_generate_args =
+				{ "generate", "--abi", vim.treesitter.language_version }
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},

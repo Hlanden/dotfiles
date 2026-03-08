@@ -45,8 +45,9 @@ local function setup_spinner()
 end
 
 return {
-  dir  = vim.fn.expand("~/dev/personal/watson.nvim"),
-  name = "watson.nvim",
+  dir     = vim.fn.expand("~/dev/personal/watson.nvim"),
+  name    = "watson.nvim",
+  enabled = vim.fn.isdirectory(vim.fn.expand("~/dev/personal/watson.nvim")) == 1,
   dependencies = {
     "j-hui/fidget.nvim",
   },
