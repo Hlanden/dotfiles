@@ -229,6 +229,19 @@ sketchybar --add item memory right \
         update_freq=5 \
         script="$PLUGIN_DIR/memory.sh"
 
+# ===== Right: Disk =====
+sketchybar --add item disk right \
+    --set disk \
+        icon="󰋊" \
+        icon.color=$FG_DIM \
+        icon.font="FiraCode Nerd Font Mono:Regular:16.0" \
+        label.color=$FG \
+        label.font="FiraCode Nerd Font Mono:Regular:13.0" \
+        padding_left=4 \
+        padding_right=2 \
+        update_freq=60 \
+        script="$PLUGIN_DIR/disk.sh"
+
 # ===== Center: Now Playing =====
 sketchybar --add item now_playing center \
     --set now_playing \
